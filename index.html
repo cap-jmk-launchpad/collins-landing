@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Collins — clarity, restraint, and authority in every detail."
+    />
+    <title>Collins</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="/">Collins</a>
+      <nav aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#approach">Approach</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Brand &amp; experience</p>
+        <h1>Architectural clarity for brands that lead.</h1>
+        <p class="lede">
+          A minimalist landing scaffold inspired by the Collins design language —
+          pale canvas, precise typography, and calm composure.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#contact">Start a conversation</a>
+          <a class="button button-ghost" href="#work">View work</a>
+        </div>
+      </section>
+
+      <section id="work" class="panel">
+        <h2>Selected work</h2>
+        <div class="grid">
+          <article>
+            <h3>Identity systems</h3>
+            <p>Visual languages built on restraint, hierarchy, and lasting recognition.</p>
+          </article>
+          <article>
+            <h3>Digital products</h3>
+            <p>Interfaces that prioritize clarity over noise — every element earns its place.</p>
+          </article>
+          <article>
+            <h3>Brand narratives</h3>
+            <p>Stories told with confidence: high contrast, generous space, deliberate pace.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="approach" class="panel panel-muted">
+        <h2>Approach</h2>
+        <p>
+          We believe authority comes from what you remove, not what you add. This page is a
+          starting point — swap copy, extend sections, and wire it to your deployment pipeline
+          when you are ready.
+        </p>
+      </section>
+
+      <section id="contact" class="panel contact">
+        <h2>Contact</h2>
+        <p>hello@example.com</p>
+        <a class="button button-primary" href="mailto:hello@example.com">Email us</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Collins. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
