@@ -133,6 +133,7 @@
       '" alt="" />' +
       "</div>" +
       '<div class="reel-method-copy">' +
+      '<div class="reel-method-card">' +
       '<p class="reel-step-label">Step ' +
       escapeHtml(beat.step) +
       " of 6</p>" +
@@ -142,6 +143,7 @@
       '<p class="reel-method-caption">' +
       escapeHtml(beat.caption) +
       "</p>" +
+      "</div>" +
       "</div>" +
       "</div>"
     );

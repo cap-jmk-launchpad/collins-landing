@@ -1,4 +1,4 @@
-/** Collins agency landing — hyperframe storyboard. */
+/** Collins brand reel — hyperframe storyboard (no landing page capture). */
 
 /** Motion rhythm (HyperFrames website-to-video pacing). */
 export const MOTION = {
@@ -14,14 +14,14 @@ export const MOTION = {
   reelBufferMs: 600,
 };
 
-/** Six Collins method steps — hero carousel at #top. */
+/** Six Collins method steps — hero carousel images only. */
 export const HERO_METHOD_STORYBOARD = [
   {
     id: "01",
     slug: "discover",
     type: "hero",
     heroIndex: 0,
-    hash: "#top",
+    hash: null,
     title: "Discover",
     caption: "Start with a 30-minute strategy call. Tell us where momentum is stuck.",
     poster: "hero-method-01-discover.png",
@@ -31,7 +31,7 @@ export const HERO_METHOD_STORYBOARD = [
     slug: "strategy",
     type: "hero",
     heroIndex: 1,
-    hash: "#top",
+    hash: null,
     title: "Map the sprint",
     caption: "Week one maps SEO, paid, content, and automation to your KPIs.",
     poster: "hero-method-02-strategy.png",
@@ -41,7 +41,7 @@ export const HERO_METHOD_STORYBOARD = [
     slug: "scope",
     type: "hero",
     heroIndex: 2,
-    hash: "#top",
+    hash: null,
     title: "Scope with clarity",
     caption: "Transparent line items, senior access, and reporting cadence locked in.",
     poster: "hero-method-03-scope.png",
@@ -51,7 +51,7 @@ export const HERO_METHOD_STORYBOARD = [
     slug: "ship",
     type: "hero",
     heroIndex: 3,
-    hash: "#top",
+    hash: null,
     title: "Ship campaigns",
     caption: "Content, paid media, and nurture launch from one shared playbook.",
     poster: "hero-method-04-ship.png",
@@ -61,7 +61,7 @@ export const HERO_METHOD_STORYBOARD = [
     slug: "automate",
     type: "hero",
     heroIndex: 4,
-    hash: "#top",
+    hash: null,
     title: "Automate and connect",
     caption: "CRM and workflows wired to the same growth plan.",
     poster: "hero-method-05-automate.png",
@@ -71,7 +71,7 @@ export const HERO_METHOD_STORYBOARD = [
     slug: "measure",
     type: "hero",
     heroIndex: 5,
-    hash: "#top",
+    hash: null,
     title: "Measure and compound",
     caption: "Revenue tied reporting and quarterly channel tuning.",
     poster: "hero-method-06-measure.png",

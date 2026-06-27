@@ -220,7 +220,27 @@ body {
   right: 0;
   bottom: 0;
   z-index: 2;
-  padding: 0 5.5rem 5rem;
+  padding: 0 4.5rem 4.5rem;
+}
+
+.reel-method-card {
+  max-width: 52rem;
+  padding: 2rem 2.5rem 2.25rem;
+  border-radius: 20px;
+  border: 1px solid rgba(57, 255, 20, 0.32);
+  background:
+    linear-gradient(145deg, rgba(15, 26, 10, 0.92) 0%, rgba(5, 8, 6, 0.88) 100%);
+  box-shadow:
+    0 0 0 1px rgba(57, 255, 20, 0.06) inset,
+    0 24px 64px rgba(0, 0, 0, 0.55),
+    0 0 48px rgba(57, 255, 20, 0.08);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.reel-beat.is-active .reel-method-card {
+  animation: reel-rise 900ms var(--ease-out) 480ms forwards;
 }
 
 .reel-step-label {
@@ -235,7 +255,7 @@ body {
 }
 
 .reel-beat.is-active .reel-step-label {
-  animation: reel-rise 760ms var(--ease-out) 520ms forwards;
+  animation: reel-rise 760ms var(--ease-out) 720ms forwards;
 }
 
 .reel-method-title {
@@ -250,7 +270,7 @@ body {
 }
 
 .reel-beat.is-active .reel-method-title {
-  animation: reel-rise 820ms var(--ease-out) 680ms forwards;
+  animation: reel-rise 820ms var(--ease-out) 880ms forwards;
 }
 
 .reel-method-caption {
@@ -264,7 +284,7 @@ body {
 }
 
 .reel-beat.is-active .reel-method-caption {
-  animation: reel-rise 820ms var(--ease-out) 860ms forwards;
+  animation: reel-rise 820ms var(--ease-out) 1060ms forwards;
 }
 
 @keyframes reel-rise {
@@ -306,7 +326,8 @@ body {
   .reel-method-image,
   .reel-step-label,
   .reel-method-title,
-  .reel-method-caption {
+  .reel-method-caption,
+  .reel-method-card {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;
