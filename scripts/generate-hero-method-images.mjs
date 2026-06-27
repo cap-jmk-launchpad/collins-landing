@@ -9,6 +9,7 @@ mkdirSync(assetsDir, { recursive: true });
 
 const WIDTH = 1200;
 const HEIGHT = 800;
+const DEVICE_SCALE = 2;
 
 const steps = [
   {
@@ -135,7 +136,7 @@ function cardHtml(step) {
       }
       .step-num {
         position: absolute;
-        top: 52px;
+        top: 72px;
         left: 56px;
         font-size: 120px;
         font-weight: 800;
@@ -203,8 +204,11 @@ function cardHtml(step) {
 }
 
 const browser = await chromium.launch();
-const page = await browser.newPage();
-await page.setViewportSize({ width: WIDTH, height: HEIGHT });
+const context = await browser.newContext({
+  viewport: { width: WIDTH, height: HEIGHT },
+  deviceScaleFactor: DEVICE_SCALE,
+});
+const page = await context.newPage();
 
 for (const step of steps) {
   await page.setContent(cardHtml(step), { waitUntil: "networkidle" });

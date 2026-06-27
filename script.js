@@ -241,6 +241,14 @@
       return file.indexOf("assets/") === 0 ? file : "assets/" + file.replace(/^assets\//, "");
     }
 
+    function setPosterImage(beat) {
+      var path = assetPath(beat.poster);
+      poster.src = path;
+      poster.srcset = path + " 2400w";
+      poster.width = 2400;
+      poster.height = 1600;
+    }
+
     function updateDots(i) {
       if (!dotsEl) return;
       dotsEl.querySelectorAll(".hyperframe-dot").forEach(function (dot, dotIndex) {
@@ -324,7 +332,7 @@
       function applyBeat() {
         index = i;
         if (!useFullVideo || !hasStarted) {
-          poster.src = assetPath(beat.poster);
+          setPosterImage(beat);
           poster.alt =
             "Collins method step " +
             (i + 1) +
