@@ -5,75 +5,370 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Collins — clarity, restraint, and authority in every detail."
+      content="Collins — digital marketing automation for growth teams. Unify SEO, ads, CRM, and analytics in one transparent platform."
     />
-    <title>Collins</title>
+    <meta property="og:title" content="Collins — Marketing Automation for Agile Growth" />
+    <meta
+      property="og:description"
+      content="Boost your digital marketing and automation for faster business growth. Transparent pricing, unified workflows, no enterprise bloat."
+    />
+    <title>Collins — Digital Marketing Automation for Growth Teams</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="logo" href="/">Collins</a>
-      <nav aria-label="Primary">
-        <a href="#work">Work</a>
-        <a href="#approach">Approach</a>
-        <a href="#contact">Contact</a>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <header class="site-header" id="top">
+      <a class="logo-lockup" href="#top" aria-label="Collins home">
+        <img src="assets/logo.svg" width="40" height="40" alt="" />
+        <span>Collins</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#proof">Results</a>
+        <a href="#faq">FAQ</a>
       </nav>
+      <a class="button button-primary button-sm header-cta" href="#start">Start free trial</a>
     </header>
 
     <main>
+      <!-- 3. SEO title + subtitle | 4. Primary CTA | 5. Social proof -->
       <section class="hero">
-        <p class="eyebrow">Brand &amp; experience</p>
-        <h1>Architectural clarity for brands that lead.</h1>
-        <p class="lede">
-          A minimalist landing scaffold inspired by the Collins design language —
-          pale canvas, precise typography, and calm composure.
-        </p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#contact">Start a conversation</a>
-          <a class="button button-ghost" href="#work">View work</a>
+        <div class="hero-copy">
+          <p class="eyebrow reveal">Digital marketing &amp; automation</p>
+          <h1 class="reveal reveal-delay-1">
+            Boost growth without the <span class="gradient-text">enterprise bloat</span>
+          </h1>
+          <p class="lede reveal reveal-delay-2">
+            Collins unifies SEO, paid ads, email automation, and CRM in one transparent
+            platform — built for agile marketers who need speed, clarity, and predictable costs.
+          </p>
+          <div class="hero-actions reveal reveal-delay-3">
+            <a class="button button-primary" href="#start">
+              Accelerate growth
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <a class="button button-ghost" href="#features">See how it works</a>
+          </div>
+
+          <div class="social-proof reveal reveal-delay-4">
+            <div class="stat-grid">
+              <div class="stat">
+                <strong data-count="2400">0</strong>
+                <span>Teams onboarded</span>
+              </div>
+              <div class="stat">
+                <strong data-count="38">0</strong>
+                <span>Avg. hours saved / week</span>
+              </div>
+              <div class="stat">
+                <strong>4.9</strong>
+                <span>Average rating</span>
+              </div>
+            </div>
+            <div class="avatar-row" aria-label="Trusted by growth teams">
+              <span class="avatar" style="--hue: 180">JM</span>
+              <span class="avatar" style="--hue: 300">AL</span>
+              <span class="avatar" style="--hue: 120">RK</span>
+              <span class="avatar" style="--hue: 260">SC</span>
+              <p>Trusted by 2,400+ growth marketers</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Media / product preview -->
+        <div class="hero-media reveal reveal-delay-2">
+          <div class="dashboard-mock">
+            <div class="mock-chrome">
+              <span></span><span></span><span></span>
+              <p>Collins Command Center</p>
+            </div>
+            <div class="mock-body">
+              <div class="mock-sidebar">
+                <div class="mock-nav-item active"></div>
+                <div class="mock-nav-item"></div>
+                <div class="mock-nav-item"></div>
+                <div class="mock-nav-item"></div>
+              </div>
+              <div class="mock-main">
+                <div class="mock-kpi">
+                  <span>Conversion rate</span>
+                  <strong>+24.6%</strong>
+                </div>
+                <div class="mock-kpi accent-magenta">
+                  <span>Pipeline value</span>
+                  <strong>$128K</strong>
+                </div>
+                <div class="mock-chart">
+                  <div class="bar" style="--h: 42%"></div>
+                  <div class="bar" style="--h: 68%"></div>
+                  <div class="bar" style="--h: 55%"></div>
+                  <div class="bar" style="--h: 82%"></div>
+                  <div class="bar" style="--h: 71%"></div>
+                  <div class="bar" style="--h: 90%"></div>
+                </div>
+                <div class="mock-feed">
+                  <div class="feed-row"><span></span><span></span></div>
+                  <div class="feed-row"><span></span><span></span></div>
+                  <div class="feed-row"><span></span><span></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="work" class="panel">
-        <h2>Selected work</h2>
-        <div class="grid">
-          <article>
-            <h3>Identity systems</h3>
-            <p>Visual languages built on restraint, hierarchy, and lasting recognition.</p>
+      <!-- 7. Core benefits / features -->
+      <section id="features" class="panel">
+        <div class="section-head reveal">
+          <p class="eyebrow">Unified growth stack</p>
+          <h2>Everything your team needs. Nothing you don&rsquo;t.</h2>
+          <p class="section-lede">
+            Replace fragmented tools with one ecosystem — SEO content, paid campaigns,
+            behavioral automation, and CRM sync in a single workflow.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">01</div>
+            <h3>SEO &amp; content automation</h3>
+            <p>
+              Connect content strategy directly to paid performance — every publish
+              feeds your conversion funnel automatically.
+            </p>
           </article>
-          <article>
-            <h3>Digital products</h3>
-            <p>Interfaces that prioritize clarity over noise — every element earns its place.</p>
+          <article class="feature-card reveal reveal-delay-1">
+            <div class="feature-icon magenta" aria-hidden="true">02</div>
+            <h3>Behavioral lead nurturing</h3>
+            <p>
+              Segment audiences by real actions, not guesswork. Trigger email and ad
+              sequences the moment intent spikes.
+            </p>
           </article>
-          <article>
-            <h3>Brand narratives</h3>
-            <p>Stories told with confidence: high contrast, generous space, deliberate pace.</p>
+          <article class="feature-card reveal reveal-delay-2">
+            <div class="feature-icon violet" aria-hidden="true">03</div>
+            <h3>CRM integration</h3>
+            <p>
+              Social, ads, and inbound leads land in one pipeline — no manual spreadsheet
+              exports or duplicate records.
+            </p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon lime" aria-hidden="true">04</div>
+            <h3>Analytics &amp; CRO</h3>
+            <p>
+              Data-driven dashboards focused on revenue outcomes, not vanity metrics that
+              hide what actually converts.
+            </p>
+          </article>
+          <article class="feature-card reveal reveal-delay-1">
+            <div class="feature-icon" aria-hidden="true">05</div>
+            <h3>Transparent pricing</h3>
+            <p>
+              Predictable costs with no hidden fees — pay for usage you drive, not unused
+              seats or legacy bloat.
+            </p>
+          </article>
+          <article class="feature-card reveal reveal-delay-2">
+            <div class="feature-icon magenta" aria-hidden="true">06</div>
+            <h3>Rapid deployment</h3>
+            <p>
+              Go live in days, not quarters. Built for small teams and growing brands that
+              can&rsquo;t wait on enterprise onboarding.
+            </p>
           </article>
         </div>
       </section>
 
-      <section id="approach" class="panel panel-muted">
-        <h2>Approach</h2>
-        <p>
-          We believe authority comes from what you remove, not what you add. This page is a
-          starting point — swap copy, extend sections, and wire it to your deployment pipeline
-          when you are ready.
-        </p>
+      <!-- 8. Testimonials -->
+      <section id="proof" class="panel panel-muted">
+        <div class="section-head reveal">
+          <p class="eyebrow">Customer stories</p>
+          <h2>Growth teams that switched to Collins</h2>
+        </div>
+        <div class="testimonial-grid">
+          <blockquote class="testimonial reveal">
+            <p>
+              &ldquo;We cut our martech stack from six tools to one. Collins paid for itself
+              in the first month — and our CRO finally has a single source of truth.&rdquo;
+            </p>
+            <footer>
+              <span class="avatar" style="--hue: 190">MR</span>
+              <div>
+                <cite>Maya Rodriguez</cite>
+                <span>Head of Growth, Northline Studio</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial reveal reveal-delay-1">
+            <p>
+              &ldquo;Transparent pricing was the hook, but the unified SEO-to-ads workflow
+              is what kept us. No more exporting CSVs between platforms.&rdquo;
+            </p>
+            <footer>
+              <span class="avatar" style="--hue: 310">DK</span>
+              <div>
+                <cite>Daniel Kim</cite>
+                <span>Founder, Brightpath Commerce</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial reveal reveal-delay-2">
+            <p>
+              &ldquo;Our agency onboarded twelve clients in two weeks. Behavioral
+              segmentation alone saved us 30+ hours per account.&rdquo;
+            </p>
+            <footer>
+              <span class="avatar" style="--hue: 140">EP</span>
+              <div>
+                <cite>Elena Park</cite>
+                <span>Director, Signal &amp; Scale</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial reveal">
+            <p>
+              &ldquo;Collins feels like the anti-HubSpot — same power where it matters, zero
+              bloat where it doesn&rsquo;t. Support actually responds in hours, not days.&rdquo;
+            </p>
+            <footer>
+              <span class="avatar" style="--hue: 250">TW</span>
+              <div>
+                <cite>Tom Walsh</cite>
+                <span>Marketing Lead, Arcfield Labs</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
       </section>
 
-      <section id="contact" class="panel contact">
-        <h2>Contact</h2>
-        <p>hello@example.com</p>
-        <a class="button button-primary" href="mailto:hello@example.com">Email us</a>
+      <!-- 9. FAQ -->
+      <section id="faq" class="panel">
+        <div class="section-head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions growth teams ask before switching</h2>
+        </div>
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary>How is Collins different from HubSpot or Salesforce?</summary>
+            <p>
+              Collins targets agile growth teams — not enterprise customization projects.
+              You get unified SEO, ads, email, and CRM without opaque pricing or slow
+              support queues.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I migrate from my current martech stack?</summary>
+            <p>
+              Yes. Most teams connect existing ad accounts, CRM records, and email lists
+              during onboarding. Our deployment guides walk you through each integration step.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Is pricing really transparent?</summary>
+            <p>
+              Every plan lists what you pay for upfront — usage-based tiers with no hidden
+              connectivity fees or surprise seat charges.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you support SEO and paid ads in one workflow?</summary>
+            <p>
+              That&rsquo;s our core differentiator. Content performance feeds ad targeting
+              and nurture sequences automatically, so campaigns stay aligned end-to-end.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>How fast can we go live?</summary>
+            <p>
+              Most teams launch their first automated workflow within 3–5 business days.
+              Full stack migration typically completes in under two weeks.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>What size team is Collins built for?</summary>
+            <p>
+              Solo marketers, small business owners, and growing agencies — anyone who needs
+              enterprise-grade automation without enterprise overhead.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <!-- 10. Final CTA -->
+      <section id="start" class="final-cta reveal">
+        <div class="final-cta-inner">
+          <p class="eyebrow">Ready to unify your stack?</p>
+          <h2>Turn scattered operations into a growth engine</h2>
+          <p>
+            Start your free trial today — no credit card, no hidden fees, no enterprise
+            sales call required.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary button-lg" href="mailto:hello@collins.app">
+              Start free trial
+            </a>
+            <a class="button button-ghost" href="mailto:hello@collins.app">Talk to sales</a>
+          </div>
+        </div>
       </section>
     </main>
 
+    <!-- 11. Footer -->
     <footer class="site-footer">
-      <p>&copy; <span id="year"></span> Collins. All rights reserved.</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo-lockup" href="#top">
+            <img src="assets/logo.svg" width="32" height="32" alt="" />
+            <span>Collins</span>
+          </a>
+          <p>Agile marketing automation for teams that refuse to compromise on speed or clarity.</p>
+        </div>
+        <div>
+          <h3>Product</h3>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#proof">Customer stories</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Company</h3>
+          <ul>
+            <li><a href="mailto:hello@collins.app">Contact</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Collins. All rights reserved.</p>
+        <p>hello@collins.app</p>
+      </div>
     </footer>
 
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
