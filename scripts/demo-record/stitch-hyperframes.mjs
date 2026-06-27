@@ -16,10 +16,20 @@ function resolveSegmentPath(beat) {
   return join(assetsDir, rel);
 }
 
-function runFfmpeg(args) {
-  const result = spawnSync(ffmpegPath, args, { stdio: "inherit" });
+function runFfmpeg(args, inherit = true) {
+  const result = spawnSync(ffmpegPath, args, { stdio: inherit ? "inherit" : "pipe", encoding: "utf8" });
   if (result.error) throw result.error;
-  return result.status === 0;
+  return inherit ? result.status === 0 : result;
+}
+
+function probeDurationSec(filePath) {
+  const result = runFfmpeg(["-i", filePath, "-f", "null", "-"], false);
+  const text = `${result.stderr || ""}${result.stdout || ""}`;
+  const match = text.match(/Duration:\s*(\d+):(\d+):(\d+(?:\.\d+)?)/);
+  if (!match) return null;
+  return (
+    parseInt(match[1], 10) * 3600 + parseInt(match[2], 10) * 60 + parseFloat(match[3])
+  );
 }
 
 function main() {
@@ -54,6 +64,14 @@ function main() {
     console.error("Run: npm run serve (separate terminal) && npm run demo:frames");
     process.exit(1);
   }
+
+  beats.forEach((beat) => {
+    const segmentPath = resolveSegmentPath(beat);
+    const measured = probeDurationSec(segmentPath);
+    if (measured) {
+      beat.durationSec = Math.round(measured * 100) / 100;
+    }
+  });
 
   writeFileSync(listPath, listLines.join("\n") + "\n");
 
