@@ -1,0 +1,18 @@
+{
+  "projectId": "ebd31ae8-0025-441d-8eea-7bbda8af377d",
+  "flowId": "655676c7-8818-4ef6-9678-c871c9d8afd6",
+  "exportedAt": "2026-06-27T04:54:07.297Z",
+  "guidelinesHtmlSource": "canvas",
+  "pdfBytes": 541302,
+  "local": {
+    "brandPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\brand.md",
+    "designPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\design.md",
+    "htmlPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\brand-guidelines.html",
+    "pdfPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\brand-guidelines.pdf"
+  },
+  "catbox": {
+    "brandMd": "https://files.catbox.moe/ndtw01.md",
+    "designMd": "https://files.catbox.moe/i49tip.md",
+    "guidelinesPdf": "https://files.catbox.moe/7vq9hf.pdf"
+  }
+}
