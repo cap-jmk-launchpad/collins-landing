@@ -1,0 +1,8 @@
+.git
+node_modules
+deliverables
+scripts
+docs
+*.md
+vectorized_*.svg
+brand-guidelines.pdf
