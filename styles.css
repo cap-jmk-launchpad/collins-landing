@@ -417,9 +417,107 @@ main {
 }
 
 .hero-hyperframe-dots {
-  padding: 0.875rem 1rem 1rem;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  margin: 0;
+  padding: 0.75rem 1.25rem 0.875rem;
   border-top: 1px solid var(--border);
-  background: var(--bg-surface);
+  background: linear-gradient(
+    180deg,
+    rgba(8, 14, 10, 0.96) 0%,
+    var(--bg-surface) 100%
+  );
+}
+
+.hero-hyperframe-dots::before {
+  content: "";
+  position: absolute;
+  left: 1.75rem;
+  right: 1.75rem;
+  top: 50%;
+  height: 1px;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(57, 255, 20, 0.12) 6%,
+    rgba(57, 255, 20, 0.24) 50%,
+    rgba(57, 255, 20, 0.12) 94%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-hyperframe-dots .hyperframe-dot {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0.875rem;
+  border: 1px solid rgba(57, 255, 20, 0.14);
+  background: rgba(57, 255, 20, 0.16);
+  background-clip: content-box;
+  box-shadow: inset 0 0 0 1px rgba(57, 255, 20, 0.06);
+  transform: scale(1);
+}
+
+.hero-hyperframe-dots .hyperframe-dot:hover {
+  background: rgba(57, 255, 20, 0.28);
+  border-color: rgba(57, 255, 20, 0.28);
+  transform: scale(1.08);
+}
+
+.hero-hyperframe-dots .hyperframe-dot.is-active {
+  width: 0.5625rem;
+  height: 0.5625rem;
+  padding: 0.8125rem;
+  background: var(--neon-green);
+  border-color: rgba(57, 255, 20, 0.55);
+  box-shadow:
+    0 0 14px rgba(57, 255, 20, 0.45),
+    0 0 0 3px rgba(57, 255, 20, 0.14);
+  transform: scale(1);
+  animation: hero-dot-glow-pulse 2s var(--ease-in-out) infinite;
+}
+
+.hero-hyperframe-dots .hyperframe-dot.is-active:hover {
+  transform: scale(1.06);
+}
+
+.hero-hyperframe-dots .hyperframe-dot.is-activating {
+  animation: hero-dot-activate var(--duration-beat) var(--ease-spring);
+}
+
+@keyframes hero-dot-activate {
+  0% {
+    transform: scale(1);
+  }
+  55% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-dot-glow-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 12px rgba(57, 255, 20, 0.38),
+      0 0 0 3px rgba(57, 255, 20, 0.12);
+  }
+  50% {
+    box-shadow:
+      0 0 20px rgba(57, 255, 20, 0.58),
+      0 0 0 4px rgba(57, 255, 20, 0.2);
+  }
 }
 
 .hyperframes-stage {
@@ -718,6 +816,13 @@ main {
   flex-wrap: wrap;
   gap: 0.5rem;
   padding: 0 1.25rem 1.25rem;
+}
+
+.hyperframe-dots.hero-hyperframe-dots {
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  gap: 0;
+  padding: 0.75rem 1.25rem 0.875rem;
 }
 
 .hyperframe-dot {
@@ -1126,6 +1231,18 @@ main {
     transform: scale(1.15);
   }
 
+  .hero-hyperframe-dots .hyperframe-dot,
+  .hero-hyperframe-dots .hyperframe-dot.is-active {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .hero-hyperframe-dots .hyperframe-dot.is-active {
+    box-shadow:
+      0 0 10px rgba(57, 255, 20, 0.35),
+      0 0 0 3px rgba(57, 255, 20, 0.12);
+  }
+
   .reveal {
     opacity: 1;
     transform: none;
@@ -1201,6 +1318,23 @@ main {
     margin: 0 2.5rem 0 0.5rem;
     padding: 0.5rem 0.625rem;
     border-radius: 10px;
+  }
+
+  .hero-hyperframe-dots {
+    padding: 0.625rem 0.875rem 0.75rem;
+  }
+
+  .hero-hyperframe-dots::before {
+    left: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .hero-hyperframe-dots .hyperframe-dot {
+    padding: 1rem;
+  }
+
+  .hero-hyperframe-dots .hyperframe-dot.is-active {
+    padding: 0.9375rem;
   }
 
   .hero-carousel-btn {
