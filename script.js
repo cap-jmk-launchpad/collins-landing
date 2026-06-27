@@ -64,7 +64,7 @@
     {
       id: "03",
       title: "How we work",
-      caption: "A guided walkthrough of our approach — step by step",
+      caption: "A guided walkthrough of our approach, step by step",
       poster: "assets/collins-demo-03-demo.png",
       segment: "assets/segments/collins-demo-03-demo.webm",
       durationSec: 6,
@@ -88,7 +88,7 @@
     {
       id: "06",
       title: "Book a strategy call",
-      caption: "Tell us where growth is stuck — we will map the next 90 days with you",
+      caption: "Tell us where growth is stuck. We will map the next 90 days with you.",
       poster: "assets/collins-demo-06-contact.png",
       segment: "assets/segments/collins-demo-06-contact.webm",
       durationSec: 6,
@@ -96,7 +96,7 @@
     {
       id: "07",
       title: "Collins",
-      caption: "Unify · Automate · Amplify — your growth agency",
+      caption: "Unify, automate, amplify. Your growth agency.",
       poster: "assets/collins-demo-07-endcard.png",
       segment: "assets/segments/collins-demo-07-endcard.webm",
       durationSec: 4,
@@ -202,7 +202,7 @@
       function applyBeat() {
         if (!useFullVideo || !hasStarted) {
           poster.src = assetPath(beat.poster);
-          poster.alt = beat.title + " — " + beat.caption;
+          poster.alt = beat.title + ": " + beat.caption;
         }
         updateOverlay(beat, i);
         updateDots(i);
