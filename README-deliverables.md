@@ -3,7 +3,7 @@
 Handoff bundle for the Collins digital marketing agency landing page.
 
 **Exported:** 2026-06-27  
-**Commit:** `dcaf753` (refresh before deploy)  
+**Commit:** `5d83979`  
 **Live site:** https://collins.d3bu7.com
 
 ## What's included
