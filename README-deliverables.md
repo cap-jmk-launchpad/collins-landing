@@ -10,6 +10,7 @@ Exported: 2026-06-27T05:06:22.711Z
 
 ## Local files
 
+- `deliverables/collins-agency-demo.mp4` — full landing page demo (~58s, 7-beat storyboard walkthrough)
 - `deliverables/collins-brand-guidelines.pdf`
 - `deliverables/design.md`
 - `deliverables/brand.md`

@@ -42,7 +42,8 @@ Outputs land in `assets/hyperframes-manifest.json`, `assets/collins-demo-*.png`,
 | `deliverables/collins-logo-neon-light.svg` | Print/light-bg variant (`#040806` + `#39ff14`) |
 | `deliverables/collins-logo-neon-*.png` | Raster exports at 512px and 1024px (run `npm run logo:export`) |
 | `assets/hyperframes-manifest.json` | Demo beat manifest |
-| `assets/collins-agency-demo.mp4` | Stitched full demo video |
+| `assets/collins-agency-demo.mp4` | Stitched full demo video (site player source) |
+| `deliverables/collins-agency-demo.mp4` | Shareable copy of the demo video (~58s) |
 | `deliverables/brand-guidelines.pdf` | Shareable brand guidelines (HTML source in same folder) |
 | `docs/brand.md` / `design.md` | Brand narrative and design tokens |
 

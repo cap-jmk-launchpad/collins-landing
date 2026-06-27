@@ -16,7 +16,15 @@
     "logoNeonPng512": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-512.png",
     "logoNeonPng1024": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-1024.png",
     "logoNeonLightPng512": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-light-512.png",
-    "logoNeonLightPng1024": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-light-1024.png"
+    "logoNeonLightPng1024": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-light-1024.png",
+    "demoVideoPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-agency-demo.mp4"
+  },
+  "demoVideo": {
+    "path": "deliverables/collins-agency-demo.mp4",
+    "sourcePath": "assets/collins-agency-demo.mp4",
+    "durationSec": 58.04,
+    "bytes": 5074908,
+    "description": "Storyboard-driven Collins agency landing page walkthrough (7 beats: hero, services, demo, results, FAQ, contact, endcard)."
   },
   "catbox": {
     "brandMd": "https://files.catbox.moe/ndtw01.md",
