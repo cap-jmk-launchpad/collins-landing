@@ -25,7 +25,17 @@
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-pill: 9999px;
-  --motion: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.45, 0.64, 1);
+  --duration-instant: 120ms;
+  --duration-fast: 200ms;
+  --duration-normal: 320ms;
+  --duration-beat: 420ms;
+  --duration-slow: 520ms;
+  --stagger-step: 45ms;
+  --motion: var(--duration-fast) var(--ease-in-out);
+  --motion-beat: var(--duration-beat) var(--ease-out);
 }
 
 *,
@@ -356,7 +366,8 @@ main {
   transition:
     opacity var(--motion),
     background var(--motion),
-    box-shadow var(--motion);
+    box-shadow var(--motion),
+    transform var(--motion);
 }
 
 .hero-theater:hover .hero-carousel-btn,
@@ -367,6 +378,12 @@ main {
 .hero-carousel-btn:hover {
   background: rgba(57, 255, 20, 0.12);
   box-shadow: var(--glow-green);
+  transform: scale(1.08);
+}
+
+.hero-carousel-btn.is-pressed {
+  transform: scale(0.92);
+  transition-duration: var(--duration-instant);
 }
 
 .hero-hyperframe-dots {
@@ -374,20 +391,33 @@ main {
   border-top: 1px solid var(--border);
 }
 
-.hyperframe-overlay.is-changing {
-  opacity: 0.6;
-  transition: opacity 200ms ease;
-}
-
-.hyperframe-poster.is-fading {
-  opacity: 0;
-}
-
 .hyperframes-stage {
   position: relative;
   aspect-ratio: 16 / 10;
   background: var(--bg-deep);
   overflow: hidden;
+  border-radius: inherit;
+  transition: box-shadow var(--duration-slow) var(--ease-out);
+}
+
+.hyperframes-stage.is-playing {
+  animation: stage-glow-pulse 2.4s var(--ease-in-out) infinite;
+}
+
+.hyperframes-stage.is-beat-changing .hyperframe-poster {
+  transition-duration: var(--duration-beat);
+}
+
+@keyframes stage-glow-pulse {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 1px rgba(57, 255, 20, 0.08);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 0 1px rgba(57, 255, 20, 0.28),
+      inset 0 0 24px rgba(57, 255, 20, 0.06);
+  }
 }
 
 .hyperframe-video,
@@ -398,12 +428,56 @@ main {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 300ms ease;
+  transform: scale(1.02);
+  filter: blur(0);
+  transition:
+    opacity var(--motion-beat),
+    transform var(--motion-beat),
+    filter var(--motion-beat);
+  will-change: opacity, transform, filter;
 }
 
 .hyperframe-poster.is-visible,
 .hyperframe-video.is-visible {
   opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+.hyperframe-poster.is-fading {
+  opacity: 0;
+  transform: scale(1.035) translateX(calc(var(--beat-direction, 0) * -8px));
+  filter: blur(3px);
+}
+
+.hyperframe-poster.is-entering {
+  opacity: 0;
+  transform: scale(0.985) translateX(calc(var(--beat-direction, 0) * 10px));
+  filter: blur(4px);
+}
+
+.hyperframe-poster.is-visible.is-entering {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+.hyperframe-poster.is-revealing-out {
+  opacity: 0;
+  transform: scale(1.04);
+  filter: blur(6px);
+}
+
+.hyperframe-video.is-revealing-in {
+  opacity: 0;
+  transform: scale(0.97);
+  filter: blur(4px);
+}
+
+.hyperframe-video.is-visible.is-revealing-in {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
 }
 
 .hyperframe-overlay {
@@ -411,6 +485,31 @@ main {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 2rem 1.25rem 0.875rem;
+  border-radius: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.68) 52%,
+    rgba(0, 0, 0, 0.22) 82%,
+    transparent 100%
+  );
+  color: #fff;
+  border: none;
+  box-shadow: none;
+  pointer-events: none;
+  transform: translateY(0);
+  opacity: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+  transition:
+    opacity var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out),
+    filter var(--duration-normal) var(--ease-out);
+}
+
+.hero-theater .hyperframe-overlay {
   margin: 1rem;
   padding: 1rem 1.25rem;
   border-radius: 14px;
@@ -418,31 +517,113 @@ main {
   color: var(--neon-lime);
   border: 2px solid var(--neon-green);
   box-shadow: 0 8px 32px rgba(57, 255, 20, 0.18);
-  pointer-events: none;
+  text-shadow: none;
+}
+
+.hero-theater .hyperframe-overlay .hyperframe-title {
+  color: var(--text-primary);
+}
+
+.hyperframe-overlay.is-exiting {
+  opacity: 0;
+  transform: translateY(12px);
+  filter: blur(4px);
+}
+
+.hyperframe-overlay.is-entering {
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(6px);
+}
+
+.hyperframe-overlay.is-entering.is-settled {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.hyperframe-overlay.is-entering .hyperframe-step {
+  animation: subtitle-stagger-in var(--duration-beat) var(--ease-out) both;
+}
+
+.hyperframe-overlay.is-entering .hyperframe-title {
+  animation: subtitle-stagger-in var(--duration-beat) var(--ease-out) both;
+  animation-delay: var(--stagger-step);
+}
+
+.hyperframe-overlay.is-entering .hyperframe-caption {
+  animation: subtitle-stagger-in var(--duration-beat) var(--ease-out) both;
+  animation-delay: calc(var(--stagger-step) * 2);
+}
+
+@keyframes subtitle-stagger-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }
 
 .hyperframe-step {
   margin: 0;
-  font-size: 0.8125rem;
+  font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  opacity: 0.75;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.72;
+  display: block;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.hyperframe-step.is-ticking {
+  animation: step-tick var(--duration-beat) var(--ease-spring);
+}
+
+@keyframes step-tick {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.75;
+  }
+  35% {
+    transform: translateY(-5px) scale(0.92);
+    opacity: 0.35;
+    filter: blur(2px);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.75;
+    filter: blur(0);
+  }
 }
 
 .hyperframe-title {
-  margin: 0.375rem 0 0;
+  margin: 0.25rem 0 0;
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--text-primary);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.hero-theater .hyperframe-title {
+  font-size: 0.9375rem;
 }
 
 .hyperframe-caption {
-  margin: 0.375rem 0 0;
-  font-size: 0.9375rem;
-  line-height: 1.45;
-  opacity: 0.9;
-  max-width: 36rem;
+  margin: 0.2rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  opacity: 0.88;
+  max-width: none;
+}
+
+.hero-theater .hyperframe-caption {
+  font-size: 0.75rem;
 }
 
 .hyperframes-controls {
@@ -456,6 +637,15 @@ main {
 
 .hyperframe-btn {
   min-width: 7rem;
+}
+
+.hyperframe-btn.is-pressed {
+  transform: scale(0.96);
+  transition-duration: var(--duration-instant);
+}
+
+.hyperframe-btn[aria-pressed="true"] {
+  box-shadow: 0 0 28px rgba(57, 255, 20, 0.35);
 }
 
 .hyperframe-dots {
@@ -474,16 +664,59 @@ main {
   border-radius: 50%;
   background: var(--bg-elevated);
   cursor: pointer;
-  transition: background var(--motion), box-shadow var(--motion);
+  transform: scale(1);
+  transition:
+    background var(--motion),
+    box-shadow var(--motion),
+    transform var(--duration-normal) var(--ease-spring);
 }
 
 .hyperframe-dot.is-active {
   background: var(--neon-green);
-  box-shadow: var(--glow-green);
+  box-shadow:
+    var(--glow-green),
+    0 0 0 3px rgba(57, 255, 20, 0.12);
+  transform: scale(1.35);
+  animation: dot-glow-pulse 1.8s var(--ease-in-out) infinite;
+}
+
+.hyperframe-dot.is-activating {
+  animation: dot-activate var(--duration-beat) var(--ease-spring);
+}
+
+@keyframes dot-activate {
+  0% {
+    transform: scale(1);
+  }
+  55% {
+    transform: scale(1.55);
+  }
+  100% {
+    transform: scale(1.35);
+  }
+}
+
+@keyframes dot-glow-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 12px rgba(57, 255, 20, 0.35),
+      0 0 0 3px rgba(57, 255, 20, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 22px rgba(57, 255, 20, 0.55),
+      0 0 0 4px rgba(57, 255, 20, 0.18);
+  }
 }
 
 .hyperframe-dot:hover {
   background: var(--neon-teal);
+  transform: scale(1.2);
+}
+
+.hyperframe-dot.is-active:hover {
+  transform: scale(1.4);
 }
 
 .panel {
@@ -809,9 +1042,24 @@ main {
     opacity: 1;
   }
 
+  .hyperframes-stage.is-playing {
+    animation: none;
+    box-shadow: inset 0 0 0 1px rgba(57, 255, 20, 0.12);
+  }
+
+  .hyperframe-video,
   .hyperframe-poster,
-  .hyperframe-overlay {
+  .hyperframe-overlay,
+  .hyperframe-step,
+  .hyperframe-dot {
     transition: none;
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .hyperframe-dot.is-active {
+    transform: scale(1.15);
   }
 
   .reveal {
@@ -821,7 +1069,9 @@ main {
   }
 
   .button:hover,
-  .feature-card:hover {
+  .feature-card:hover,
+  .hero-carousel-btn:hover,
+  .hyperframe-dot:hover {
     transform: none;
   }
 }

@@ -2,6 +2,7 @@
   document.getElementById("year").textContent = String(new Date().getFullYear());
 
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var BEAT_TRANSITION_MS = prefersReduced ? 0 : 420;
 
   if (!prefersReduced) {
     var revealEls = document.querySelectorAll(".reveal");
@@ -138,6 +139,20 @@
     return 0;
   }
 
+  function pulseButton(btn) {
+    if (!btn || prefersReduced) return;
+    btn.classList.add("is-pressed");
+    window.setTimeout(function () {
+      btn.classList.remove("is-pressed");
+    }, 180);
+  }
+
+  function nextFrame(fn) {
+    requestAnimationFrame(function () {
+      requestAnimationFrame(fn);
+    });
+  }
+
   function createPlayer(options) {
     var video = document.getElementById(options.videoId);
     var poster = document.getElementById(options.posterId);
@@ -156,6 +171,7 @@
 
     if (!video || !poster) return null;
 
+    var stage = poster.closest(".hyperframes-stage");
     var beats = [];
     var beatStarts = [];
     var index = 0;
@@ -164,7 +180,8 @@
     var timer = null;
     var carouselTimer = null;
     var fullVideoSrc = null;
-    var transitionMs = prefersReduced ? 0 : 280;
+    var beatSwapToken = 0;
+    var transitionMs = BEAT_TRANSITION_MS;
 
     function assetPath(file) {
       return file.indexOf("assets/") === 0 ? file : "assets/" + file.replace(/^assets\//, "");
@@ -173,49 +190,119 @@
     function updateDots(i) {
       if (!dotsEl) return;
       dotsEl.querySelectorAll(".hyperframe-dot").forEach(function (dot, dotIndex) {
-        dot.classList.toggle("is-active", dotIndex === i);
-        dot.setAttribute("aria-selected", dotIndex === i ? "true" : "false");
+        var isActive = dotIndex === i;
+        dot.classList.toggle("is-active", isActive);
+        if (isActive && !prefersReduced) {
+          dot.classList.remove("is-activating");
+          void dot.offsetWidth;
+          dot.classList.add("is-activating");
+        }
+        dot.setAttribute("aria-selected", isActive ? "true" : "false");
       });
     }
 
-    function updateOverlay(beat, i) {
-      if (stepEl) stepEl.textContent = "Step " + (i + 1) + " of " + beats.length;
+    function tickStepCounter(i) {
+      if (!stepEl) return;
+      stepEl.textContent = "Step " + (i + 1) + " of " + beats.length;
+      if (prefersReduced) return;
+      stepEl.classList.remove("is-ticking");
+      void stepEl.offsetWidth;
+      stepEl.classList.add("is-ticking");
+    }
+
+    function updateOverlayContent(beat, i) {
+      tickStepCounter(i);
       if (titleEl) titleEl.textContent = beat.title;
       if (captionEl) captionEl.textContent = beat.caption;
     }
 
-    function showPosterFrame() {
-      poster.classList.add("is-visible");
-      video.classList.remove("is-visible");
+    function settleOverlayEnter() {
+      if (!overlayEl) return;
+      overlayEl.classList.remove("is-exiting");
+      overlayEl.classList.add("is-entering");
+      nextFrame(function () {
+        overlayEl.classList.add("is-settled");
+        window.setTimeout(function () {
+          overlayEl.classList.remove("is-entering", "is-settled");
+        }, transitionMs);
+      });
     }
 
-    function showVideoFrame() {
-      poster.classList.remove("is-visible");
-      video.classList.add("is-visible");
+    function showPosterFrame() {
+      video.classList.remove("is-visible", "is-revealing-in");
+      poster.classList.add("is-visible");
+      poster.classList.remove("is-revealing-out", "is-fading", "is-entering");
+      if (stage) stage.classList.remove("is-playing");
+    }
+
+    function showVideoFrame(animateReveal) {
+      if (animateReveal && transitionMs > 0 && poster.classList.contains("is-visible")) {
+        poster.classList.add("is-revealing-out");
+        video.classList.add("is-revealing-in");
+        window.setTimeout(function () {
+          poster.classList.remove("is-visible", "is-revealing-out");
+          video.classList.add("is-visible");
+          nextFrame(function () {
+            video.classList.remove("is-revealing-in");
+          });
+        }, Math.round(transitionMs * 0.65));
+      } else {
+        poster.classList.remove("is-visible", "is-revealing-out", "is-fading", "is-entering");
+        video.classList.add("is-visible");
+        video.classList.remove("is-revealing-in");
+      }
+      if (stage) stage.classList.add("is-playing");
+    }
+
+    function isVideoStageActive() {
+      return useFullVideo && hasStarted && video.classList.contains("is-visible");
     }
 
     function showBeat(i, animate) {
       var beat = beats[i];
       if (!beat) return;
-      index = i;
+      var prevIndex = index;
+      var direction = i > prevIndex ? 1 : i < prevIndex ? -1 : 0;
+      var subtitleOnly = isVideoStageActive();
 
       function applyBeat() {
+        index = i;
         if (!useFullVideo || !hasStarted) {
           poster.src = assetPath(beat.poster);
           poster.alt = beat.title + ": " + beat.caption;
         }
-        updateOverlay(beat, i);
+        updateOverlayContent(beat, i);
         updateDots(i);
-        if (overlayEl) overlayEl.classList.remove("is-changing");
         poster.classList.remove("is-fading");
       }
 
       if (animate && transitionMs > 0) {
-        if (overlayEl) overlayEl.classList.add("is-changing");
-        poster.classList.add("is-fading");
-        setTimeout(applyBeat, transitionMs);
+        var token = ++beatSwapToken;
+        if (!subtitleOnly) {
+          if (stage) {
+            stage.classList.add("is-beat-changing");
+            if (direction) stage.style.setProperty("--beat-direction", String(direction));
+          }
+          poster.classList.add("is-fading");
+        }
+        if (overlayEl) overlayEl.classList.add("is-exiting");
+
+        window.setTimeout(function () {
+          if (token !== beatSwapToken) return;
+          applyBeat();
+          if (!subtitleOnly) {
+            poster.classList.add("is-visible", "is-entering");
+          }
+          settleOverlayEnter();
+          nextFrame(function () {
+            poster.classList.remove("is-entering");
+            if (stage) stage.classList.remove("is-beat-changing");
+          });
+        }, transitionMs);
       } else {
+        index = i;
         applyBeat();
+        if (overlayEl) overlayEl.classList.remove("is-exiting", "is-entering", "is-settled");
       }
     }
 
@@ -243,7 +330,7 @@
       var src = assetPath(beat.segment);
       video.src = src;
       video.currentTime = 0;
-      showVideoFrame();
+      showVideoFrame(!prefersReduced);
 
       video.play().catch(function () {
         showPosterFrame();
@@ -271,7 +358,7 @@
         video.currentTime = beatStarts[index] || 0;
       }
 
-      showVideoFrame();
+      showVideoFrame(!hasStarted && !prefersReduced);
       hasStarted = true;
 
       video.play().catch(function () {
@@ -327,6 +414,7 @@
 
     function play() {
       playing = true;
+      pulseButton(playBtn);
       if (playBtn) {
         playBtn.textContent = "Pause demo";
         playBtn.setAttribute("aria-pressed", "true");
@@ -348,6 +436,8 @@
       stopCarousel();
       if (useFullVideo && !hasStarted) {
         showPosterFrame();
+      } else if (useFullVideo && hasStarted) {
+        if (stage) stage.classList.remove("is-playing");
       }
       if (playBtn) {
         playBtn.textContent = "Play demo";
@@ -369,11 +459,13 @@
     }
 
     function togglePlay() {
+      pulseButton(playBtn);
       if (playing) stop();
       else play();
     }
 
     function goPrev() {
+      pulseButton(prevBtn);
       var nextIndex = index - 1 < 0 ? (loop ? beats.length - 1 : 0) : index - 1;
       if (useFullVideo) {
         seekToBeat(nextIndex);
@@ -388,6 +480,7 @@
     }
 
     function goNext() {
+      pulseButton(nextBtn);
       var nextIndex = index + 1 >= beats.length ? (loop ? 0 : beats.length - 1) : index + 1;
       if (useFullVideo) {
         seekToBeat(nextIndex);
@@ -414,6 +507,7 @@
       dotsEl.addEventListener("click", function (event) {
         var dot = event.target.closest(".hyperframe-dot");
         if (!dot) return;
+        pulseButton(dot);
         var dotIndex = parseInt(dot.getAttribute("data-index"), 10);
         if (Number.isNaN(dotIndex)) return;
         if (useFullVideo) {
@@ -487,6 +581,7 @@
   createPlayer({
     videoId: "hyperframe-video",
     posterId: "hyperframe-poster",
+    overlayId: "hyperframe-overlay",
     stepId: "hyperframe-step",
     titleId: "hyperframe-title",
     captionId: "hyperframe-caption",
