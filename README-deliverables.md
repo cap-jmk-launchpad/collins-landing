@@ -3,7 +3,7 @@
 Handoff bundle for the Collins digital marketing agency landing page.
 
 **Exported:** 2026-06-27  
-**Commit:** `5d83979`  
+**Commit:** `28fc383`  
 **Live site:** https://collins.d3bu7.com
 
 ## What's included
@@ -19,9 +19,11 @@ Handoff bundle for the Collins digital marketing agency landing page.
 | `deliverables/collins-logo-neon-light.svg` | Light-background variant + PNG exports |
 | `deliverables/manifest.json` | Full inventory with paths, byte sizes, timestamps |
 
+LaTeX sources, HTML guidelines, fonts, and duplicate PDFs live under `scripts/brand-guidelines/` for regeneration — they are not part of the client handoff zip.
+
 ## Catbox URLs
 
-- **Full deliverables bundle (zip):** https://files.catbox.moe/2ciwvq.zip
+- **Full deliverables bundle (zip):** https://files.catbox.moe/gmf3f9.zip
 - **Brand guidelines PDF:** https://files.catbox.moe/mveycc.pdf
 - **design.md:** https://files.catbox.moe/4s7a9i.md
 - **brand.md:** https://files.catbox.moe/ndtw01.md
@@ -29,8 +31,7 @@ Handoff bundle for the Collins digital marketing agency landing page.
 ## Regenerate
 
 ```bash
-npm run brand:pdf          # PDF:
-pdf → deliverables/brand-guidelines.pdf
+npm run brand:pdf          # PDF → deliverables/brand-guidelines.pdf
 npm run logo:export        # PNG logo variants
 Copy-Item assets/collins-agency-demo.mp4 deliverables/
 ```
