@@ -198,28 +198,121 @@ Depth is conveyed through **glow** and **border** more than classic gray shadows
 
 Legacy elevation tokens (`0 1px 2px rgba(0,0,0,0.06)` etc.) are not primary on this dark neon site — prefer glow tokens.
 
+---
+
+## Motion & animation
+
+Motion confirms intent on a dark neon canvas — it never competes with copy or CTAs. All timing and easing live in `:root` (`styles.css`); orchestration lives in `script.js`.
+
+### Principles
+
+- **Restrained neon motion** — Glow pulses and crossfades reinforce the palette; avoid decorative motion for its own sake.
+- **Accent discipline** — Animation draws attention to hyperframe beats, active dots, and hover feedback — not body copy or full-width bands.
+- **No distracting loops on CTAs** — Primary and ghost buttons use hover lift and glow only; never infinite pulse on "Book a strategy call" or header CTAs.
+- **Beat-synced storytelling** — Carousel and demo theater advance on timed beats; subtitle overlays exit/enter in sync with poster crossfades.
+- **Intent over bounce** — Default to `--ease-out` for entrances; reserve `--ease-spring` for dot activation and step tick only.
+
 ### Motion tokens
 
 | Token | Value | Use |
 |---|---|---|
-| `--duration-instant` | 120ms | Micro hovers, dot activation |
-| `--duration-fast` | 200ms | Button transitions (`--motion`) |
-| `--duration-normal` | 320ms | Overlay fade |
-| `--duration-beat` | 420ms | Hyperframe beat change (`--motion-beat`) |
-| `--duration-slow` | 520ms | Extended entrances |
-| `--stagger-step` | 45ms | Reveal cascade increment |
-| `--ease-out` | `cubic-bezier(0.16, 1, 0.3, 1)` | Entrances, beat transitions |
-| `--ease-in-out` | `cubic-bezier(0.4, 0, 0.2, 1)` | Default UI (`--motion`) |
-| `--ease-spring` | `cubic-bezier(0.34, 1.45, 0.64, 1)` | Reserved; avoid in core flows |
+| `--duration-instant` | 120ms | Pressed states (`.is-pressed`), carousel button snap |
+| `--duration-fast` | 200ms | Nav hover, FAQ chevron, footer links |
+| `--duration-normal` | 320ms | Hyperframe overlay fade (`opacity` + `translateY`) |
+| `--duration-beat` | 420ms | Beat change, poster crossfade, subtitle stagger (`--motion-beat`) |
+| `--duration-slow` | 520ms | Stage box-shadow transition |
+| `--stagger-step` | 45ms | Subtitle line cascade (step → title → caption) |
+| `--ease-out` | `cubic-bezier(0.16, 1, 0.3, 1)` | Entrances, beat transitions, overlay settle |
+| `--ease-in-out` | `cubic-bezier(0.4, 0, 0.2, 1)` | Default UI transitions |
+| `--ease-spring` | `cubic-bezier(0.34, 1.45, 0.64, 1)` | Dot activate, step counter tick only |
+| `--motion` | `var(--duration-fast) var(--ease-in-out)` | Buttons, nav, cards, dots (default shorthand) |
+| `--motion-beat` | `var(--duration-beat) var(--ease-out)` | Poster/video crossfade, beat swap |
 
-### Scroll reveals
+### Keyframe animations (`styles.css`)
 
-- **`.reveal`** — Opacity 0 + `translateY(24px)` → `.is-visible` with 600ms ease.
-- **`.reveal-delay-1` … `-4`** — 80ms incremental delays for hero cascade.
+| Keyframe | Duration / easing | Trigger | Effect |
+|---|---|---|---|
+| `stage-glow-pulse` | 2.4s infinite, `--ease-in-out` | `.hyperframes-stage.is-playing` | Inset neon ring breathes while video plays |
+| `subtitle-stagger-in` | `--duration-beat`, `--ease-out` | `.hyperframe-overlay.is-entering` children | Step, title, caption fade up with stagger delays |
+| `step-tick` | `--duration-beat`, `--ease-spring` | `.hyperframe-step.is-ticking` | Step counter blurs/scales on beat change |
+| `dot-activate` | `--duration-beat`, `--ease-spring` | `.hyperframe-dot.is-activating` | Active dot overshoots then settles at 1.35× |
+| `dot-glow-pulse` | 1.8s infinite, `--ease-in-out` | `.hyperframe-dot.is-active` | Active dot glow ring pulses (carousel indicator only) |
 
-### Reduced motion
+Looping keyframes are confined to **demo stage** and **active carousel dots** — never on CTA buttons.
 
- `@media (prefers-reduced-motion: reduce)` disables transforms/transitions on reveals, hyperframes, and hover lifts. Content must remain fully readable with static posters and visible copy.
+### JavaScript orchestration (`script.js`)
+
+| Behavior | Implementation | Notes |
+|---|---|---|
+| **Scroll reveals** | `IntersectionObserver` on `.reveal`; adds `.is-visible` at 12% threshold | Hero `.reveal` elements show immediately on load |
+| **Stat count-up** | `[data-count]` elements ease from 0 → target over 1200ms (`ease-out cubic`) | Skipped when `prefers-reduced-motion: reduce` |
+| **Beat-synced subtitles** | `showBeat()` swaps overlay content; CSS classes `is-exiting` / `is-entering` / `is-settled` | `BEAT_TRANSITION_MS = 420` (0 when reduced motion) |
+| **Hero carousel crossfade** | Poster-only player: `is-fading` / `is-entering` with `--beat-direction` for horizontal drift | Autoplay loops beats by `durationSec` from manifest |
+| **Demo video reveal** | `showVideoFrame()`: poster `is-revealing-out`, video `is-revealing-in` at 65% of beat duration | Full-video mode syncs beats via `timeupdate` |
+| **Button press feedback** | `pulseButton()` adds `.is-pressed` for 180ms on play/prev/next/dot clicks | No-op when reduced motion |
+
+### Per-component motion
+
+#### Hero carousel (`.hero-theater`)
+
+- **Autoplay** — Poster-only loop; advances every beat's `durationSec` (5–7s per step).
+- **Poster crossfade** — Opacity + scale + blur + directional `translateX` via `--beat-direction` (±8–10px).
+- **Subtitle overlay** — Exits down (`translateY(8px)`); enters with staggered `subtitle-stagger-in` on step, title, caption.
+- **Nav buttons** — Hidden until hover/focus; scale 1.08 on hover, 0.92 on press.
+- **Dots** — Active dot scales 1.35× with `dot-glow-pulse`; `dot-activate` on beat change.
+
+#### Demo video + subtitle captions (`#hyperframes-theater`)
+
+- **Play transition** — Poster blurs/scales out; video scales in from 0.97.
+- **Playing state** — Stage gets `is-playing` + `stage-glow-pulse` inset glow.
+- **Beat sync** — While full video plays, `syncFromVideoTime()` updates subtitles without re-loading poster when video is visible (`subtitleOnly` mode).
+- **Step counter** — `.hyperframe-step` receives `is-ticking` on each beat advance.
+
+#### Stat icons (`.stat-icon`)
+
+- **Static glow** — `filter: drop-shadow(0 0 6px rgba(57, 255, 20, 0.35))`; no animation loop.
+- **Count-up numbers** — Adjacent `<strong data-count>` animates via JS; icons remain still.
+
+#### Buttons (`.button`, `.hyperframe-btn`)
+
+- **Hover** — `translateY(-1px)` + glow/border brighten via `--motion`.
+- **Press** — `.is-pressed` scales to 0.96 (hyperframe) or instant duration on carousel nav; **no infinite animation**.
+- **Primary CTA** — Stronger box-shadow on hover only; gradient fill is static.
+
+#### Section reveals (`.reveal`)
+
+- **Initial** — `opacity: 0`, `translateY(24px)`.
+- **Visible** — 600ms `--ease-in-out` to full opacity and `translateY(0)`.
+- **Stagger** — `.reveal-delay-1` … `-4` add 80ms increments (160ms, 240ms, 320ms).
+- **Hero exception** — Hero reveals skip the observer wait and show on first paint.
+
+#### Other UI
+
+- **Feature cards** — Hover lift `-4px` + border/glow via `--motion`.
+- **FAQ** — Summary chevron rotates 45° on open.
+- **Nav / footer links** — Color transition only (`--motion`).
+
+### Reduced motion fallback
+
+When `prefers-reduced-motion: reduce` is active:
+
+**CSS (`styles.css`):**
+
+- `scroll-behavior: auto` (no smooth scroll).
+- Hero carousel nav buttons always visible (`opacity: 1`).
+- `.hyperframes-stage.is-playing` — static inset border; no `stage-glow-pulse`.
+- Hyperframe posters, videos, overlays, dots — transitions and animations disabled; transforms and filters reset.
+- `.reveal` — immediately visible (`opacity: 1`, no transform).
+- Button/card/dot hovers — no `translateY` or scale.
+
+**JavaScript (`script.js`):**
+
+- `BEAT_TRANSITION_MS = 0` — beat swaps are instant; no crossfade classes applied.
+- All `.reveal` elements get `.is-visible` immediately (no observer).
+- Count-up skipped — final stat values shown at once.
+- `pulseButton()` and step tick animations no-op.
+
+Content must remain fully readable: static posters, visible captions, and final stat numbers without requiring motion to understand the page.
 
 ---
 

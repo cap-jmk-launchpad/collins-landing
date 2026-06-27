@@ -111,6 +111,8 @@ Collins reads as a **neon green agency** on dark surfaces — confident, modern,
 
 Accent discipline matters: neon green (`#39ff14`), teal (`#00ff88`), and lime (`#b6ff00`) signal action, emphasis, and gradient highlights — never decorative noise across entire layouts. Whitespace (dark space) lets stats, testimonials, and hyperframe captions breathe. Typography carries hierarchy; color carries intent.
 
+**Motion** follows the same restraint: beat-synced hyperframe crossfades and scroll reveals confirm progress without competing with CTAs. Neon glow may pulse on the demo stage and active carousel dots only — never on primary buttons. See [DESIGN.md](./DESIGN.md) §7 for tokens, keyframes, and reduced-motion rules.
+
 ### Color palette
 
 - **Background Deep** — `#040806` — Page canvas, primary dark base.
@@ -129,6 +131,10 @@ Accent discipline matters: neon green (`#39ff14`), teal (`#00ff88`), and lime (`
 ### App tokens
 
 The live site is **dark-first** — all semantic roles map to CSS variables in `styles.css` (see [DESIGN.md](./DESIGN.md) §2). Do not reintroduce legacy light-theme blues (`#0060b9`, `#485668`) unless building a separate print/PDF export surface.
+
+### Motion (summary)
+
+Collins motion is **restrained neon** — purposeful, not decorative. Hyperframe beats crossfade posters and stagger subtitle captions in sync; section content reveals on scroll; stat numbers count up once on load. Primary CTAs never loop or pulse; glow animation is reserved for the demo theater and carousel progress dots. All motion honors `prefers-reduced-motion` with instant states. Full spec: [DESIGN.md](./DESIGN.md) §7.
 
 ### Typography
 
