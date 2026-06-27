@@ -1,403 +1,191 @@
 # Design System: Collins
+**Project ID:** ebd31ae8-0025-441d-8eea-7bbda8af377d
 
-**Project ID:** ebd31ae8-0025-441d-8eea-7bbda8af377d  
-**Companion:** [BRAND.md](./BRAND.md) — voice, agency positioning, CTAs, messaging anchors.
+## 1. Visual Theme & Atmosphere
+The visual identity for Collins must immediately communicate reliability without appearing rigid; it sits firmly at the intersection of professional authority and creative agility. Drawing from our primary Sage archetype, every design decision serves to educate and empower, presenting data-driven insights with clarity rather than intimidation. The atmosphere should feel like a high-efficiency command center where complex automation processes are rendered into understandable narratives for growth teams. We avoid the sterile, cold minimalism often associated with enterprise SaaS because it implies distance from real business needs; instead, our aesthetic breathes confidence and transparency. This is not just about looking "tech"; it is about visually proving that we understand your operational struggles while offering a clear path forward. The tone of the visual language must be calm yet decisive—mirroring the trustworthy nature required when handling sensitive CRM data and scaling marketing campaigns for small business owners who cannot afford hidden costs or technical ambiguity.
 
-Implementation sources: `styles.css`, `index.html`, `script.js`, `assets/hyperframes-manifest.json`.
+Our positioning intent targets the vital middle ground between niche SEO tools and bloated enterprise suites, serving digital marketers who need rapid deployment alongside financial predictability. The visual theme reflects this by rejecting "bloat" in favor of a streamlined ecosystem where every element has a purpose. We serve agile growth teams that refuse to compromise between speed and clarity; therefore, the design language avoids dense information hierarchies or navigation structures that force users to dig for features they don't use. Instead, we utilize whitespace as an active tool for focus, allowing social media metrics and CRM leads to breathe within a unified system. This approach ensures that when clients land on our materials—whether it is sales collateral or dashboard mockups—they immediately sense the difference between paying for legacy infrastructure versus investing directly in conversion optimization. The product speaks to marketers tired of navigating complex interfaces without dedicated support; visually, we offer a hand-holding interface where complexity is hidden behind intuitive simplicity, reinforcing our promise that no one will be forced to build custom workflows just to access basic connectivity.
 
----
+Three core design principles anchor this system: Clarity over Complexity, Speed in Presentation, and Human-Centric Transparency. First, **Clarity over Complexity** dictates that data visualization must never obscure the story; charts explain behavior rather than display raw numbers for their own sake. Second, **Speed in Presentation** is reflected in loading states, animations, and layouts that signal immediate responsiveness, reinforcing our tagline of rapid deployment without sacrificing stability. Third, **Human-Centric Transparency** ensures that when we discuss pricing or feature sets visually, the layout remains honest about what a tool can do versus what it cannot, avoiding flashy marketing claims that promise features only to disappoint later. These principles ensure that every pixel serves the goal of transforming scattered online operations into an engine for sustainable growth without hidden costs. The aesthetic is modern but never trendy; it stands as a legacy-free alternative in a market crowded with established players who prioritize their own history over your future needs.
 
-## 1. Visual theme & atmosphere
+In terms of copy and voice embedded within these visuals, we must walk a tightrope between corporate expertise and accessible partnership. We want the agency to sound like an experienced consultant walking alongside you, not a distant vendor delivering software from on high. The language used in our UI micro-copy and marketing assets should never say "Optimize your fragmented legacy workflows for maximum scalability," which is jargon-heavy and alienating; instead, we must write **"Transform scattered tasks into one streamlined growth engine."** Similarly, avoid the arrogant or generic phrasing of "Unleash the full potential of this all-in-one suite," because that promises magic without delivering on support quality. The correct approach is to say: **"Simplify your marketing stack with transparent automation designed for real teams."** This distinction in wording sets a professional standard where we admit limitations honestly while highlighting our unique advantage in behavioral tracking and ad campaign integration, ensuring clients feel they are partnering with an ally rather than simply purchasing another software subscription.
 
-Collins is a **neon green agency** brand on a dark canvas — not a light-mode SaaS product. The atmosphere should feel like a senior growth studio: electric accents, deep backgrounds, soft radial glows, and confident typography.
+## 2. Color Palette & Roles
+- **Background (#ffffff)**: The foundational canvas for all long-form reading experiences, primary content streams, and core application surfaces. This neutral white ensures maximum legibility while reflecting the Sage archetype's clarity and intellectual purity; use exclusively as the default root background or within high-emphasis cards to reduce cognitive load during dense information consumption.
+- **Background Muted (#f4f4f5)**: A subtle wash for section dividers, secondary content areas (e.g., meta-data grids), and low-priority informational panels where visual breathing room is required without introducing distracting white space; acts as a tonal bridge between the stark base canvas and surface elements to maintain depth.
+- **Primary Text (#0a0a0a)**: The dominant voice of the brand, applied strictly to headings (H1–H6), primary body copy, and interactive states requiring high contrast; its near-black weight anchors the layout with professional authority, ensuring that core messaging is instantly legible across all screen densities.
+- **Secondary Text (#52525b)**: The supportive narrative layer for metadata, timestamps, helper labels, disabled inputs, and captions; designed to recede visually without vanishing entirely, allowing users to scan structural hierarchy while keeping the primary message focused on high-priority text rendered in `#0a0a0a`.
+- **Accent (#485668)**: The strategic signal color for all critical interactions including Primary buttons (Submit/Save), active hyperlinks, selected states, and key emphasis indicators; chosen specifically to avoid the aggressive saturation of typical SaaS palettes, reflecting a calm, trustworthy agency presence that guides user attention without shouting.
+- **Accent On (#fafafa)**: The exclusive foreground treatment for iconography, text labels, or graphical elements rendered directly upon `#485668` surfaces; utilizes an off-white base rather than pure white to prevent harsh edge contrast when placed against the darkened accent hue in gradients or complex backgrounds.
+- **Accent Muted (#6a727d)**: The transitional state for hover effects on buttons, pressed interactive elements (like toggles), and secondary action links; provides a perceptible shift from the base accent tone while maintaining color harmony to indicate availability without triggering immediate execution intent as aggressively as the primary `#485668`.
+- **Border (#e4e4e7)**: The structural skeleton defining input field outlines, card container edges, table separators, and grid dividers; a slightly warmer gray designed to be visible yet understated, reinforcing boundaries without competing for attention against content.
 
-**Narrative anchor:** Growth strategy with neon clarity. Senior-led full-funnel services for brands that want transparent partnerships, not bloated retainers or opaque vendor stacks.
+**Gradients**: Given the brand's professional nature and muted sage tones, gradients should be applied with restraint primarily in Hero sections or large-scale background art pieces to add depth without chaos.
+- *Hero Patterns*: Apply a subtle directional gradient flowing diagonally (approx 45deg) using stops between `#ffffff` fading into very light tints of the Accent (`#fdf0f2`) and Background Muted, creating an atmospheric "wash" that suggests movement while keeping text legible. Avoid mixing this with high-saturation colors; strictly stick to monochromatic or near-monochromatic transitions within the defined palette.
+- *Footer/Surface*: Use minimal vertical gradients on footer backgrounds moving from `#f4f4f5` at top down to a slightly deeper neutral (e.g., blending into `#ebebed`) only if supporting high-emphasis CTAs; do not use complex multi-stop rainbows as they violate the Sage archetype of order.
 
-**Design intent:**
+**Dark-theme anchors**: The dark mode implementation prioritizes deep contrast that preserves the brand's serious tone rather than flattening it to pure black.
+- *Background*: Shifts from `#ffffff` base to a rich charcoal anchor at **#0a0a0a**. This is not absolute zero but a perceptually neutral gray-black, essential for reducing eye strain during night-time usage while maintaining the "Sage" intellectual depth.
+- *Text*: Inverts Primary Text (`#0a0a0a`) to off-white `**fafafa`**, and Secondary Text (`#52525b`) to a mid-tone gray (approx **#8e8e93**) or darker muted accent variants, ensuring text never loses its hierarchy.
+- *Accent*: The base Accent color remains **485668** in dark mode as it offers sufficient contrast against the deep background; however, ensure any gradients involving this color add black opacity stops rather than white to prevent washing out on OLED screens.
 
-- **Dark-first** — `#040806` base with layered surfaces (`--bg-surface`, `--bg-muted`, `--bg-elevated`).
-- **Neon accent hierarchy** — Green leads (`#39ff14`); teal and lime support gradients and feature variants.
-- **Glow as depth** — Box-shadow glow tokens replace heavy flat shadows; borders use translucent green.
-- **Operator polish** — Motion confirms intent (reveals, hyperframe beats) without playful bounce in core flows.
+**Do / don't**: Adhere strictly to these usage rules to maintain brand integrity and accessibility:
+- *Don't*: Overuse `Accent (#485668)` as a general background for large surface areas unless explicitly part of a gradient pattern; doing so dilutes the signal color, causing critical calls-to-action to look like accidental errors or broken UI states. Reserve it strictly for interactive elements and focal points.
+- *Don't*: Pair `Accent Muted (#6a727d)` with white text on its own background without verifying contrast ratios against specific screen backgrounds; this pair is specifically designed for subtle interaction feedback, not as a high-emphasis container that might lead to legibility issues if combined poorly with dark-mode variants.
 
-Cross-reference voice and copy rules in [BRAND.md](./BRAND.md) §3 and §7 before writing UI text or demo captions.
+**App tokens note**: For engineering implementation, all color usage maps directly to CSS custom properties (e.g., `--color-accent-primary`, `--surface-muted`). These semantic tokens allow the design system to function in light and dark modes via a simple class toggle or media query without duplicating values, ensuring consistent rendering across web applications.
 
----
+## 3. Typography Rules
+# Plus Jakarta Sans: The Architect of Authority & Agility
 
-## 2. Color palette & roles
+**Plus Jakarta Sans** serves as the primary narrative driver for Collins, chosen specifically to embody the "Sage" archetype's demand for intelligence and clarity while rejecting the opaque complexity found in legacy enterprise tools. Its geometric yet humanist construction signals that this agency possesses technical depth without sacrificing approachability—a critical differentiator when pitching against bloated platforms like HubSpot or Salesforce where support feels distant.
 
-All values map to `:root` in `styles.css`. Do not use legacy palette colors (`#0060b9`, `#485668`, light `#ffffff` marketing canvas).
+This font is deployed with surgical precision to establish hierarchy:
+*   **H1 (Hero Sections):** Set in `Extra Bold` or `Black`. This weight commands immediate attention, declaring the agency's value proposition before a single pixel of code loads. It suggests a confidence that rivals enterprise giants but moves at startup velocity.
+*   **H2 & H3 (Section Headers):** Utilized in `Bold` to break down complex service offerings into digestible chunks for decision-makers scanning quickly. The geometric counters maintain legibility even at smaller sizes, ensuring data-heavy case studies remain accessible.
+*   **CTAs & Buttons:** Applied as the exclusive typographic element within action areas (`Semi-Bold`), using color contrast rather than weight alone to guide the user journey toward conversion optimization.
 
-### Core surfaces
+**Inter**: The Engine of Readability & Trust
 
-| Token | Hex / value | Role |
-|---|---|---|
-| `--bg-deep` | `#040806` | Page canvas, button text on neon fills |
-| `--bg-surface` | `#0a100c` | Sticky header scrim, base panels |
-| `--bg-muted` | `#0f1610` | Alternating section bands (`.panel-muted`) |
-| `--bg-elevated` | `#141c14` | Feature cards, testimonials, elevated tiles |
+While Plus Jakarta Sans provides the structural framework, **Inter** acts as the steady hand guiding the client through implementation details, ensuring zero friction in reading dense technical specifications or behavioral tracking metrics. Inter's vast open-source glyph repertoire and exceptional legibility at small sizes make it indispensable for:
+*   **UI Microcopy:** Labels next to inputs, toggle states, and navigation labels must be instantly decodable; Inter delivers this without visual noise.
+*   **Forms & Metadata:** Critical in the agency workflow where clients input sensitive business data or review campaign metrics; the font reduces cognitive load during high-stakes decision moments.
+*   **Body Paragraphs & Case Study Narratives:** Used for all long-form content describing automation logic, SEO strategies, and ROI calculations. Its neutral tone allows the client's voice to shine without stylistic interference.
 
-### Text
+# Scale Reference: Rhythmic Proportions
 
-| Token | Hex | Role |
-|---|---|---|
-| `--text-primary` | `#f0f7eb` | Headlines, body, primary UI copy |
-| `--text-secondary` | `#9aab94` | Nav links, de-emphasized labels |
-| `--text-muted` | `#6b7a66` | Footer, metadata, helper text |
+Collins' scale system is designed to create breathing room between information clusters, reinforcing the brand promise of "clarity amidst complexity." These values approximate a standard `16px` base line-height ratio but are tuned for screen dominance.
 
-### Neon accents
+- **H1**: `90px` / `-3/2rem`<br>`Font Weight: 800–900` (Extra Bold to Black) — — — Loose (`1.2`) - Creates a bold statement block — Hero headlines, landing page anchors.
+- **H2**: `48px` / `3rem`<br>`Font Weight: 700` (Bold) — — — Standard (`1.5`) — Section dividers in service pages & case studies.
+- **Sub-header/Label**: `20px` / `1.25rem`<br>`Font Weight: 600–700` (Semi-Bold) — — — Tighter (`1.3`) - Groups related info logically — Card titles, step indicators in automation flows.
+- **Body**: — — `16px – 24px / 1rem – 1.5rem`<br>`Font Weight: 400–500` (Regular to Medium) — Relaxed (`1.6`) - Essential for reading complex data rows and ROI tables without fatigue. — Feature descriptions, pricing breakdowns, methodology steps.
+- **Caption/Small**: — — `12px – 13px / 0.75rem`<br>`Font Weight: 400–600` (Regular to Semi-Bold) — Moderate (`1.4`) - Metadata tags, legal disclaimers, UI badges. — Form labels, tooltip text, footer links.
 
-| Token | Hex | Role |
-|---|---|---|
-| `--neon-green` | `#39ff14` | Primary accent; eyebrows; nav hover; dot active state |
-| `--neon-teal` | `#00ff88` | Gradient partner; feature icon variant (`.accent-teal`) |
-| `--neon-lime` | `#b6ff00` | Secondary highlight; feature icon variant (`.accent-lime`) |
-| `--neon-mint` | `#7fff7f` | Tertiary highlight; sparing decorative use |
-| `--accent` | `var(--neon-green)` | Semantic alias for primary interactive accent |
-| `--accent-on` | `#040806` | Text/icons on filled neon buttons |
-| `--accent-muted` | `#2ecc12` | Pressed/hover depth on accent fills |
+# Pairing Rules: The Hierarchy of Information
 
-### Borders & glow
+Adherence to this pairing logic ensures the interface never feels disjointed, even when managing disparate data streams (e.g., syncing CRM leads with social metrics).
 
-| Token | Value | Role |
-|---|---|---|
-| `--border` | `rgba(57, 255, 20, 0.12)` | Default dividers, card strokes, header rule |
-| `--border-strong` | `rgba(57, 255, 20, 0.32)` | Ghost button outlines, emphasis rings |
-| `--glow-green` | `0 0 40px rgba(57, 255, 20, 0.22)` | Primary button default glow |
-| `--glow-lime` | `0 0 40px rgba(182, 255, 0, 0.18)` | Optional lime emphasis |
-| `--glow-teal` | `0 0 40px rgba(0, 255, 136, 0.18)` | Optional teal emphasis |
+1.  **The "Statement" Zone:** All primary communication headers and value propositions utilize **Plus Jakarta Sans**. If a header is `Extra Bold` or larger than `24px`, it must be Plus Jakarta. Never dilute the brand's authority by using Inter for major headlines; that creates visual instability typical of generic SaaS templates we explicitly avoid.
+2.  **The "Data" Zone:** Any content containing rows, columns, lists, or detailed explanations defaults to **Inter**. If a section is text-heavy (over 150 words) regarding automation logic or case study results, switch immediately to Inter at `400` weight with ample line height (`1.6`).
+3.  **The "Action" Zone:** Interactive elements (buttons and form placeholders) live in the intersection: use Plus Jakarta Sans for button text when the design is minimal, but default to Inter within complex multi-field forms or toolbars where density matters most.
 
-### Background atmosphere
+# Tracking & Emphasis: Breathing Room vs. Urgency
 
-`.bg-glow` applies fixed radial gradients (green / teal / lime at low opacity) over `--bg-deep`. Do not replace with flat solid fills on marketing pages.
+*   **Tight Tracking (`-1%` to `-2%`):** Apply strictly to H3 headers and sub-headings in Plus Jakarta Sans when space is at a premium (e.g., dense feature grids). This creates visual cohesion without sacrificing readability, signaling that the agency handles complexity with elegance.
+    *   *Exception:* Never tighten tracking on body copy or CTAs; this reduces legibility and appears amateurish.
+*   **Bold Emphasis (`700`):** In Inter text blocks, use bold sparingly only to highlight key metrics (e.g., conversion rates) or specific action items within a strategy breakdown. Avoid `Extra Bold` in UI body copy unless referencing the agency's own core brand values.
+    *   *Pro Tip:* Use font variants (`Semi-Bold`) rather than simply increasing weight if you need emphasis on secondary headers; it maintains better visual rhythm with the primary headline weights.
 
-### Color rules
+# Do / Don't: Avoiding Legacy Pitfalls
 
-- Primary action = neon green → teal gradient fill + `--accent-on` label + `--glow-green`.
-- Secondary action = ghost pill with `--border-strong`; hover adds green border and inset glow.
-- Links in body inherit `--text-primary`; nav uses `--text-secondary` → `--neon-green` on hover.
-- Gradient text (`.gradient-text`) uses `linear-gradient(90deg, var(--neon-green), var(--neon-teal))`.
-- Never use accent neon for long body paragraphs or full-bleed section backgrounds.
+**❌ DO NOT use Tight Tracking on Body Copy or Small UI Labels.**
+Many design systems force tight letter-spacing to create a "modern" look, but for Collins' specific audience (agile marketers), this sacrifices readability when scanning long lists of behavioral triggers or technical specs. The Sage archetype requires clear communication; never trade clarity for style trends unless the user is looking at large-scale hero imagery where tracking can be adjusted without affecting legibility.
 
----
+**❌ DO NOT mix Plus Jakarta Sans and Inter in a single sentence flow.**
+While both are excellent, they have distinct geometric personalities that clash if not clearly demarcated by whitespace or layout structure. Do not use "Inter for the H2" simply because you ran out of space; instead, redesign the hierarchy to push the heavy title down two lines. Consistency in font usage reinforces trust—a non-negotiable requirement when an agency represents a brand's future revenue stream against skeptical enterprise buyers who have been burned by opaque pricing and poor support elsewhere.
 
-## 3. Typography rules
+## 4. Component Stylings
+### Button Architecture & Interaction States
+**Primary Action (The "Accent" Driver):** The primary button serves as the direct response engine for Collins, leveraging our Sage archetype to demand authority without aggression. It utilizes solid `#485668` (#accent) fill with high-contrast foreground text in `#fafafa` (#on-accent).
+*   **Morphology:** Utilize a pill-rounded radius of `20px` (`border-radius: 1rem`) to soften the corporate edge, inviting approachability. Dimensions should strictly follow an internal grid (min-height 48px) scaled by button size variants (sm/md/lg).
+*   **Typography & Casing:** Labels must be uppercase with a tight letter-spacing of `2px` (`text-transform: uppercase; letter-spacing: .05em`). Font-weight defaults to medium or semi-bold depending on width. Trailing punctuation is strictly forbidden.
+*   **Interaction Physics:** On hover, introduce an immediate opacity drop in the accent fill to `-6%`, transitioning through our muted state `#6a727d` (`#accent-muted`) via a subtle 150ms ease-out animation before snapping back or fading out on focus. The active/pressed state must utilize `rgba(72, 86, 104, 0.9)` to indicate depth without darkening the brand identity too heavily.
+*   **Secondary Action:** Use transparent backgrounds with a single-weighted border in `#e4e4e7` (#border). On hover/focus, invert fill and stroke colors (Fill becomes `#fafafa`, Stroke becomes `#485668`) to maintain visibility against light surfaces. Text color switches from standard gray to primary black (`#0a0a0a`).
+*   **Ghost Variant:** Reserved for dense data tables or dashboard contexts where space is premium; identical behavior to secondary but utilizing only the text and border weight without background interruption until active state.
 
-| Role | Family | Use |
-|---|---|---|
-| Display / headings | **Plus Jakarta Sans** | H1–H3, logo wordmark, buttons, stats, eyebrows, hyperframe titles |
-| Body / UI | **Inter** | Lede, section ledes, FAQ, footer, captions |
-| Spec | Monospace | Token names, paths, code snippets in docs |
+### Surface & Container Systems (Cards, Panels, Containers)
+**The "Canvas" Principle:** Collins surfaces must never compete with content; they should act as neutral frames for information.
+*   **Surface Colors:** Default containers reside on pure white (`#ffffff`). Secondary sections or cards requiring differentiation utilize `#f4f4f5` (#background-muted). Avoid generic grays; all muted backgrounds are strictly this specific off-white tone to maintain the professional, uncluttered aesthetic.
+*   **Borders & Separation:** Outlines for inputs, cards, and distinct panels must use a subtle stroke of `1px solid #e4e4e7` (#border). Never allow borders to touch; always respect an 8pt (or 2rem) margin buffer before adjacent elements like titles or images.
+*   **Shadows:** Shadow usage is minimalist but present for hierarchy. Use a diffuse, multi-stop shadow strictly on elevation states: `0px 4px 12px rgba(72, 86, 104, 0.05)`. Never use hard black shadows or colored drop-shadows; they must recede into the white canvas seamlessly to maintain that "paper" feel of the Sage archetype.
+*   **Padding Tone:** Internal padding scales with card size: Small cards (icons only): `16px`; Medium content blocks: `24px` vertical / `32px` horizontal; Large dashboards/containers: `48px`. This breathing room is critical for readability and perceived trustworthiness.
 
-### Scale (web)
+### Data Capture & Form Interfaces
+**Focus on Clarity:** Forms are gateways to data, not the destination themselves. The design must guide users through a frictionless journey that feels secure yet effortless.
+*   **Input States:** Default inputs use `#e4e4e7` border with transparent backgrounds (unless grouped). Placeholder text uses Secondary Text (`#52525b`) at 80% opacity to avoid visual noise without competing for attention.
+*   **Focus Mechanics:** The active state is the most important moment in form UX. It must transition instantly from `transparent` or border-colors: white -> solid Accent `#485668`. Accompany this with a subtle ring glow effect using our accent hue at low opacity to signal system response time, reinforcing trust that the click was registered immediately.
+*   **Error Handling:** Never use red (`#dc2626` or similar) which implies danger; use semantic warnings like "Please verify..." in secondary text color near a border change to `#e1705a` (custom muted error tone). Underline errors with a 4pt thick stroke rather than generic borders.
+*   **Validation Success:** Upon completion, inputs should visually shift briefly toward the Primary Black (`#0a0a0a`) border or green-ish accent variation to confirm data integrity before submitting, reducing anxiety about submission failure.
 
-- **Eyebrow** — 0.8125rem (13px), semibold, uppercase, `letter-spacing: 0.12em`, `--neon-green`
-- **H1 (hero)** — `clamp(2.5rem, 5.5vw, 4.25rem)`, extrabold (800), `line-height: 1.05`, `letter-spacing: -0.04em`
-- **H2 (section)** — ~clamp 1.75–2.5rem, bold, tight tracking
-- **H3 (card)** — ~1.125–1.25rem, semibold
-- **Lede / section-lede** — ~1.0625–1.125rem, `--text-secondary`, max ~60ch
-- **Body** — 1rem, `line-height: 1.6`, `letter-spacing: -0.01em`
-- **Small / footer** — 0.8125rem, `--text-muted`
+### Brand Identity & Lockup Protocols
+**Logo Presentation Logic:** Since asset paths are abstracted for this system:
+*   **Clearspace Rule:** All instances of the Collins brand mark must maintain a clear space equal to `50%` of its height on all four sides unless constrained by layout rules (e.g., mobile headers). Do not allow text labels or navigation links from "Collins" to overlap directly with the iconography.
+*   **Inverted Variants:** Provide explicit SVG paths for dark mode and reversed contexts where background is `#485668`. The inverted logo should utilize white (`#ffffff`) rather than `#fafafa` if possible, but maintain strict adherence to brand colors when on light surfaces; ensure the text element remains readable against any backdrop.
+*   **Prohibited Usage:** Never rotate logos beyond 90 degrees (unless part of a specific circular badge context). Do not stretch horizontal lockups into vertical rectangles or vice versa without explicit re-design approval from the Creative Lead.
 
-### Pairing rules
+### Structural Patterns: Nav, Hero & Pricing
+**Navigation Bar Logic:** The agency-facing header should prioritize utility over decoration but never clutter the viewport. A fixed-top nav bar should utilize a semi-transparent backdrop filter (`blur(8px)`) blending `rgba(255, 255, 255, 0.9)` so that content scrolls behind softly, maintaining continuity of the "canvas."
+*   **Hero Section:** The primary hero area must start with pure white or a very light tint of Accent Muted to establish immediate clarity. Value propositions should use large-scale typography (`3rem+`) in Primary Text (`#0a0a0a`), utilizing only one instance of Accent color for the main CTA link within the copy itself (e.g., "Learn more at Collins").
+*   **Pricing Structures:** Avoid complex tiered tables if possible; opt for clean cards. The most expensive or recommended plan should subtly utilize our `#485668` accent in a border-bottom line of 2px beneath it to draw the eye without needing a background color change that disrupts flow. Use `#fafafa` inside these specific "highlighted" pricing boxes for text contrast against white, but never make them darker than standard cards unless emphasizing an upsell feature list.
 
-- One display family per heading block — do not mix Inter into headlines.
-- Weight contrast over size alone: extrabold H1 vs regular body.
-- Uppercase eyebrows only — not full sentences.
-- Tight tracking (`-0.03em` to `-0.04em`) on display sizes; leave body at `-0.01em`.
+### Do's and Don'ts: Brand Integrity
+- **Do**: **DO** use `#485668` exclusively for high-emphasis states (buttons, links) to maintain the "Sage" wisdom vibe; keep it restrained. — **Don't**: **DON'T** introduce gradients or noise textures that distract from content readability or dilute the clean white canvas aesthetic.
+| **DO** allow generous whitespace (`#ffffff`) between sections to let the professional copy breathe and build trust through simplicity. | **DON'T** use red, orange, or yellow colors anywhere; strictly adhere to the defined palette (Accents, Muteds, Grays) regardless of urgent content warnings needing attention.
 
----
+## 5. Layout Principles
+The primary frame for all marketing assets adheres to an 120rem (approx. 1920px) logical width, creating a "studio-grade" viewport that feels premium without breaking responsive constraints on desktops. Below this max-width container, content utilizes the defined spacing scale strictly: standard section separation uses `spacing-lg` (16px), while distinct narrative breaks or major feature switches utilize `spacing-xl` (40px). Vertical rhythm between card-based components within a column is set to 2rem with an explicit gap of 8px, ensuring cards float visually rather than touching.
 
-## 4. Component stylings
+Hero sections follow a strict top-to-bottom hierarchy: the primary headline occupies one full grid row (h1), followed by subcopy and value proposition in a second row, with the primary CTA block anchored at the bottom for maximum click-through focus. Accent backgrounds—specifically brand blues or teals reserved for conversion points—are applied exclusively to CTAs and key insight metrics; muted backgrounds should dominate 80% of the page surface (off-white/light grays) to reduce cognitive load, with high-contrast color only used when highlighting specific data anomalies or success states in analytics views.
 
-### Buttons
+For internal product UIs like dashboards and settings panels, employ a rigid 12-column grid where primary navigation is flush left within this frame, allowing the main content area to stretch fluidly while maintaining alignment guides for charts and dense lists. Data tables utilize alternating row backgrounds at `spacing-xs` increments (4px) rather than solid blocks to improve readability over long scrolls.
 
-| Variant | Styles | Use |
-|---|---|---|
-| `.button-primary` | Green→teal gradient, pill radius, `--accent-on` text, `--glow-green` | "Book a strategy call," "Play demo" |
-| `.button-ghost` | Transparent, `--border-strong`, pill radius | "Watch the demo," "Email the team," hyperframe prev/next |
-| `.button-sm` | Reduced height/padding | Header CTA |
-| `.button-lg` | Increased height/padding | Final CTA block |
+**Alignment status:**
+- Fonts — Headings inherit from global theme sans-serif stack; body text strictly limited to 1rem base size, never scaling larger without explicit design token override for feature sections.
+- Colors — Backgrounds default to `surface-default`; interactive states use `primary-action` exclusively; error/success messages utilize semantic indicators rather than brand primary colors to maintain visual clarity.
+- Spacing — All gutters must correspond exactly to the defined scale (4, 8, 16, 24); arbitrary pixel values are forbidden unless correcting for specific browser edge cases or legacy asset integration.
+- Components — Buttons respect `radius-sm` (4px) as default; inputs use border radius of `0` on left/right and full height to mimic system native feel until elevation sm is applied via shadow layering only.
 
-Shared: `--font-display`, semibold, `min-height: 3rem`, hover `translateY(-1px)`, transitions via `--motion`.
+**Do / don't:**
+- Do stack headlines vertically with subcopy before placing a CTA; Don't wrap subtitles inside the same line-height block as the header if it reduces readability below 20 words per row.
+- Do use solid, opaque backgrounds for cards containing dense data or complex charts to aid focus; Don't rely solely on shadow elevation for separation when content density exceeds three paragraphs of text within a single container.
 
-### Cards & panels
+## 6. Spacing & Radius Scale
+### Spacing & Radius Scale
 
-- **`.panel`** — Section wrapper; vertical padding with section-head pattern (eyebrow + h2 + lede).
-- **`.panel-muted`** — `--bg-muted` band for demo and FAQ sections.
-- **`.feature-card`** — `--bg-elevated`, border `--border`, radius `--radius-lg`; hover lift + border brighten.
-- **`.feature-icon`** — Numbered badge; default green; `.accent-lime` / `.accent-teal` variants for grid rhythm.
-- **`.testimonial`** — Quote card with avatar footer; same elevated surface treatment.
+In Collins' Agency operating mode, spacing is not merely cosmetic; it is a structural language that communicates premium stability and thoughtful craft to your ideal client profile (ICP). We move away from arbitrary pixel counts toward a disciplined token system where every gap tells the eye how much weight to give an element. This guide translates our internal design tokens into practical usage rules for building a brand portfolio site, pitch decks, or case study showcases that command market respect.
 
-### Navigation & header
+Consistency in vertical rhythm is the single most effective way to signal agency competence. We use this scale to enforce "breathing room" based on content density and hierarchy.
 
-- **`.site-header`** — Sticky, blurred scrim `rgba(5,5,8,0.75)`, bottom `--border`.
-- **`.site-nav`** — Horizontal text links, `--text-secondary` → `--neon-green` hover.
-- **`.logo-lockup`** — SVG + wordmark; logo `drop-shadow` green glow.
+- **`xs`**: `4px` — **Micro-utility gaps.** Use only between inline elements (e.g., list items, small icon text pairs). Never use this for section breaks; it creates visual clutter that cheapens the brand.
+- **`sm`**: `8px` — **Component tightness.** The standard gap inside compact components like avatar stacks in bios or form field labels vs. inputs. Use here to separate adjacent columns on cards without creating large white space gaps.
+- **`md`**: `16px` — **The Golden Standard.** This is your default inter-element padding for buttons (horizontal alignment) and the primary gap between rows of text in body copy. In portfolio grids, this defines standard item separation when content density is high.
+- **`lg`**: `24px` — **Grouping & Section Breaks.** Use to separate distinct UI groups or columns with different semantic weight (e.g., separating a header block from the sub-grid below it). In site layouts, this acts as the standard gap between featured case studies.
+- **`xl`**: `40px` — **Major Hierarchy Dividers.** Reserve for full-width section dividers or large hero-to-content transitions. This scale signals "a new idea is starting." Use generously in whitespace-heavy landing pages to establish authority and focus on the work, not the browser chrome.
+- **`2xl`**: `56px` — **Feature-Level Separation.** The maximum vertical rhythm used between major thematic blocks (e.g., Hero section vs. Services summary). If a gap feels too large here, you have likely introduced unnecessary whitespace that distracts from the portfolio's impact.
 
-### FAQ
+#### 2. Radius Scale & Component Mapping (`sm` – `full`)
+Radius in Collins defines how "friendly" or "corporate rigid" an interface appears. For an agency selling strategy and design, we use radius to match the tone of each project while maintaining system consistency.
 
-- **`<details class="faq-item">`** — Native disclosure; summary uses display font; answer body in Inter.
+- **`sm`**: `4px` — **Data & Inputs.** Strictly used on form fields (`input`, `textarea`) and small informational badges (e.g., "PDF", "Link"). Using this radius suggests precision, compliance, and utility. Avoid using it for primary brand buttons; it looks too technical unless specifically mimicking a dashboard style project case study.
+- **`md`**: `8px` — **Standard UI Elements.** The default for internal links (`<a>` tags), standard toggle switches, and secondary action chips within dashboards or blog cards. It maintains the illusion of "standard industry practice" while allowing your brand to stand out in its container.
+- **`lg`**: `12px` — **Elevated Surfaces & Cards.** This is the sweet spot for content cards on portfolio pages. When a client needs full-screen imagery, pair this radius with high elevation (`elev-lg`) and generous padding (`pad-4xl`). It softens the edges of heavy visuals without making them look overly playful or childish.
+- **`full`**: `9999px` — **Surface Continuity.** Reserved for floating modals, hero banners that span 100% width/height, and primary call-to-action (CTA) buttons on landing pages. This creates a "floating" island effect where the content feels contained in its own world. Use this sparingly to drive maximum conversion focus.
 
-### Final CTA
+#### 3. Practical Pattern Mapping
+Don't guess; apply these direct token mappings to your design system configuration:
 
-- **`.final-cta`** / **`.final-cta-inner`** — Centered closing band; primary + ghost action pair.
+*   **Primary Button:** `padding-y: md` (8px vertical), `radius: full`. The "pills" shape signals friendliness and confidence, distinct from the rigid utility of data dashboards.
+*   **Standard Content Card:** `border-radius: lg` (12px) paired with internal padding derived from our spacing scale (`md` for title area, `lg` for content block). This creates a balanced "box" that frames work effectively without feeling cramped.
+*   **Section Vertical Rhythm:** Default gap between major blocks should be `xl` (40px) to allow the user's eye to rest and digest complex case study narratives before moving to the next visual chapter.
 
-### Inputs
+#### 4. Do / Don't Consistency Rules
+To ensure your agency brand feels cohesive across deliverables, adhere strictly to these constraints:
 
-Contact CTAs currently use `mailto:` anchors, not form fields. If forms are added: quiet `--border` outline, focus ring `--border-strong` or `--neon-green`, no heavy outer glow.
+*   **DO:** Use `md` (16px) as the universal default for horizontal spacing between inline text blocks and form inputs unless you are deliberately creating a minimalist aesthetic where content density is high.
+*   **DON'T:** Mix `sm` radius on primary buttons with `lg` or `full` cards; this creates visual friction that suggests an unpolished internal state rather than external brand authority.
+*   **DO:** Maintain consistent elevation logic: Small components use standard shadows, while floating hero elements (`radius: full`) always demand the strongest shadow (`elev-lg`, 12px blur) to create separation from the background.
+*   **DON'T:** Use `40px` (`xl`) gaps between every paragraph within a single body block of text; this fractures reading flow and is reserved only for separating distinct sections or major concept pivots.
 
----
+#### Technical Implementation Notes (CSS/SCSS Context)
+When exporting these rules to your frontend stack:
 
-## 5. Layout principles
+*   **Shadows:** Use `0 1px 2px rgba(0,0,0,0.06)` for the default "lifted" state of cards using `radius: lg`. For deep immersion (full-screen sections), switch to `0 4px 12px rgba(0,0,0,0.08)`.
+*   **Animation:** Apply `cubic-bezier(0.4, 0, 0.2, 1)` with a duration of `120ms` for micro-interactions (hover states on links/buttons). Use `200ms` only when revealing entire sections or loading heavy case study images to ensure the motion feels substantial and deliberate rather than snappy.
 
-- **Grid** — `--max-width: 1180px` centered; hero 2-column (`1fr 1fr`) collapsing to single column ≤960px.
-- **Hero** — Copy left, hyperframe theater right; stats grid + avatar row below lede actions.
-- **Feature grid** — Responsive multi-column grid of `.feature-card` items (six services).
-- **Testimonial grid** — 2×2 on desktop; stacks on mobile.
-- **Section rhythm** — `.section-head` centered or left-aligned with shared eyebrow pattern.
-- **Footer** — `.footer-grid` four columns → stack on narrow viewports.
+## 7. Elevation & Motion
+We define Elevation as the visual hierarchy that communicates component importance based on interaction state: use **elevation-sm** for standard content containers like informational cards and text-heavy dropdowns to maintain an airy, professional feel; apply **elevation-md** exclusively to active modals or primary action panels where user focus is required without appearing intrusive; reserve **elevation-lg** strictly for system-level alerts or hero-layer overlays that demand immediate attention. For Motion durations, adhere rigidly to the 120ms standard for micro-interactions like checkbox ticks or hover states to ensure snappy responsiveness on high-frequency tasks, while mandating a 200ms duration for page transitions and full modal appearances to allow the user's eye to naturally settle before loading additional content. All motion implementations must utilize `cubic-bezier(0.4, 0, 0.2, 1)` to strike the ideal balance between technical precision and organic rhythm appropriate for a trustworthy brand tone.
 
-See [BRAND.md](./BRAND.md) §6 for narrative layout intent (hero order, CTA hierarchy).
+Crucially, always include the Reduced-Motion accessibility flag in your build settings; if this preference is detected by user agent or system detection, immediately strip all non-essential animations while retaining state changes via color shifts alone. Regarding shadows and animation usage: do use soft, diffused elevation layers to create depth that separates interface elements from the background without visual clutter; never do hard-edge drop-shadows or aggressive parallax effects as these undermine brand credibility and professional clarity. Remember that in an agency operating mode where positioning is paramount, every pixel must contribute to a market-facing narrative of reliability—avoid animation bloat just because you can, ensuring the final product reflects a team capable of delivering precise, accessible, and high-trust digital experiences for winning clients across any vertical.
 
----
-
-## 6. Spacing & radius scale
-
-### Spacing
-
-| Token | Value | Typical use |
-|---|---|---|
-| xs | 4px | Icon gaps, tight inline spacing |
-| sm | 8px | Avatar row gaps, dot spacing |
-| md | 16px | Card padding, nav gap baseline |
-| lg | 24px | Grid gaps, internal section spacing |
-| xl | 40px | Between major content blocks |
-| 2xl | 56px | Section padding top/bottom |
-
-### Radius
-
-| Token | Value | Use |
-|---|---|---|
-| `--radius-sm` | 4px | Small chips (rare) |
-| `--radius-md` | 8px | Inner elements |
-| `--radius-lg` | 12px | Cards, hyperframe stage, testimonials |
-| `--radius-pill` | 9999px | All buttons, hyperframe dots (pill/circle) |
-
----
-
-## 7. Elevation & motion
-
-### Elevation
-
-Depth is conveyed through **glow** and **border** more than classic gray shadows:
-
-- Cards: subtle border + hover glow increase.
-- Primary buttons: `--glow-green`, stronger on hover (`0 0 50px rgba(57, 255, 20, 0.45)`).
-- Hyperframe stage: inset green ring when playing (`.is-playing`).
-
-Legacy elevation tokens (`0 1px 2px rgba(0,0,0,0.06)` etc.) are not primary on this dark neon site — prefer glow tokens.
-
----
-
-## Motion & animation
-
-Motion confirms intent on a dark neon canvas — it never competes with copy or CTAs. All timing and easing live in `:root` (`styles.css`); orchestration lives in `script.js`.
-
-### Principles
-
-- **Restrained neon motion** — Glow pulses and crossfades reinforce the palette; avoid decorative motion for its own sake.
-- **Accent discipline** — Animation draws attention to hyperframe beats, active dots, and hover feedback — not body copy or full-width bands.
-- **No distracting loops on CTAs** — Primary and ghost buttons use hover lift and glow only; never infinite pulse on "Book a strategy call" or header CTAs.
-- **Beat-synced storytelling** — Carousel and demo theater advance on timed beats; subtitle overlays exit/enter in sync with poster crossfades.
-- **Intent over bounce** — Default to `--ease-out` for entrances; reserve `--ease-spring` for dot activation and step tick only.
-
-### Motion tokens
-
-| Token | Value | Use |
-|---|---|---|
-| `--duration-instant` | 120ms | Pressed states (`.is-pressed`), carousel button snap |
-| `--duration-fast` | 200ms | Nav hover, FAQ chevron, footer links |
-| `--duration-normal` | 320ms | Hyperframe overlay fade (`opacity` + `translateY`) |
-| `--duration-beat` | 420ms | Beat change, poster crossfade, subtitle stagger (`--motion-beat`) |
-| `--duration-slow` | 520ms | Stage box-shadow transition |
-| `--stagger-step` | 45ms | Subtitle line cascade (step → title → caption) |
-| `--ease-out` | `cubic-bezier(0.16, 1, 0.3, 1)` | Entrances, beat transitions, overlay settle |
-| `--ease-in-out` | `cubic-bezier(0.4, 0, 0.2, 1)` | Default UI transitions |
-| `--ease-spring` | `cubic-bezier(0.34, 1.45, 0.64, 1)` | Dot activate, step counter tick only |
-| `--motion` | `var(--duration-fast) var(--ease-in-out)` | Buttons, nav, cards, dots (default shorthand) |
-| `--motion-beat` | `var(--duration-beat) var(--ease-out)` | Poster/video crossfade, beat swap |
-
-### Keyframe animations (`styles.css`)
-
-| Keyframe | Duration / easing | Trigger | Effect |
-|---|---|---|---|
-| `stage-glow-pulse` | 2.4s infinite, `--ease-in-out` | `.hyperframes-stage.is-playing` | Inset neon ring breathes while video plays |
-| `subtitle-stagger-in` | `--duration-beat`, `--ease-out` | `.hyperframe-overlay.is-entering` children | Step, title, caption fade up with stagger delays |
-| `step-tick` | `--duration-beat`, `--ease-spring` | `.hyperframe-step.is-ticking` | Step counter blurs/scales on beat change |
-| `dot-activate` | `--duration-beat`, `--ease-spring` | `.hyperframe-dot.is-activating` | Active dot overshoots then settles at 1.35× |
-| `dot-glow-pulse` | 1.8s infinite, `--ease-in-out` | `.hyperframe-dot.is-active` | Active dot glow ring pulses (carousel indicator only) |
-
-Looping keyframes are confined to **demo stage** and **active carousel dots** — never on CTA buttons.
-
-### JavaScript orchestration (`script.js`)
-
-| Behavior | Implementation | Notes |
-|---|---|---|
-| **Scroll reveals** | `IntersectionObserver` on `.reveal`; adds `.is-visible` at 12% threshold | Hero `.reveal` elements show immediately on load |
-| **Stat count-up** | `[data-count]` elements ease from 0 → target over 1200ms (`ease-out cubic`) | Skipped when `prefers-reduced-motion: reduce` |
-| **Beat-synced subtitles** | `showBeat()` swaps overlay content; CSS classes `is-exiting` / `is-entering` / `is-settled` | `BEAT_TRANSITION_MS = 420` (0 when reduced motion) |
-| **Hero carousel crossfade** | Poster-only player: `is-fading` / `is-entering` with `--beat-direction` for horizontal drift | Autoplay loops beats by `durationSec` from manifest |
-| **Demo video reveal** | `showVideoFrame()`: poster `is-revealing-out`, video `is-revealing-in` at 65% of beat duration | Full-video mode syncs beats via `timeupdate` |
-| **Button press feedback** | `pulseButton()` adds `.is-pressed` for 180ms on play/prev/next/dot clicks | No-op when reduced motion |
-
-### Per-component motion
-
-#### Hero carousel (`.hero-theater`)
-
-- **Autoplay** — Poster-only loop; advances every beat's `durationSec` (5–7s per step).
-- **Poster crossfade** — Opacity + scale + blur + directional `translateX` via `--beat-direction` (±8–10px).
-- **Subtitle overlay** — Exits down (`translateY(8px)`); enters with staggered `subtitle-stagger-in` on step, title, caption.
-- **Nav buttons** — Hidden until hover/focus; scale 1.08 on hover, 0.92 on press.
-- **Dots** — Active dot scales 1.35× with `dot-glow-pulse`; `dot-activate` on beat change.
-
-#### Demo video + subtitle captions (`#hyperframes-theater`)
-
-- **Play transition** — Poster blurs/scales out; video scales in from 0.97.
-- **Playing state** — Stage gets `is-playing` + `stage-glow-pulse` inset glow.
-- **Beat sync** — While full video plays, `syncFromVideoTime()` updates subtitles without re-loading poster when video is visible (`subtitleOnly` mode).
-- **Step counter** — `.hyperframe-step` receives `is-ticking` on each beat advance.
-
-#### Stat icons (`.stat-icon`)
-
-- **Static glow** — `filter: drop-shadow(0 0 6px rgba(57, 255, 20, 0.35))`; no animation loop.
-- **Count-up numbers** — Adjacent `<strong data-count>` animates via JS; icons remain still.
-
-#### Buttons (`.button`, `.hyperframe-btn`)
-
-- **Hover** — `translateY(-1px)` + glow/border brighten via `--motion`.
-- **Press** — `.is-pressed` scales to 0.96 (hyperframe) or instant duration on carousel nav; **no infinite animation**.
-- **Primary CTA** — Stronger box-shadow on hover only; gradient fill is static.
-
-#### Section reveals (`.reveal`)
-
-- **Initial** — `opacity: 0`, `translateY(24px)`.
-- **Visible** — 600ms `--ease-in-out` to full opacity and `translateY(0)`.
-- **Stagger** — `.reveal-delay-1` … `-4` add 80ms increments (160ms, 240ms, 320ms).
-- **Hero exception** — Hero reveals skip the observer wait and show on first paint.
-
-#### Other UI
-
-- **Feature cards** — Hover lift `-4px` + border/glow via `--motion`.
-- **FAQ** — Summary chevron rotates 45° on open.
-- **Nav / footer links** — Color transition only (`--motion`).
-
-### Reduced motion fallback
-
-When `prefers-reduced-motion: reduce` is active:
-
-**CSS (`styles.css`):**
-
-- `scroll-behavior: auto` (no smooth scroll).
-- Hero carousel nav buttons always visible (`opacity: 1`).
-- `.hyperframes-stage.is-playing` — static inset border; no `stage-glow-pulse`.
-- Hyperframe posters, videos, overlays, dots — transitions and animations disabled; transforms and filters reset.
-- `.reveal` — immediately visible (`opacity: 1`, no transform).
-- Button/card/dot hovers — no `translateY` or scale.
-
-**JavaScript (`script.js`):**
-
-- `BEAT_TRANSITION_MS = 0` — beat swaps are instant; no crossfade classes applied.
-- All `.reveal` elements get `.is-visible` immediately (no observer).
-- Count-up skipped — final stat values shown at once.
-- `pulseButton()` and step tick animations no-op.
-
-Content must remain fully readable: static posters, visible captions, and final stat numbers without requiring motion to understand the page.
-
----
-
-## 8. Hyperframes demo (agency showcase)
-
-**Hyperframes** is the internal name for the captioned step-through demo that showcases the Collins agency experience — hero carousel and full demo theater.
-
-### Assets
-
-- Manifest: `assets/hyperframes-manifest.json`
-- Posters: `assets/collins-demo-0X-*.png`
-- Segments: `assets/segments/*.webm`
-- Full video: `assets/collins-agency-demo.mp4`
-
-### Beat map (7 steps)
-
-| Step | Title | Caption |
-|---|---|---|
-| 01 | Collins agency | Digital marketing & automation for brands that want clarity, not bloat |
-| 02 | Full-funnel services | Strategy, content, paid media, and automation under one senior team |
-| 03 | How we work | A guided walkthrough of our approach, step by step |
-| 04 | Client results | Outcomes from retainers and campaign partnerships we stand behind |
-| 05 | Working together | Engagement models, timelines, and what to expect from a Collins partnership |
-| 06 | Book a strategy call | Tell us where growth is stuck. We will map the next 90 days with you. |
-| 07 | Collins | Unify, automate, amplify. Your growth agency. |
-
-### DOM structure
-
-```
-.hyperframes-theater
-  .hyperframes-stage
-    .hyperframe-video
-    .hyperframe-poster
-    .hyperframe-overlay
-      .hyperframe-step
-      .hyperframe-title
-      .hyperframe-caption
-  .hyperframes-controls (demo section only)
-  .hyperframe-dots
-```
-
-Two instances: `#hyperframes-theater` (demo section) and `.hero-theater` (compact hero carousel). Both wired in `script.js`.
-
-### Visual treatment
-
-- Stage: `--radius-lg`, border `--border`, overflow hidden.
-- Overlay: bottom gradient scrim; step/title/caption animate on beat change (`.is-entering`, `.is-exiting`).
-- Dots: pill/circle toggles; `.is-active` scales with green fill/glow.
-- Posters crossfade with `.is-fading` / `.is-entering`; video reveals on play.
-
-When updating copy, sync manifest captions with [BRAND.md](./BRAND.md) §7 and `index.html` demo section.
-
----
-
-## 9. Implementation handoff
-
-### Token mapping checklist
-
-- [ ] All new colors reference existing CSS variables — no stray hex in components.
-- [ ] Typography uses `--font-display` / `--font-body`.
-- [ ] Buttons use pill radius and gradient/g ghost pattern — no new button families.
-- [ ] Section backgrounds use deep/muted/elevated roles — no white marketing sections.
-- [ ] Motion honors `--motion` / `--motion-beat` and reduced-motion media query.
-- [ ] Hyperframes manifest stays aligned with landing page narrative (agency, not product).
-
-### QA checklist
-
-- [ ] Primary CTA contrast: neon gradient + `#040806` text passes AA.
-- [ ] Body text `#f0f7eb` on `#040806` / `#0f1610` passes AA.
-- [ ] Focus states visible on nav, buttons, hyperframe controls, FAQ summaries.
-- [ ] Hero and demo hyperframes functional with manifest-loaded beats.
-- [ ] Mobile layout: hero stacks, theater full-width, footer columns stack.
-
-### File map
-
-| File | Purpose |
-|---|---|
-| [BRAND.md](./BRAND.md) | Voice, positioning, CTAs |
-| `styles.css` | Token definitions + components |
-| `index.html` | Section structure + copy |
-| `script.js` | Reveals, stat counters, hyperframes controller |
-| `assets/hyperframes-manifest.json` | Demo beat metadata |
-
-If a visual element feels off-brand, adjust tokens here first — then propagate to `styles.css` — before adding one-off overrides.
-
----
-
-_Updated 2026-06-27. Tokens sourced from `styles.css`; agency narrative from [BRAND.md](./BRAND.md) and `index.html`._
+_Generated 2026-06-27 via per-section AI enrichment._

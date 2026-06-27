@@ -1,91 +1,20 @@
 {
   "projectId": "ebd31ae8-0025-441d-8eea-7bbda8af377d",
   "flowId": "655676c7-8818-4ef6-9678-c871c9d8afd6",
-  "guidelinesJobId": "9675b262-9f85-49b0-bef6-d097e566246a",
-  "exportedAt": "2026-06-27T12:00:00.000Z",
-  "commitHash": "28fc383c5ea86ddebe99d2b2cc8d1d0953c320f0",
-  "guidelinesSource": "latex-tectonic",
-  "pdfBytes": 79950,
-  "demoDurationSec": 55.12,
+  "guidelinesJobId": "e026d7c2-811d-41e4-b702-38497d5c8912",
+  "exportedAt": "2026-06-27T06:24:55.703Z",
+  "guidelinesHtmlSource": "canvas",
+  "pdfBytes": 449792,
   "local": {
-    "brandPath": "deliverables/brand.md",
-    "designPath": "deliverables/design.md",
-    "pdfPath": "deliverables/brand-guidelines.pdf",
-    "demoVideoPath": "deliverables/collins-agency-demo.mp4"
+    "brandPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\brand.md",
+    "designPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\design.md",
+    "htmlPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\brand-guidelines.html",
+    "pdfPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-brand-guidelines.pdf",
+    "pdfAliasPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\brand-guidelines.pdf"
   },
   "catbox": {
     "brandMd": "https://files.catbox.moe/ndtw01.md",
-    "designMd": "https://files.catbox.moe/4s7a9i.md",
-    "guidelinesPdf": "https://files.catbox.moe/qk6wgm.pdf",
-    "deliverablesZip": "https://files.catbox.moe/qwsp9q.zip"
-  },
-  "deliverables": [
-    {
-      "path": "deliverables/brand-guidelines.pdf",
-      "bytes": 79950,
-      "updatedAt": "2026-06-27T12:30:00.000Z",
-      "kind": "brand-guidelines-pdf"
-    },
-    {
-      "path": "deliverables/brand.md",
-      "bytes": 18698,
-      "updatedAt": "2026-06-27T06:10:36.000Z",
-      "kind": "brand-doc"
-    },
-    {
-      "path": "deliverables/design.md",
-      "bytes": 19425,
-      "updatedAt": "2026-06-27T05:12:28.000Z",
-      "kind": "design-doc"
-    },
-    {
-      "path": "deliverables/collins-agency-demo.mp4",
-      "bytes": 4383045,
-      "updatedAt": "2026-06-27T06:00:54.000Z",
-      "kind": "demo-video",
-      "durationSec": 55.12
-    },
-    {
-      "path": "deliverables/collins-logo-neon.svg",
-      "bytes": 1963,
-      "updatedAt": "2026-06-27T05:08:03.000Z",
-      "kind": "logo-svg"
-    },
-    {
-      "path": "deliverables/collins-logo-neon-light.svg",
-      "bytes": 1963,
-      "updatedAt": "2026-06-27T05:08:08.000Z",
-      "kind": "logo-svg-light"
-    },
-    {
-      "path": "deliverables/collins-logo-neon-512.png",
-      "bytes": 27948,
-      "updatedAt": "2026-06-27T06:10:17.000Z",
-      "kind": "logo-png"
-    },
-    {
-      "path": "deliverables/collins-logo-neon-1024.png",
-      "bytes": 61535,
-      "updatedAt": "2026-06-27T06:10:17.000Z",
-      "kind": "logo-png"
-    },
-    {
-      "path": "deliverables/collins-logo-neon-light-512.png",
-      "bytes": 27711,
-      "updatedAt": "2026-06-27T06:10:17.000Z",
-      "kind": "logo-png-light"
-    },
-    {
-      "path": "deliverables/collins-logo-neon-light-1024.png",
-      "bytes": 60447,
-      "updatedAt": "2026-06-27T06:10:17.000Z",
-      "kind": "logo-png-light"
-    },
-    {
-      "path": "deliverables/manifest.json",
-      "bytes": 2666,
-      "updatedAt": "2026-06-27T12:00:00.000Z",
-      "kind": "manifest"
-    }
-  ]
+    "designMd": "https://files.catbox.moe/zeytxv.md",
+    "guidelinesPdf": "https://files.catbox.moe/bb9yfo.pdf"
+  }
 }
