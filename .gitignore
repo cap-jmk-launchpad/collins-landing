@@ -9,7 +9,11 @@ desktop.ini
 !.env.example
 
 # Dependencies
+assets/segments/
+assets/.hyperframe-auth.json
+assets/hyperframes-ffmpeg.txt
 node_modules/
+package-lock.json
 .pnpm-store/
 .npm/
 

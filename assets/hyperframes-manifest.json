@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "recordedAt": "2026-06-27T04:55:56.481Z",
+  "beats": [
+    {
+      "id": "01",
+      "slug": "hero",
+      "title": "Collins agency",
+      "caption": "Digital marketing & automation for brands that want clarity, not bloat",
+      "durationSec": 6,
+      "poster": "collins-demo-01-hero.png",
+      "segment": "segments/collins-demo-01-hero.webm"
+    },
+    {
+      "id": "02",
+      "slug": "services",
+      "title": "Full-funnel services",
+      "caption": "Strategy, content, paid media, and automation under one senior team",
+      "durationSec": 7,
+      "poster": "collins-demo-02-services.png",
+      "segment": "segments/collins-demo-02-services.webm"
+    },
+    {
+      "id": "03",
+      "slug": "demo",
+      "title": "How we work",
+      "caption": "A guided walkthrough of our approach — captured as hyperframes",
+      "durationSec": 6,
+      "poster": "collins-demo-03-demo.png",
+      "segment": "segments/collins-demo-03-demo.webm"
+    },
+    {
+      "id": "04",
+      "slug": "results",
+      "title": "Client results",
+      "caption": "Outcomes from retainers and campaign partnerships we stand behind",
+      "durationSec": 7,
+      "poster": "collins-demo-04-results.png",
+      "segment": "segments/collins-demo-04-results.webm"
+    },
+    {
+      "id": "05",
+      "slug": "faq",
+      "title": "Working together",
+      "caption": "Engagement models, timelines, and what to expect from a Collins partnership",
+      "durationSec": 6,
+      "poster": "collins-demo-05-faq.png",
+      "segment": "segments/collins-demo-05-faq.webm"
+    },
+    {
+      "id": "06",
+      "slug": "contact",
+      "title": "Book a strategy call",
+      "caption": "Tell us where growth is stuck — we will map the next 90 days with you",
+      "durationSec": 6,
+      "poster": "collins-demo-06-contact.png",
+      "segment": "segments/collins-demo-06-contact.webm"
+    },
+    {
+      "id": "07",
+      "slug": "endcard",
+      "title": "Collins",
+      "caption": "Unify · Automate · Amplify — your growth agency",
+      "durationSec": 4,
+      "poster": "collins-demo-07-endcard.png",
+      "segment": "segments/collins-demo-07-endcard.webm"
+    }
+  ]
+}

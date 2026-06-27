@@ -1,0 +1,12 @@
+{
+  "name": "collins-landing",
+  "private": true,
+  "scripts": {
+    "serve": "npx serve . -p 4173",
+    "demo:frames": "node scripts/demo-record/record-hyperframes.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.1",
+    "serve": "^14.2.4"
+  }
+}
