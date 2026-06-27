@@ -9,7 +9,8 @@
     "brand:pdf": "node scripts/brand-guidelines/compile-brand-guidelines.mjs",
     "brand:pdf:latex": "node scripts/brand-guidelines/compile-brand-guidelines.mjs",
     "brand:pdf:html": "node scripts/generate-brand-guidelines.mjs",
-    "logo:export": "node scripts/export-logo-png.mjs"
+    "logo:export": "node scripts/export-logo-png.mjs",
+    "hero:images": "node scripts/generate-hero-method-images.mjs"
   },
   "devDependencies": {
     "ffmpeg-static": "^5.3.0",

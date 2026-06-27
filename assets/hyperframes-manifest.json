@@ -8,6 +8,56 @@
     "settleMs": 350
   },
   "sourceSegment": "segments/collins-demo-full.webm",
+  "heroBeats": [
+    {
+      "id": "01",
+      "slug": "discover",
+      "title": "Discover",
+      "caption": "Start with a 30-minute strategy call. Tell us where momentum is stuck.",
+      "poster": "hero-method-01-discover.png",
+      "durationSec": 5
+    },
+    {
+      "id": "02",
+      "slug": "strategy",
+      "title": "Map the sprint",
+      "caption": "Week one maps SEO, paid, content, and automation to your KPIs.",
+      "poster": "hero-method-02-strategy.png",
+      "durationSec": 5
+    },
+    {
+      "id": "03",
+      "slug": "scope",
+      "title": "Scope with clarity",
+      "caption": "Transparent line items, senior access, and reporting cadence locked in.",
+      "poster": "hero-method-03-scope.png",
+      "durationSec": 5
+    },
+    {
+      "id": "04",
+      "slug": "ship",
+      "title": "Ship campaigns",
+      "caption": "Content, paid media, and nurture launch from one shared playbook.",
+      "poster": "hero-method-04-ship.png",
+      "durationSec": 5
+    },
+    {
+      "id": "05",
+      "slug": "automate",
+      "title": "Automate and connect",
+      "caption": "CRM and workflows wired to the same growth plan.",
+      "poster": "hero-method-05-automate.png",
+      "durationSec": 5
+    },
+    {
+      "id": "06",
+      "slug": "measure",
+      "title": "Measure and compound",
+      "caption": "Revenue tied reporting and quarterly channel tuning.",
+      "poster": "hero-method-06-measure.png",
+      "durationSec": 5
+    }
+  ],
   "beats": [
     {
       "id": "01",

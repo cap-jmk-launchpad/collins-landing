@@ -45,6 +45,51 @@
     });
   }
 
+  var HERO_BEATS = [
+    {
+      id: "01",
+      title: "Discover",
+      caption: "Start with a 30-minute strategy call. Tell us where momentum is stuck.",
+      poster: "assets/hero-method-01-discover.png",
+      durationSec: 5,
+    },
+    {
+      id: "02",
+      title: "Map the sprint",
+      caption: "Week one maps SEO, paid, content, and automation to your KPIs.",
+      poster: "assets/hero-method-02-strategy.png",
+      durationSec: 5,
+    },
+    {
+      id: "03",
+      title: "Scope with clarity",
+      caption: "Transparent line items, senior access, and reporting cadence locked in.",
+      poster: "assets/hero-method-03-scope.png",
+      durationSec: 5,
+    },
+    {
+      id: "04",
+      title: "Ship campaigns",
+      caption: "Content, paid media, and nurture launch from one shared playbook.",
+      poster: "assets/hero-method-04-ship.png",
+      durationSec: 5,
+    },
+    {
+      id: "05",
+      title: "Automate and connect",
+      caption: "CRM and workflows wired to the same growth plan.",
+      poster: "assets/hero-method-05-automate.png",
+      durationSec: 5,
+    },
+    {
+      id: "06",
+      title: "Measure and compound",
+      caption: "Revenue tied reporting and quarterly channel tuning.",
+      poster: "assets/hero-method-06-measure.png",
+      durationSec: 5,
+    },
+  ];
+
   var FALLBACK_BEATS = [
     {
       id: "01",
@@ -567,7 +612,14 @@
         return res.ok ? res.json() : null;
       })
       .then(function (manifest) {
-        var raw = manifest && manifest.beats && manifest.beats.length ? manifest.beats : FALLBACK_BEATS;
+        var raw =
+          posterOnly && manifest && manifest.heroBeats && manifest.heroBeats.length
+            ? manifest.heroBeats
+            : posterOnly
+              ? HERO_BEATS
+              : manifest && manifest.beats && manifest.beats.length
+                ? manifest.beats
+                : FALLBACK_BEATS;
         var videoSrc = null;
         if (useFullVideo) {
           videoSrc =
@@ -578,7 +630,10 @@
         initBeats(raw, videoSrc);
       })
       .catch(function () {
-        initBeats(FALLBACK_BEATS, useFullVideo ? DEFAULT_FULL_VIDEO : null);
+        initBeats(
+          posterOnly ? HERO_BEATS : FALLBACK_BEATS,
+          useFullVideo ? DEFAULT_FULL_VIDEO : null
+        );
       });
 
     return { showBeat: showBeat, play: play, stop: stop };
