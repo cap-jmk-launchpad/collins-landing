@@ -6,7 +6,7 @@
       type: "title",
       title: "Collins",
       caption: "Digital marketing and automation for brands that want clarity",
-      durationMs: 3600,
+      durationMs: 4000,
     },
     {
       id: "01",
@@ -16,7 +16,7 @@
       title: "Discover",
       caption: "Start with a 30-minute strategy call. Tell us where momentum is stuck.",
       poster: "assets/hero-method-01-discover.png",
-      durationMs: 5600,
+      durationMs: 6400,
     },
     {
       id: "02",
@@ -26,7 +26,7 @@
       title: "Map the sprint",
       caption: "Week one maps SEO, paid, content, and automation to your KPIs.",
       poster: "assets/hero-method-02-strategy.png",
-      durationMs: 5600,
+      durationMs: 6400,
     },
     {
       id: "03",
@@ -36,7 +36,7 @@
       title: "Scope with clarity",
       caption: "Transparent line items, senior access, and reporting cadence locked in.",
       poster: "assets/hero-method-03-scope.png",
-      durationMs: 5600,
+      durationMs: 6400,
     },
     {
       id: "04",
@@ -46,7 +46,7 @@
       title: "Ship campaigns",
       caption: "Content, paid media, and nurture launch from one shared playbook.",
       poster: "assets/hero-method-04-ship.png",
-      durationMs: 5600,
+      durationMs: 6400,
     },
     {
       id: "05",
@@ -56,7 +56,7 @@
       title: "Automate and connect",
       caption: "CRM and workflows wired to the same growth plan.",
       poster: "assets/hero-method-05-automate.png",
-      durationMs: 5600,
+      durationMs: 6400,
     },
     {
       id: "06",
@@ -66,7 +66,7 @@
       title: "Measure and compound",
       caption: "Revenue tied reporting and quarterly channel tuning.",
       poster: "assets/hero-method-06-measure.png",
-      durationMs: 6200,
+      durationMs: 7000,
     },
     {
       id: "07",
@@ -74,7 +74,7 @@
       type: "title",
       title: "Unify. Automate. Amplify.",
       caption: "Your growth agency.",
-      durationMs: 4200,
+      durationMs: 4600,
     },
   ];
 
@@ -122,11 +122,8 @@
   }
 
   function methodMarkup(beat) {
-    var holdSec = Math.max(3, (beat.durationMs - 900) / 1000);
     return (
-      '<div class="reel-method" style="--beat-hold:' +
-      holdSec +
-      's">' +
+      '<div class="reel-method">' +
       '<div class="reel-method-image-wrap">' +
       '<img class="reel-method-image" src="' +
       escapeHtml(beat.poster) +

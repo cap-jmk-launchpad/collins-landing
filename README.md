@@ -14,7 +14,7 @@ Open http://localhost:4173
 
 ## Demo recording (HyperFrames motion)
 
-The landing demo is a **brand release reel** (`demo-reel.html`): cinematic crossfades through the six Collins method cards with title cards and Ken Burns motion. Beat-synced captions in `#demo` follow `assets/hyperframes-manifest.json`.
+The landing demo is a **brand release reel** (`demo-reel.html`): cinematic crossfades through the six Collins method cards with title cards and staggered neon text overlays. Beat-synced captions in `#demo` follow `assets/hyperframes-manifest.json`.
 
 Storyboard lives in `scripts/demo-record/storyboard.mjs` (`BRAND_REEL_STORYBOARD`).
 

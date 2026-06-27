@@ -10,7 +10,7 @@ Exported: 2026-06-27T05:06:22.711Z
 
 ## Local files
 
-- `deliverables/collins-agency-demo.mp4`: brand release reel (~49s, method story with title cards and cinematic motion)
+- `deliverables/collins-agency-demo.mp4`: brand release reel (~55s, method story with title cards and staggered neon text)
 - `deliverables/collins-brand-guidelines.pdf`
 - `deliverables/design.md`
 - `deliverables/brand.md`
