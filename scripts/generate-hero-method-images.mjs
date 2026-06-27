@@ -18,6 +18,8 @@ const steps = [
     number: "01",
     icon: "compass",
     accent: "#39ff14",
+    title: "Discover",
+    caption: "Start with a 30-minute strategy call. Tell us where momentum is stuck.",
   },
   {
     id: "02",
@@ -25,6 +27,8 @@ const steps = [
     number: "02",
     icon: "map",
     accent: "#00ff88",
+    title: "Map the sprint",
+    caption: "Week one maps SEO, paid, content, and automation to your KPIs.",
   },
   {
     id: "03",
@@ -32,6 +36,8 @@ const steps = [
     number: "03",
     icon: "scope",
     accent: "#b6ff00",
+    title: "Scope with clarity",
+    caption: "Transparent line items, senior access, and reporting cadence locked in.",
   },
   {
     id: "04",
@@ -39,6 +45,8 @@ const steps = [
     number: "04",
     icon: "rocket",
     accent: "#39ff14",
+    title: "Ship campaigns",
+    caption: "Content, paid media, and nurture launch from one shared playbook.",
   },
   {
     id: "05",
@@ -46,6 +54,8 @@ const steps = [
     number: "05",
     icon: "flow",
     accent: "#00ff88",
+    title: "Automate and connect",
+    caption: "CRM and workflows wired to the same growth plan.",
   },
   {
     id: "06",
@@ -53,8 +63,18 @@ const steps = [
     number: "06",
     icon: "chart",
     accent: "#b6ff00",
+    title: "Measure and compound",
+    caption: "Revenue tied reporting and quarterly channel tuning.",
   },
 ];
+
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
 
 function iconSvg(type, color) {
   const stroke = `stroke="${color}" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"`;
@@ -99,7 +119,7 @@ function cardHtml(step) {
     <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet" />
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body {
@@ -136,7 +156,7 @@ function cardHtml(step) {
       }
       .step-num {
         position: absolute;
-        top: 72px;
+        top: 52px;
         left: 56px;
         font-size: 120px;
         font-weight: 800;
@@ -145,6 +165,40 @@ function cardHtml(step) {
         color: ${step.accent};
         opacity: 0.18;
         user-select: none;
+        pointer-events: none;
+      }
+      .copy {
+        position: absolute;
+        left: 56px;
+        top: 50%;
+        transform: translateY(-46%);
+        max-width: 52%;
+        z-index: 2;
+      }
+      .step-tag {
+        margin: 0 0 14px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #9aab94;
+      }
+      .card-title {
+        margin: 0 0 12px;
+        font-size: 40px;
+        font-weight: 800;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        color: #f0f7eb;
+      }
+      .card-caption {
+        margin: 0;
+        max-width: 420px;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #9aab94;
       }
       .icon-wrap {
         position: absolute;
@@ -191,6 +245,11 @@ function cardHtml(step) {
       <div class="grid"></div>
       <div class="frame"></div>
       <div class="step-num">${step.number}</div>
+      <div class="copy">
+        <p class="step-tag">Step ${step.number} of 6</p>
+        <h1 class="card-title">${escapeHtml(step.title)}</h1>
+        <p class="card-caption">${escapeHtml(step.caption)}</p>
+      </div>
       <div class="icon-wrap">
         <svg viewBox="0 0 240 240" aria-hidden="true">
           ${iconSvg(step.icon, step.accent)}
@@ -212,6 +271,7 @@ const page = await context.newPage();
 
 for (const step of steps) {
   await page.setContent(cardHtml(step), { waitUntil: "networkidle" });
+  await page.evaluate(() => document.fonts.ready);
   const filename = `hero-method-${step.id}-${step.slug}.png`;
   await page.screenshot({
     path: join(assetsDir, filename),

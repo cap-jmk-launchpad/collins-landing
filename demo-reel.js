@@ -6,7 +6,7 @@
       type: "title",
       title: "Collins",
       caption: "Digital marketing and automation for brands that want clarity",
-      durationMs: 4000,
+      durationMs: 4400,
     },
     {
       id: "01",
@@ -74,7 +74,7 @@
       type: "title",
       title: "Unify. Automate. Amplify.",
       caption: "Your growth agency.",
-      durationMs: 4600,
+      durationMs: 5000,
     },
   ];
 
@@ -105,10 +105,12 @@
         '<span class="accent">Unify.</span> Automate. <span class="accent">Amplify.</span>';
     }
 
+    var showLogo = beat.slug === "intro" || beat.slug === "outro";
+
     return (
       '<div class="reel-title-card">' +
-      (beat.slug === "intro"
-        ? '<div class="reel-logo-mark" aria-hidden="true">C</div>'
+      (showLogo
+        ? '<img class="reel-logo" src="assets/logo.svg" alt="Collins" width="320" height="310" />'
         : "") +
       '<h1 class="reel-headline">' +
       headline +

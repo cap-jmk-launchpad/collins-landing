@@ -90,7 +90,7 @@ export const BRAND_REEL_STORYBOARD = [
     title: "Collins",
     caption: "Digital marketing and automation for brands that want clarity",
     poster: "hero-method-01-discover.png",
-    durationMs: 4000,
+    durationMs: 4400,
   },
   ...HERO_METHOD_STORYBOARD.map((beat) => ({
     ...beat,
@@ -105,7 +105,7 @@ export const BRAND_REEL_STORYBOARD = [
     title: "Unify. Automate. Amplify.",
     caption: "Your growth agency.",
     poster: "hero-method-06-measure.png",
-    durationMs: 4600,
+    durationMs: 5000,
   },
 ];
 
