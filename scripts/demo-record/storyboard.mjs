@@ -1,5 +1,15 @@
 /** Collins agency landing — hyperframe storyboard. */
 
+/** Motion rhythm (HyperFrames website-to-video pacing). */
+export const MOTION = {
+  holdMs: 4800,
+  endcardHoldMs: 3800,
+  scrollMs: 2600,
+  settleMs: 350,
+  loadSettleMs: 700,
+  posterLeadMs: 400,
+};
+
 export const COLLINS_STORYBOARD = [
   {
     id: "01",

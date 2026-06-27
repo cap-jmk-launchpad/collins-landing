@@ -12,23 +12,46 @@ npm run serve
 
 Open http://localhost:4173
 
-## Demo recording
+## Demo recording (HyperFrames motion)
 
-Storyboard-driven walkthrough (see `scripts/demo-record/storyboard.mjs`):
+The landing demo is a **single continuous scroll tour** with HyperFrames-inspired pacing: eased camera moves between sections, hold pauses on each beat, and no hard jump cuts between stitched segments.
+
+Storyboard anchors live in `scripts/demo-record/storyboard.mjs` (`#top`, `#services`, `#demo`, `#proof`, `#faq`, `#start`).
+
+### Regenerate the demo video
+
+**Terminal 1** — serve the site:
 
 ```bash
-npm run serve          # terminal 1
-npm run demo:frames    # terminal 2: records posters + webm segments
-npm run demo:stitch    # concat segments → assets/collins-agency-demo.mp4
+npm run serve
 ```
 
-Or in one shot after the site is being served:
+**Terminal 2** — record + encode:
 
 ```bash
 npm run demo:build
 ```
 
-Outputs land in `assets/hyperframes-manifest.json`, `assets/collins-demo-*.png`, `assets/segments/*.webm`, and the stitched **`assets/collins-agency-demo.mp4`** used by the demo player.
+Or step by step:
+
+```bash
+npm run demo:frames   # Playwright capture → assets/segments/collins-demo-full.webm + posters + manifest
+npm run demo:stitch   # FFmpeg H.264 → assets/collins-agency-demo.mp4 + deliverables copy
+```
+
+### Outputs
+
+| Path | Purpose |
+|------|---------|
+| `assets/hyperframes-manifest.json` | Beat titles, captions, `startSec` / `durationSec` for subtitle sync |
+| `assets/collins-demo-*.png` | Poster frames per beat (hero carousel) |
+| `assets/segments/collins-demo-full.webm` | Raw continuous recording |
+| `assets/collins-agency-demo.mp4` | Encoded demo ( `#demo` player source) |
+| `deliverables/collins-agency-demo.mp4` | Shareable copy |
+
+Motion timing defaults (`holdMs`, `scrollMs`) are in `scripts/demo-record/storyboard.mjs`. The [`hyperframes`](https://github.com/heygen-com/hyperframes) package is included for CLI tooling (`npx hyperframes doctor`); capture uses Playwright with the same eased-scroll rhythm as HyperFrames website tours.
+
+Override base URL: `DEMO_BASE_URL=http://127.0.0.1:4173 npm run demo:frames`
 
 ## Structure
 
@@ -42,8 +65,8 @@ Outputs land in `assets/hyperframes-manifest.json`, `assets/collins-demo-*.png`,
 | `deliverables/collins-logo-neon-light.svg` | Print/light-bg variant (`#040806` + `#39ff14`) |
 | `deliverables/collins-logo-neon-*.png` | Raster exports at 512px and 1024px (run `npm run logo:export`) |
 | `assets/hyperframes-manifest.json` | Demo beat manifest |
-| `assets/collins-agency-demo.mp4` | Stitched full demo video (site player source) |
-| `deliverables/collins-agency-demo.mp4` | Shareable copy of the demo video (~58s) |
+| `assets/collins-agency-demo.mp4` | Full demo video (site player source) |
+| `deliverables/collins-agency-demo.mp4` | Shareable copy of the demo video |
 | `deliverables/brand-guidelines.pdf` | Shareable brand guidelines (HTML source in same folder) |
 | `docs/brand.md` / `design.md` | Brand narrative and design tokens |
 

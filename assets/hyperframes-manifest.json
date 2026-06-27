@@ -1,71 +1,92 @@
 {
-  "version": 1,
-  "recordedAt": "2026-06-27T05:07:42.222Z",
+  "version": 2,
+  "engine": "playwright-hyperframes-motion",
+  "recordedAt": "2026-06-27T05:15:46.714Z",
+  "motion": {
+    "holdMs": 4800,
+    "scrollMs": 2600,
+    "settleMs": 350
+  },
+  "sourceSegment": "segments/collins-demo-full.webm",
   "beats": [
     {
       "id": "01",
       "slug": "hero",
       "title": "Collins agency",
       "caption": "Digital marketing & automation for brands that want clarity, not bloat",
-      "durationSec": 7.84,
+      "hash": "#top",
+      "startSec": 1.3,
+      "durationSec": 7.92,
       "poster": "collins-demo-01-hero.png",
-      "segment": "segments/collins-demo-01-hero.webm"
+      "segment": null
     },
     {
       "id": "02",
       "slug": "services",
       "title": "Full-funnel services",
       "caption": "Strategy, content, paid media, and automation under one senior team",
-      "durationSec": 9.72,
+      "hash": "#services",
+      "startSec": 9.22,
+      "durationSec": 7.87,
       "poster": "collins-demo-02-services.png",
-      "segment": "segments/collins-demo-02-services.webm"
+      "segment": null
     },
     {
       "id": "03",
       "slug": "demo",
       "title": "How we work",
       "caption": "A guided walkthrough of our approach, step by step",
-      "durationSec": 7.84,
+      "hash": "#demo",
+      "startSec": 17.09,
+      "durationSec": 7.94,
       "poster": "collins-demo-03-demo.png",
-      "segment": "segments/collins-demo-03-demo.webm"
+      "segment": null
     },
     {
       "id": "04",
       "slug": "results",
       "title": "Client results",
       "caption": "Outcomes from retainers and campaign partnerships we stand behind",
-      "durationSec": 9.08,
+      "hash": "#proof",
+      "startSec": 25.03,
+      "durationSec": 11.28,
       "poster": "collins-demo-04-results.png",
-      "segment": "segments/collins-demo-04-results.webm"
+      "segment": null
     },
     {
       "id": "05",
       "slug": "faq",
       "title": "Working together",
       "caption": "Engagement models, timelines, and what to expect from a Collins partnership",
-      "durationSec": 9.32,
+      "hash": "#faq",
+      "startSec": 36.31,
+      "durationSec": 8.47,
       "poster": "collins-demo-05-faq.png",
-      "segment": "segments/collins-demo-05-faq.webm"
+      "segment": null
     },
     {
       "id": "06",
       "slug": "contact",
       "title": "Book a strategy call",
       "caption": "Tell us where growth is stuck. We will map the next 90 days with you.",
-      "durationSec": 8.72,
+      "hash": "#start",
+      "startSec": 44.78,
+      "durationSec": 7.88,
       "poster": "collins-demo-06-contact.png",
-      "segment": "segments/collins-demo-06-contact.webm"
+      "segment": null
     },
     {
       "id": "07",
       "slug": "endcard",
       "title": "Collins",
       "caption": "Unify, automate, amplify. Your growth agency.",
-      "durationSec": 5.52,
+      "hash": "#top",
+      "startSec": 52.66,
+      "durationSec": 5.46,
       "poster": "collins-demo-07-endcard.png",
-      "segment": "segments/collins-demo-07-endcard.webm"
+      "segment": null
     }
   ],
-  "fullVideo": "collins-agency-demo.mp4",
-  "totalDurationSec": 58.04
+  "totalDurationSec": 58.12,
+  "fullVideo": "collins-agency-demo.mp4"
 }

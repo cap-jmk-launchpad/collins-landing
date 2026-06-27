@@ -115,6 +115,7 @@
             ? beat.segment
             : "assets/" + beat.segment
           : null,
+        startSec: beat.startSec != null ? beat.startSec : null,
         durationSec: beat.durationSec || 6,
       };
     });
@@ -123,6 +124,11 @@
   var DEFAULT_FULL_VIDEO = "assets/collins-agency-demo.mp4";
 
   function buildBeatStarts(rawBeats) {
+    if (rawBeats.length && rawBeats[0].startSec != null) {
+      return rawBeats.map(function (beat) {
+        return beat.startSec;
+      });
+    }
     var starts = [];
     var elapsed = 0;
     rawBeats.forEach(function (beat) {

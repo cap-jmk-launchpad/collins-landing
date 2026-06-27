@@ -22,9 +22,9 @@
   "demoVideo": {
     "path": "deliverables/collins-agency-demo.mp4",
     "sourcePath": "assets/collins-agency-demo.mp4",
-    "durationSec": 58.04,
-    "bytes": 5074908,
-    "description": "Storyboard-driven Collins agency landing page walkthrough (7 beats: hero, services, demo, results, FAQ, contact, endcard)."
+    "durationSec": 58.12,
+    "bytes": 5955604,
+    "description": "Continuous scroll tour of Collins agency landing page (7 beats with eased transitions: hero, services, demo, results, FAQ, contact, endcard)."
   },
   "catbox": {
     "brandMd": "https://files.catbox.moe/ndtw01.md",
