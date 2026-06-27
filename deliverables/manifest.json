@@ -2,7 +2,7 @@
   "projectId": "ebd31ae8-0025-441d-8eea-7bbda8af377d",
   "flowId": "655676c7-8818-4ef6-9678-c871c9d8afd6",
   "guidelinesJobId": "e026d7c2-811d-41e4-b702-38497d5c8912",
-  "exportedAt": "2026-06-27T06:24:55.703Z",
+  "exportedAt": "2026-06-27T06:45:35.142Z",
   "guidelinesHtmlSource": "canvas",
   "pdfBytes": 449792,
   "local": {
@@ -15,6 +15,15 @@
   "catbox": {
     "brandMd": "https://files.catbox.moe/ndtw01.md",
     "designMd": "https://files.catbox.moe/zeytxv.md",
-    "guidelinesPdf": "https://files.catbox.moe/bb9yfo.pdf"
+    "guidelinesPdf": "https://files.catbox.moe/k31a0l.pdf",
+    "deliverablesZip": "https://files.catbox.moe/i11fke.zip",
+    "logoNeonSvg": "https://files.catbox.moe/xvkpda.svg",
+    "logoNeonLightSvg": "https://files.catbox.moe/3ocrvq.svg",
+    "logoNeon512": "https://files.catbox.moe/0lh8hp.png",
+    "logoNeon1024": "https://files.catbox.moe/3azqpl.png",
+    "logoNeonLight512": "https://files.catbox.moe/c31h0p.png",
+    "logoNeonLight1024": "https://files.catbox.moe/mxk5k3.png",
+    "logoSvg": "https://files.catbox.moe/xvkpda.svg",
+    "agencyDemoMp4": "https://files.catbox.moe/7iltsk.mp4"
   }
 }

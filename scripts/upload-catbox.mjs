@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, existsSync } from "fs";
+﻿import { readFileSync, writeFileSync, existsSync } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -12,6 +12,22 @@ const MIME = {
   ".md": "text/markdown",
   ".png": "image/png",
   ".svg": "image/svg+xml",
+};
+
+const ZIP_NAMES = new Set([
+  "collins-deliverables.zip",
+  "collins-deliverables-2026-06-27.zip",
+]);
+
+const ASSET_KEY_BY_BASENAME = {
+  "collins-logo-neon.svg": "logoNeonSvg",
+  "collins-logo-neon-light.svg": "logoNeonLightSvg",
+  "collins-logo-neon-512.png": "logoNeon512",
+  "collins-logo-neon-1024.png": "logoNeon1024",
+  "collins-logo-neon-light-512.png": "logoNeonLight512",
+  "collins-logo-neon-light-1024.png": "logoNeonLight1024",
+  "logo.svg": "logoSvg",
+  "collins-agency-demo.mp4": "agencyDemoMp4",
 };
 
 export async function uploadToCatbox(filePath) {
@@ -65,6 +81,46 @@ function updateJsonFile(relPath, mutator) {
   console.log(`Updated ${relPath}`);
 }
 
+function applyZipUrl(zipUrl) {
+  updateJsonFile("urls.json", (urls) => {
+    urls.previous = {
+      ...(urls.previous || {}),
+      ...(urls["deliverables.zip"] ? { "deliverables.zip": urls["deliverables.zip"] } : {}),
+    };
+    urls["deliverables.zip"] = zipUrl;
+  });
+  updateJsonFile("deliverables/manifest.json", (data) => {
+    if (!data.catbox) data.catbox = {};
+    data.catbox.deliverablesZip = zipUrl;
+    data.exportedAt = new Date().toISOString();
+  });
+  updateJsonFile("deliverables/assets.json", (data) => {
+    data.deliverablesZip = zipUrl;
+  });
+  updateJsonFile("assets.json", (data) => {
+    data.deliverablesZip = zipUrl;
+  });
+}
+
+function applyAssetUrl(basename, url) {
+  const key = ASSET_KEY_BY_BASENAME[basename];
+  if (!key) return;
+
+  updateJsonFile("deliverables/manifest.json", (data) => {
+    if (!data.catbox) data.catbox = {};
+    data.catbox[key] = url;
+  });
+  updateJsonFile("deliverables/assets.json", (data) => {
+    data[key] = url;
+  });
+  updateJsonFile("assets.json", (data) => {
+    data[key] = url;
+  });
+  updateJsonFile("urls.json", (urls) => {
+    urls[basename] = url;
+  });
+}
+
 async function main() {
   const targets = process.argv.slice(2);
   if (targets.length === 0) {
@@ -79,27 +135,11 @@ async function main() {
     const url = await uploadToCatbox(filePath);
     results[key] = url;
     console.log(`${key} -> ${url}`);
-  }
 
-  if (results["collins-deliverables-2026-06-27.zip"]) {
-    const zipUrl = results["collins-deliverables-2026-06-27.zip"];
-    updateJsonFile("urls.json", (urls) => {
-      urls.previous = {
-        ...(urls.previous || {}),
-        ...(urls["deliverables.zip"] ? { "deliverables.zip": urls["deliverables.zip"] } : {}),
-      };
-      urls["deliverables.zip"] = zipUrl;
-    });
-    updateJsonFile("deliverables/manifest.json", (data) => {
-      if (data.catbox) data.catbox.deliverablesZip = zipUrl;
-    });
-    updateJsonFile("deliverables/assets.json", (data) => {
-      if (data.deliverablesZip !== undefined) data.deliverablesZip = zipUrl;
-      else data.deliverablesZip = zipUrl;
-    });
-    updateJsonFile("assets.json", (data) => {
-      data.deliverablesZip = zipUrl;
-    });
+    if (ZIP_NAMES.has(key)) {
+      applyZipUrl(url);
+    }
+    applyAssetUrl(key, url);
   }
 
   console.log(JSON.stringify(results, null, 2));
