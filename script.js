@@ -257,7 +257,9 @@
 
     function tickStepCounter(i) {
       if (!stepEl) return;
-      stepEl.textContent = "Step " + (i + 1) + " of " + beats.length;
+      var num = String(i + 1).padStart(2, "0");
+      var total = String(beats.length).padStart(2, "0");
+      stepEl.textContent = num + " OF " + total;
       if (prefersReduced) return;
       stepEl.classList.remove("is-ticking");
       void stepEl.offsetWidth;
