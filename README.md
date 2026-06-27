@@ -1,6 +1,6 @@
 ﻿# Collins landing page
 
-Marketing agency landing page mock for **Collins** — neon green dark theme, interactive demo, vector logo.
+Marketing agency landing page mock for **Collins**: neon green dark theme, interactive demo, vector logo.
 
 **Live repo:** [cap-jmk-launchpad/collins-landing](https://github.com/cap-jmk-launchpad/collins-landing)
 
@@ -18,7 +18,7 @@ Storyboard-driven walkthrough (see `scripts/demo-record/storyboard.mjs`):
 
 ```bash
 npm run serve          # terminal 1
-npm run demo:frames    # terminal 2 — records posters + webm segments
+npm run demo:frames    # terminal 2: records posters + webm segments
 npm run demo:stitch    # concat segments → assets/collins-agency-demo.mp4
 ```
 

@@ -10,12 +10,12 @@ Exported: 2026-06-27T05:06:22.711Z
 
 ## Local files
 
-- `deliverables/collins-agency-demo.mp4` — full landing page demo (~58s, 7-beat storyboard walkthrough)
+- `deliverables/collins-agency-demo.mp4`: full landing page demo (~58s, 7-beat storyboard walkthrough)
 - `deliverables/collins-brand-guidelines.pdf`
 - `deliverables/design.md`
 - `deliverables/brand.md`
-- `deliverables/collins-logo-neon.svg` — dark-bg mark (`#f5f5f7` + `#39ff14`)
-- `deliverables/collins-logo-neon-light.svg` — light-bg / print mark (`#040806` + `#39ff14`)
+- `deliverables/collins-logo-neon.svg`: dark-bg mark (`#f5f5f7` + `#39ff14`)
+- `deliverables/collins-logo-neon-light.svg`: light-bg / print mark (`#040806` + `#39ff14`)
 - `deliverables/collins-logo-neon-512.png`, `collins-logo-neon-1024.png`
 - `deliverables/collins-logo-neon-light-512.png`, `collins-logo-neon-light-1024.png`
 

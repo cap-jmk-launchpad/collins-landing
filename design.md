@@ -333,11 +333,11 @@ Content must remain fully readable: static posters, visible captions, and final 
 |---|---|---|
 | 01 | Collins agency | Digital marketing & automation for brands that want clarity, not bloat |
 | 02 | Full-funnel services | Strategy, content, paid media, and automation under one senior team |
-| 03 | How we work | A guided walkthrough of our approach — step by step |
+| 03 | How we work | A guided walkthrough of our approach, step by step |
 | 04 | Client results | Outcomes from retainers and campaign partnerships we stand behind |
 | 05 | Working together | Engagement models, timelines, and what to expect from a Collins partnership |
-| 06 | Book a strategy call | Tell us where growth is stuck — we will map the next 90 days with you |
-| 07 | Collins | Unify · Automate · Amplify — your growth agency |
+| 06 | Book a strategy call | Tell us where growth is stuck. We will map the next 90 days with you. |
+| 07 | Collins | Unify, automate, amplify. Your growth agency. |
 
 ### DOM structure
 
