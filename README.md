@@ -14,7 +14,9 @@ Open http://localhost:4173
 
 ## Demo recording (HyperFrames motion)
 
-The landing demo is a **brand release reel** (`demo-reel.html`): cinematic crossfades through the six Collins method cards with title cards and staggered neon text overlays. Beat-synced captions in `#demo` follow `assets/hyperframes-manifest.json`.
+The landing demo is a **brand release reel** (`demo-reel.html`): cinematic crossfades through the six Collins method cards with title cards and staggered neon text reveals. Beat-synced captions in `#demo` follow `assets/hyperframes-manifest.json`.
+
+Motion follows [VideoZero animation-basics](https://github.com/VideoZero/skills/tree/main/animation-basics): **staging** (one focal action per beat), **slow-in/slow-out** easing, **overlapping** text entrances, and **secondary** neon glow — static hero images, no Ken Burns zoom.
 
 Storyboard lives in `scripts/demo-record/storyboard.mjs` (`BRAND_REEL_STORYBOARD`).
 

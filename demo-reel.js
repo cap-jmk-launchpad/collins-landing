@@ -187,6 +187,9 @@
       }, 760);
     }
 
+    /* Staging: restart CSS animations on each beat (VideoZero follow-through) */
+    next.classList.remove("is-active");
+    void next.offsetWidth;
     next.classList.add("is-active");
     activeIndex = index;
     dispatchBeat(index);

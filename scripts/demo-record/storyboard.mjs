@@ -1,6 +1,6 @@
 /** Collins brand reel — hyperframe storyboard (no landing page capture). */
 
-/** Motion rhythm (HyperFrames website-to-video pacing). */
+/** Motion rhythm — VideoZero animation-basics: staging, slow-in/out, overlapping text. */
 export const MOTION = {
   holdMs: 4800,
   heroHoldMs: 4200,
@@ -12,6 +12,9 @@ export const MOTION = {
   heroTransitionMs: 480,
   reelLoadMs: 500,
   reelBufferMs: 600,
+  /** Time for staggered text stack to finish before readable hold */
+  animationSettleMs: 1500,
+  crossfadeMs: 680,
 };
 
 /** Six Collins method steps — hero carousel images only. */

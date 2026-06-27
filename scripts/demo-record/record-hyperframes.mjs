@@ -84,8 +84,10 @@ async function recordBrandReel(browser) {
     const startSec = Math.round(elapsedSec() * 100) / 100;
     recordedTimeline.push({ beat, startSec });
 
-    const holdDuration = beat.durationMs - MOTION.posterLeadMs;
-    await hold(page, Math.max(900, holdDuration));
+    /* Staging: let text stack animate in, then hold for read time */
+    await hold(page, MOTION.animationSettleMs);
+    const holdDuration = beat.durationMs - MOTION.animationSettleMs - MOTION.posterLeadMs;
+    await hold(page, Math.max(1200, holdDuration));
 
     const posterPath = join(assetsDir, beatPosterFile(beat));
     await snapPoster(page, posterPath);
@@ -161,6 +163,8 @@ async function main() {
       reelLoadMs: MOTION.reelLoadMs,
       reelBufferMs: MOTION.reelBufferMs,
       heroHoldMs: MOTION.heroHoldMs,
+      animationSettleMs: MOTION.animationSettleMs,
+      crossfadeMs: MOTION.crossfadeMs,
     },
     sourceSegment: `segments/${FULL_SEGMENT}`,
     heroBeats: buildHeroBeatsManifest(),

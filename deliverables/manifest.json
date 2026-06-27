@@ -22,9 +22,9 @@
   "demoVideo": {
     "path": "deliverables/collins-agency-demo.mp4",
     "sourcePath": "assets/collins-agency-demo.mp4",
-    "durationSec": 55,
-    "bytes": 5359472,
-    "description": "Brand release reel: intro card, six method beats with static image crossfades, staggered neon text overlays, and synced captions in #demo player. No landing page footage."
+    "durationSec": 55.44,
+    "bytes": 5866515,
+    "description": "Brand release reel: intro card, six method beats with staggered neon text reveals and crossfades (VideoZero staging/easing). Static hero images — no Ken Burns. Synced captions in #demo player."
   },
   "catbox": {
     "brandMd": "https://files.catbox.moe/ndtw01.md",
