@@ -630,6 +630,19 @@ main {
   cursor: default;
 }
 
+.demo-stage .hyperframe-overlay.is-exiting,
+.demo-stage .hyperframe-overlay.is-entering {
+  filter: none;
+}
+
+.demo-stage .hyperframe-overlay.is-exiting {
+  transform: translateY(8px);
+}
+
+.demo-stage .hyperframe-overlay.is-entering {
+  transform: translateY(10px);
+}
+
 .demo-video {
   opacity: 1;
   transform: scale(1);

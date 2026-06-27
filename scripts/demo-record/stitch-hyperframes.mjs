@@ -122,8 +122,9 @@ function main() {
   if (existsSync(listPath)) unlinkSync(listPath);
 
   manifest.fullVideo = outputName;
-  manifest.totalDurationSec = beats.reduce((sum, beat) => sum + (beat.durationSec || 0), 0);
-  writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+  manifest.totalDurationSec =
+    Math.round(beats.reduce((sum, beat) => sum + (beat.durationSec || 0), 0) * 100) / 100;
+  writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
 
   console.log(`Wrote assets/${outputName} (${manifest.totalDurationSec}s)`);
   console.log("Updated assets/hyperframes-manifest.json with fullVideo");
