@@ -340,17 +340,23 @@ main {
 
 .hero-theater .hyperframes-stage {
   cursor: default;
-  aspect-ratio: 3 / 2;
-  min-height: 280px;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
   background: #040806;
   overflow: hidden;
-  --hero-overlay-inset: 1rem;
 }
 
 .hero-theater .hyperframe-poster {
   z-index: 1;
   object-fit: contain;
   object-position: center center;
+  transform: none;
+}
+
+.hero-theater .hyperframe-poster.is-fading,
+.hero-theater .hyperframe-poster.is-entering,
+.hero-theater .hyperframe-poster.is-visible.is-entering {
+  transform: none;
 }
 
 .hero-theater .hyperframe-video {
@@ -582,19 +588,16 @@ main {
 
 .hero-theater .hyperframe-poster.is-fading {
   opacity: 0;
-  transform: scale(1.02);
   filter: blur(3px);
 }
 
 .hero-theater .hyperframe-poster.is-entering {
   opacity: 0;
-  transform: scale(0.99);
   filter: blur(4px);
 }
 
 .hero-theater .hyperframe-poster.is-visible.is-entering {
   opacity: 1;
-  transform: scale(1);
   filter: blur(0);
 }
 
@@ -661,56 +664,6 @@ main {
     opacity var(--duration-normal) var(--ease-out),
     transform var(--duration-normal) var(--ease-out),
     filter var(--duration-normal) var(--ease-out);
-}
-
-.hero-theater .hyperframe-overlay {
-  top: auto;
-  bottom: var(--hero-overlay-inset);
-  left: var(--hero-overlay-inset);
-  right: var(--hero-overlay-inset);
-  width: auto;
-  margin: 0;
-  padding: 0.5rem 0.75rem 0.625rem;
-  border-radius: 12px;
-  background: rgba(15, 26, 10, 0.92);
-  color: var(--neon-lime);
-  border: 2px solid var(--neon-green);
-  box-shadow: 0 8px 32px rgba(57, 255, 20, 0.18);
-  text-shadow: none;
-  font-family: var(--font-display);
-  z-index: 2;
-  max-width: none;
-  min-width: 0;
-  box-sizing: border-box;
-  overflow: visible;
-  overflow-wrap: anywhere;
-}
-
-.hero-theater .hyperframe-overlay.is-exiting {
-  transform: translateY(10px);
-}
-
-.hero-theater .hyperframe-overlay.is-entering {
-  transform: translateY(12px);
-}
-
-.hero-theater .hyperframe-overlay.is-entering.is-settled {
-  transform: translateY(0);
-}
-
-.hero-theater .hyperframe-overlay .hyperframe-step {
-  margin: 0 0 0.2rem;
-  font-size: 0.625rem;
-  letter-spacing: 0.14em;
-  opacity: 0.85;
-}
-
-.hero-theater .hyperframe-overlay .hyperframe-title {
-  margin-top: 0;
-  color: var(--text-primary);
-  font-size: 0.9375rem;
-  line-height: 1.2;
-  overflow-wrap: anywhere;
 }
 
 .hyperframe-overlay.is-exiting {
@@ -799,10 +752,6 @@ main {
   color: #fff;
 }
 
-.hero-theater .hyperframe-title {
-  font-size: 1rem;
-}
-
 .hyperframe-caption {
   margin: 0.2rem 0 0;
   font-family: var(--font-body);
@@ -810,12 +759,6 @@ main {
   line-height: 1.4;
   opacity: 0.88;
   max-width: none;
-}
-
-.hero-theater .hyperframe-caption {
-  font-size: 0.75rem;
-  line-height: 1.35;
-  overflow-wrap: anywhere;
 }
 
 .demo-theater .hyperframes-stage {
@@ -1305,11 +1248,6 @@ main {
     grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
     gap: 2.5rem 4rem;
   }
-
-  .hero-theater .hyperframes-stage {
-    aspect-ratio: 4 / 3;
-    min-height: 320px;
-  }
 }
 
 @media (max-width: 960px) {
@@ -1331,14 +1269,6 @@ main {
     transform: none;
   }
 
-  .hero-theater .hyperframes-stage {
-    --hero-overlay-inset: 0.75rem;
-  }
-
-  .hero-theater .hyperframe-overlay {
-    padding: 0.5rem 0.625rem;
-  }
-
   .feature-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1356,23 +1286,6 @@ main {
   .site-nav,
   .header-cta {
     display: none;
-  }
-
-  .hero-theater .hyperframes-stage {
-    --hero-overlay-inset: 0.625rem;
-  }
-
-  .hero-theater .hyperframe-overlay {
-    padding: 0.4375rem 0.5625rem 0.5rem;
-    border-radius: 10px;
-  }
-
-  .hero-theater .hyperframe-overlay .hyperframe-title {
-    font-size: 0.875rem;
-  }
-
-  .hero-theater .hyperframe-caption {
-    font-size: 0.6875rem;
   }
 
   .hero-hyperframe-dots {

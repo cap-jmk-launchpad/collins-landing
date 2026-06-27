@@ -755,10 +755,6 @@
   createPlayer({
     videoId: "hero-hyperframe-video",
     posterId: "hero-hyperframe-poster",
-    overlayId: "hero-hyperframe-overlay",
-    stepId: "hero-hyperframe-step",
-    titleId: "hero-hyperframe-title",
-    captionId: "hero-hyperframe-caption",
     dotsId: "hero-hyperframe-dots",
     autoplay: !isDemoRecord,
     loop: true,
