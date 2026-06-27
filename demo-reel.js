@@ -15,7 +15,7 @@
       step: "01",
       title: "Discover",
       caption: "Start with a 30-minute strategy call. Tell us where momentum is stuck.",
-      poster: "assets/hero-method-01-discover.png",
+      poster: "assets/hero-method-reel-01-discover.png",
       durationMs: 6400,
     },
     {
@@ -25,7 +25,7 @@
       step: "02",
       title: "Map the sprint",
       caption: "Week one maps SEO, paid, content, and automation to your KPIs.",
-      poster: "assets/hero-method-02-strategy.png",
+      poster: "assets/hero-method-reel-02-strategy.png",
       durationMs: 6400,
     },
     {
@@ -35,7 +35,7 @@
       step: "03",
       title: "Scope with clarity",
       caption: "Transparent line items, senior access, and reporting cadence locked in.",
-      poster: "assets/hero-method-03-scope.png",
+      poster: "assets/hero-method-reel-03-scope.png",
       durationMs: 6400,
     },
     {
@@ -45,7 +45,7 @@
       step: "04",
       title: "Ship campaigns",
       caption: "Content, paid media, and nurture launch from one shared playbook.",
-      poster: "assets/hero-method-04-ship.png",
+      poster: "assets/hero-method-reel-04-ship.png",
       durationMs: 6400,
     },
     {
@@ -55,7 +55,7 @@
       step: "05",
       title: "Automate and connect",
       caption: "CRM and workflows wired to the same growth plan.",
-      poster: "assets/hero-method-05-automate.png",
+      poster: "assets/hero-method-reel-05-automate.png",
       durationMs: 6400,
     },
     {
@@ -65,7 +65,7 @@
       step: "06",
       title: "Measure and compound",
       caption: "Revenue tied reporting and quarterly channel tuning.",
-      poster: "assets/hero-method-06-measure.png",
+      poster: "assets/hero-method-reel-06-measure.png",
       durationMs: 7000,
     },
     {

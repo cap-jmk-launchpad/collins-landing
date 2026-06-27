@@ -112,7 +112,7 @@ function iconSvg(type, color) {
   }
 }
 
-function cardHtml(step) {
+function cardHtml(step, { textless = false } = {}) {
   return `<!DOCTYPE html>
 <html>
   <head>
@@ -245,11 +245,15 @@ function cardHtml(step) {
       <div class="grid"></div>
       <div class="frame"></div>
       <div class="step-num">${step.number}</div>
-      <div class="copy">
+      ${
+        textless
+          ? ""
+          : `<div class="copy">
         <p class="step-tag">Step ${step.number} of 6</p>
         <h1 class="card-title">${escapeHtml(step.title)}</h1>
         <p class="card-caption">${escapeHtml(step.caption)}</p>
-      </div>
+      </div>`
+      }
       <div class="icon-wrap">
         <svg viewBox="0 0 240 240" aria-hidden="true">
           ${iconSvg(step.icon, step.accent)}
@@ -269,15 +273,24 @@ const context = await browser.newContext({
 });
 const page = await context.newPage();
 
+const variants = [
+  { textless: false, prefix: "hero-method" },
+  { textless: true, prefix: "hero-method-reel" },
+];
+
 for (const step of steps) {
-  await page.setContent(cardHtml(step), { waitUntil: "networkidle" });
-  await page.evaluate(() => document.fonts.ready);
-  const filename = `hero-method-${step.id}-${step.slug}.png`;
-  await page.screenshot({
-    path: join(assetsDir, filename),
-    type: "png",
-  });
-  console.log(`Wrote assets/${filename}`);
+  for (const variant of variants) {
+    await page.setContent(cardHtml(step, { textless: variant.textless }), {
+      waitUntil: "networkidle",
+    });
+    await page.evaluate(() => document.fonts.ready);
+    const filename = `${variant.prefix}-${step.id}-${step.slug}.png`;
+    await page.screenshot({
+      path: join(assetsDir, filename),
+      type: "png",
+    });
+    console.log(`Wrote assets/${filename}`);
+  }
 }
 
 await browser.close();
