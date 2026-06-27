@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "recordedAt": "2026-06-27T04:55:56.481Z",
+  "recordedAt": "2026-06-27T05:06:25.994Z",
   "beats": [
     {
       "id": "01",
@@ -24,7 +24,7 @@
       "id": "03",
       "slug": "demo",
       "title": "How we work",
-      "caption": "A guided walkthrough of our approach, step by step",
+      "caption": "A guided walkthrough of our approach — step by step",
       "durationSec": 6,
       "poster": "collins-demo-03-demo.png",
       "segment": "segments/collins-demo-03-demo.webm"
@@ -51,7 +51,7 @@
       "id": "06",
       "slug": "contact",
       "title": "Book a strategy call",
-      "caption": "Tell us where growth is stuck. We will map the next 90 days with you.",
+      "caption": "Tell us where growth is stuck — we will map the next 90 days with you",
       "durationSec": 6,
       "poster": "collins-demo-06-contact.png",
       "segment": "segments/collins-demo-06-contact.webm"
@@ -60,7 +60,7 @@
       "id": "07",
       "slug": "endcard",
       "title": "Collins",
-      "caption": "Unify, automate, amplify. Your growth agency.",
+      "caption": "Unify · Automate · Amplify — your growth agency",
       "durationSec": 4,
       "poster": "collins-demo-07-endcard.png",
       "segment": "segments/collins-demo-07-endcard.webm"
