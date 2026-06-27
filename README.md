@@ -1,6 +1,8 @@
 ﻿# Collins landing page
 
-Marketing agency landing page mock for **Collins**: neon green dark theme, interactive demo, vector logo.
+**Client demo — standalone static site, no Majico integration.** Marketing agency landing page mock for **Collins**: neon green dark theme, interactive demo, vector logo. All assets are local; `script.js` only loads `assets/hyperframes-manifest.json` and bundled media.
+
+**Live:** https://collins.d3bu7.com/ (homelab k3s container deploy)
 
 **Live repo:** [cap-jmk-launchpad/collins-landing](https://github.com/cap-jmk-launchpad/collins-landing)
 
@@ -82,4 +84,23 @@ npm run brand:pdf
 
 Outputs `deliverables/brand-guidelines.pdf` and a copy at `brand-guidelines.pdf`.
 
-Project ID: `ebd31ae8-0025-441d-8eea-7bbda8af377d` (Majico / Collins)
+## Homelab deploy (canonical)
+
+Standalone container deploy only — no direct nginx copy, no Majico/API backends.
+
+**Take offline** (scale pods to zero; edge returns 502):
+
+```powershell
+kubectl --kubeconfig <kubeconfig> -n collins scale deployment/collins --replicas=0
+```
+
+**Fresh redeploy** from Windows:
+
+```powershell
+cd homelab-k3s
+.\scripts\deploy-collins-homelab.ps1
+```
+
+Builds `collins-site:latest` Docker image from this repo, imports to k3s on `engine`, applies `k8s/staging/collins/base`, rolls out pods. Edge proxy: Fritz → blackpearl nginx :443 → NodePort `30590` → collins pods.
+
+Full offline + edge procedure: `homelab-k3s/docs/collins-homelab.md`.
