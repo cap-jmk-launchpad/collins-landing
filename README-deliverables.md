@@ -1,39 +1,21 @@
 # Collins client deliverables
 
-Handoff bundle for the Collins digital marketing agency landing page.
-
-**Exported:** 2026-06-27  
-**Commit:** `28fc383`  
-**Live site:** https://collins.d3bu7.com
-
-## What's included
-
-| File | Description |
-|------|-------------|
-| `deliverables/brand-guidelines.pdf` | Agency brand guidelines (LaTeX/Beamer, neon green, Plus Jakarta Sans + Inter) |
-| `deliverables/brand.md` | Brand identity, voice, messaging for agents |
-| `deliverables/design.md` | Visual system: tokens, typography, components, motion |
-| `deliverables/collins-agency-demo.mp4` | ~55s brand reel with logo intro/outro |
-| `deliverables/collins-logo-neon.svg` | Primary logo (neon green `#39ff14`) |
-| `deliverables/collins-logo-neon-512.png` / `-1024.png` | Logo PNG exports |
-| `deliverables/collins-logo-neon-light.svg` | Light-background variant + PNG exports |
-| `deliverables/manifest.json` | Full inventory with paths, byte sizes, timestamps |
-
-LaTeX sources, HTML guidelines, fonts, and duplicate PDFs live under `scripts/brand-guidelines/` for regeneration — they are not part of the client handoff zip.
+Exported: 2026-06-27T07:39:38.973Z
 
 ## Catbox URLs
 
-- **Full deliverables bundle (zip):** https://files.catbox.moe/qwsp9q.zip
-- **Brand guidelines PDF:** https://files.catbox.moe/qk6wgm.pdf
-- **design.md:** https://files.catbox.moe/4s7a9i.md
-- **brand.md:** https://files.catbox.moe/ndtw01.md
+- **Deliverables ZIP:** https://files.catbox.moe/nilz1a.zip
+- **Brand guidelines PDF:** https://files.catbox.moe/4qfijz.pdf
+- **Agency demo video:** https://files.catbox.moe/7iltsk.mp4
+- **brand.md:** https://files.catbox.moe/i11fr2.md
+- **design.md:** https://files.catbox.moe/xkrr2e.md
 
-## Regenerate
+## Local files
 
-```bash
-npm run brand:pdf          # PDF → deliverables/brand-guidelines.pdf
-npm run logo:export        # PNG logo variants
-Copy-Item assets/collins-agency-demo.mp4 deliverables/
-```
+- `collins-deliverables-2026-06-27.zip` (handoff bundle)
+- `deliverables/brand-guidelines.pdf`
+- `deliverables/collins-agency-demo.mp4`
+- `deliverables/design.md`
+- `deliverables/brand.md`
 
-Guidelines job: `9675b262-9f85-49b0-bef6-d097e566246a`
+Guidelines source: LaTeX/Tectonic (`npm run brand:pdf:latex`)

@@ -20,6 +20,9 @@ const ZIP_NAMES = new Set([
 ]);
 
 const ASSET_KEY_BY_BASENAME = {
+  "brand-guidelines.pdf": "guidelinesPdf",
+  "brand.md": "brandMd",
+  "design.md": "designMd",
   "collins-logo-neon.svg": "logoNeonSvg",
   "collins-logo-neon-light.svg": "logoNeonLightSvg",
   "collins-logo-neon-512.png": "logoNeon512",
