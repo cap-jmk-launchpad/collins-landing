@@ -78,7 +78,9 @@ export async function hideLiveOverlays(page) {
     content: `
       .hyperframe-overlay,
       .hyperframe-subtitles,
-      .hyperframes-controls { display: none !important; visibility: hidden !important; }
+      .hyperframes-controls,
+      .hero-carousel-nav,
+      .hero-hyperframe-dots { display: none !important; visibility: hidden !important; }
     `,
   });
 }

@@ -1,6 +1,7 @@
 (function () {
   document.getElementById("year").textContent = String(new Date().getFullYear());
 
+  var isDemoRecord = /(?:\?|&)demo-record(?:=1|=true)?(?:&|$)/.test(window.location.search);
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var BEAT_TRANSITION_MS = prefersReduced ? 0 : 420;
 
@@ -92,60 +93,60 @@
 
   var FALLBACK_BEATS = [
     {
+      id: "00",
+      title: "Collins",
+      caption: "Digital marketing and automation for brands that want clarity",
+      poster: "assets/hero-method-01-discover.png",
+      durationSec: 3.6,
+    },
+    {
       id: "01",
-      title: "Collins agency",
-      caption: "Digital marketing & automation for brands that want clarity, not bloat",
-      poster: "assets/collins-demo-01-hero.png",
-      segment: "assets/segments/collins-demo-01-hero.webm",
-      durationSec: 6,
+      title: "Discover",
+      caption: "Start with a 30-minute strategy call. Tell us where momentum is stuck.",
+      poster: "assets/hero-method-01-discover.png",
+      durationSec: 5.6,
     },
     {
       id: "02",
-      title: "Full-funnel services",
-      caption: "Strategy, content, paid media, and automation under one senior team",
-      poster: "assets/collins-demo-02-services.png",
-      segment: "assets/segments/collins-demo-02-services.webm",
-      durationSec: 7,
+      title: "Map the sprint",
+      caption: "Week one maps SEO, paid, content, and automation to your KPIs.",
+      poster: "assets/hero-method-02-strategy.png",
+      durationSec: 5.6,
     },
     {
       id: "03",
-      title: "How we work",
-      caption: "A guided walkthrough of our approach, step by step",
-      poster: "assets/collins-demo-03-demo.png",
-      segment: "assets/segments/collins-demo-03-demo.webm",
-      durationSec: 6,
+      title: "Scope with clarity",
+      caption: "Transparent line items, senior access, and reporting cadence locked in.",
+      poster: "assets/hero-method-03-scope.png",
+      durationSec: 5.6,
     },
     {
       id: "04",
-      title: "Client results",
-      caption: "Outcomes from retainers and campaign partnerships we stand behind",
-      poster: "assets/collins-demo-04-results.png",
-      segment: "assets/segments/collins-demo-04-results.webm",
-      durationSec: 7,
+      title: "Ship campaigns",
+      caption: "Content, paid media, and nurture launch from one shared playbook.",
+      poster: "assets/hero-method-04-ship.png",
+      durationSec: 5.6,
     },
     {
       id: "05",
-      title: "Working together",
-      caption: "Engagement models, timelines, and what to expect from a Collins partnership",
-      poster: "assets/collins-demo-05-faq.png",
-      segment: "assets/segments/collins-demo-05-faq.webm",
-      durationSec: 6,
+      title: "Automate and connect",
+      caption: "CRM and workflows wired to the same growth plan.",
+      poster: "assets/hero-method-05-automate.png",
+      durationSec: 5.6,
     },
     {
       id: "06",
-      title: "Book a strategy call",
-      caption: "Tell us where growth is stuck. We will map the next 90 days with you.",
-      poster: "assets/collins-demo-06-contact.png",
-      segment: "assets/segments/collins-demo-06-contact.webm",
-      durationSec: 6,
+      title: "Measure and compound",
+      caption: "Revenue tied reporting and quarterly channel tuning.",
+      poster: "assets/hero-method-06-measure.png",
+      durationSec: 6.2,
     },
     {
       id: "07",
-      title: "Collins",
-      caption: "Unify, automate, amplify. Your growth agency.",
-      poster: "assets/collins-demo-07-endcard.png",
-      segment: "assets/segments/collins-demo-07-endcard.webm",
-      durationSec: 4,
+      title: "Unify. Automate. Amplify.",
+      caption: "Your growth agency.",
+      poster: "assets/hero-method-06-measure.png",
+      durationSec: 4.2,
     },
   ];
 
@@ -219,6 +220,8 @@
     var loop = !!options.loop;
     var posterOnly = !!options.posterOnly;
     var useFullVideo = !!options.useFullVideo;
+    var ghostOverlay =
+      overlayEl && overlayEl.classList.contains("hero-overlay-ghost");
 
     if (!video || !poster) return null;
 
@@ -268,7 +271,7 @@
     }
 
     function settleOverlayEnter() {
-      if (!overlayEl) return;
+      if (!overlayEl || ghostOverlay) return;
       overlayEl.classList.remove("is-exiting");
       overlayEl.classList.add("is-entering");
       nextFrame(function () {
@@ -336,7 +339,7 @@
           }
           poster.classList.add("is-fading");
         }
-        if (overlayEl) overlayEl.classList.add("is-exiting");
+        if (overlayEl && !ghostOverlay) overlayEl.classList.add("is-exiting");
 
         window.setTimeout(function () {
           if (token !== beatSwapToken) return;
@@ -353,7 +356,8 @@
       } else {
         index = i;
         applyBeat();
-        if (overlayEl) overlayEl.classList.remove("is-exiting", "is-entering", "is-settled");
+        if (overlayEl && !ghostOverlay)
+          overlayEl.classList.remove("is-exiting", "is-entering", "is-settled");
       }
     }
 
@@ -750,7 +754,7 @@
     prevBtnId: "hero-hf-prev",
     nextBtnId: "hero-hf-next",
     dotsId: "hero-hyperframe-dots",
-    autoplay: true,
+    autoplay: !isDemoRecord,
     loop: true,
     posterOnly: true,
   });
