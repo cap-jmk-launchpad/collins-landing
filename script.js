@@ -220,8 +220,7 @@
     var loop = !!options.loop;
     var posterOnly = !!options.posterOnly;
     var useFullVideo = !!options.useFullVideo;
-    var ghostOverlay =
-      overlayEl && overlayEl.classList.contains("hero-overlay-ghost");
+    var skipOverlay = !!options.posterOnly;
 
     if (!video || !poster) return null;
 
@@ -275,13 +274,14 @@
     }
 
     function updateOverlayContent(beat, i) {
+      if (skipOverlay) return;
       tickStepCounter(i);
       if (titleEl) titleEl.textContent = beat.title;
       if (captionEl) captionEl.textContent = beat.caption;
     }
 
     function settleOverlayEnter() {
-      if (!overlayEl || ghostOverlay) return;
+      if (skipOverlay || !overlayEl) return;
       overlayEl.classList.remove("is-exiting");
       overlayEl.classList.add("is-entering");
       nextFrame(function () {
@@ -355,7 +355,7 @@
           }
           poster.classList.add("is-fading");
         }
-        if (overlayEl && !ghostOverlay) overlayEl.classList.add("is-exiting");
+        if (overlayEl && !skipOverlay) overlayEl.classList.add("is-exiting");
 
         window.setTimeout(function () {
           if (token !== beatSwapToken) return;
@@ -372,7 +372,7 @@
       } else {
         index = i;
         applyBeat();
-        if (overlayEl && !ghostOverlay)
+        if (overlayEl && !skipOverlay)
           overlayEl.classList.remove("is-exiting", "is-entering", "is-settled");
       }
     }
@@ -661,57 +661,10 @@
 
   function initDemoVideo() {
     var video = document.getElementById("hyperframe-video");
-    var overlayEl = document.getElementById("hyperframe-overlay");
-    var titleEl = document.getElementById("hyperframe-title");
-    var captionEl = document.getElementById("hyperframe-caption");
     var stage = document.getElementById("hyperframe-stage");
 
     if (!video) return;
 
-    var beats = [];
-    var beatStarts = [];
-    var index = 0;
-    var transitionMs = BEAT_TRANSITION_MS;
-
-    function showBeat(i, animate) {
-      var beat = beats[i];
-      if (!beat) return;
-      index = i;
-      if (titleEl) titleEl.textContent = beat.title;
-      if (captionEl) captionEl.textContent = beat.caption;
-
-      if (!animate || !overlayEl || transitionMs <= 0) {
-        if (overlayEl) overlayEl.classList.remove("is-exiting", "is-entering", "is-settled");
-        return;
-      }
-
-      overlayEl.classList.add("is-exiting");
-      window.setTimeout(function () {
-        overlayEl.classList.remove("is-exiting");
-        overlayEl.classList.add("is-entering");
-        nextFrame(function () {
-          overlayEl.classList.add("is-settled");
-          window.setTimeout(function () {
-            overlayEl.classList.remove("is-entering", "is-settled");
-          }, transitionMs);
-        });
-      }, transitionMs);
-    }
-
-    function syncFromVideoTime() {
-      if (!beats.length) return;
-      var nextIndex = beatIndexAtTime(beatStarts, video.currentTime);
-      if (nextIndex !== index) showBeat(nextIndex, !prefersReduced);
-    }
-
-    function initBeats(rawBeats, videoSrc) {
-      beats = normalizeBeats(rawBeats);
-      beatStarts = buildBeatStarts(beats);
-      if (videoSrc) video.src = videoSrc;
-      showBeat(0, false);
-    }
-
-    video.addEventListener("timeupdate", syncFromVideoTime);
     video.addEventListener("play", function () {
       if (stage) stage.classList.add("is-playing");
     });
@@ -720,7 +673,6 @@
     });
     video.addEventListener("ended", function () {
       if (stage) stage.classList.remove("is-playing");
-      showBeat(0, false);
     });
 
     if (!prefersReduced) {
@@ -743,19 +695,14 @@
         return res.ok ? res.json() : null;
       })
       .then(function (manifest) {
-        var raw =
-          manifest && manifest.beats && manifest.beats.length ? manifest.beats : FALLBACK_BEATS;
-        var videoSrc =
-          manifest && manifest.fullVideo
-            ? manifest.fullVideo.indexOf("assets/") === 0
+        if (manifest && manifest.fullVideo) {
+          video.src =
+            manifest.fullVideo.indexOf("assets/") === 0
               ? manifest.fullVideo
-              : "assets/" + manifest.fullVideo
-            : DEFAULT_FULL_VIDEO;
-        initBeats(raw, videoSrc);
+              : "assets/" + manifest.fullVideo;
+        }
       })
-      .catch(function () {
-        initBeats(FALLBACK_BEATS, DEFAULT_FULL_VIDEO);
-      });
+      .catch(function () {});
   }
 
   initDemoVideo();
