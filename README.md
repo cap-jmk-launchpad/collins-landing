@@ -37,7 +37,10 @@ Outputs land in `assets/hyperframes-manifest.json`, `assets/collins-demo-*.png`,
 | `index.html` | Agency landing page + demo player |
 | `styles.css` | Neon green design tokens |
 | `script.js` | Scroll reveals, demo playback |
-| `assets/logo.svg` | Vectorized Collins mark |
+| `assets/logo.svg` | Vectorized Collins mark (source) |
+| `deliverables/collins-logo-neon.svg` | Shareable neon mark for dark backgrounds (`#f5f5f7` + `#39ff14`) |
+| `deliverables/collins-logo-neon-light.svg` | Print/light-bg variant (`#040806` + `#39ff14`) |
+| `deliverables/collins-logo-neon-*.png` | Raster exports at 512px and 1024px (run `npm run logo:export`) |
 | `assets/hyperframes-manifest.json` | Demo beat manifest |
 | `assets/collins-agency-demo.mp4` | Stitched full demo video |
 | `deliverables/brand-guidelines.pdf` | Shareable brand guidelines (HTML source in same folder) |

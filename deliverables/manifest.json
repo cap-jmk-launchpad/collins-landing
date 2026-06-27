@@ -1,18 +1,26 @@
 {
   "projectId": "ebd31ae8-0025-441d-8eea-7bbda8af377d",
   "flowId": "655676c7-8818-4ef6-9678-c871c9d8afd6",
-  "exportedAt": "2026-06-27T04:54:07.297Z",
-  "guidelinesHtmlSource": "canvas",
-  "pdfBytes": 541302,
+  "guidelinesJobId": "e026d7c2-811d-41e4-b702-38497d5c8912",
+  "exportedAt": "2026-06-27T05:06:22.711Z",
+  "guidelinesHtmlSource": "buildGuidelineDocuments",
+  "pdfBytes": 423312,
   "local": {
     "brandPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\brand.md",
     "designPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\design.md",
     "htmlPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\brand-guidelines.html",
-    "pdfPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\brand-guidelines.pdf"
+    "pdfPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-brand-guidelines.pdf",
+    "pdfAliasPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\brand-guidelines.pdf",
+    "logoNeonSvg": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon.svg",
+    "logoNeonLightSvg": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-light.svg",
+    "logoNeonPng512": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-512.png",
+    "logoNeonPng1024": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-1024.png",
+    "logoNeonLightPng512": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-light-512.png",
+    "logoNeonLightPng1024": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-light-1024.png"
   },
   "catbox": {
     "brandMd": "https://files.catbox.moe/ndtw01.md",
-    "designMd": "https://files.catbox.moe/i49tip.md",
-    "guidelinesPdf": "https://files.catbox.moe/7vq9hf.pdf"
+    "designMd": "https://files.catbox.moe/2icrxu.md",
+    "guidelinesPdf": "https://files.catbox.moe/w8woxm.pdf"
   }
 }
