@@ -23,8 +23,8 @@ LaTeX sources, HTML guidelines, fonts, and duplicate PDFs live under `scripts/br
 
 ## Catbox URLs
 
-- **Full deliverables bundle (zip):** https://files.catbox.moe/gmf3f9.zip
-- **Brand guidelines PDF:** https://files.catbox.moe/mveycc.pdf
+- **Full deliverables bundle (zip):** https://files.catbox.moe/qwsp9q.zip
+- **Brand guidelines PDF:** https://files.catbox.moe/qk6wgm.pdf
 - **design.md:** https://files.catbox.moe/4s7a9i.md
 - **brand.md:** https://files.catbox.moe/ndtw01.md
 

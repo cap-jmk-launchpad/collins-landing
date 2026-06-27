@@ -5,7 +5,7 @@
   "exportedAt": "2026-06-27T12:00:00.000Z",
   "commitHash": "28fc383c5ea86ddebe99d2b2cc8d1d0953c320f0",
   "guidelinesSource": "latex-tectonic",
-  "pdfBytes": 79947,
+  "pdfBytes": 79950,
   "demoDurationSec": 55.12,
   "local": {
     "brandPath": "deliverables/brand.md",
@@ -16,14 +16,14 @@
   "catbox": {
     "brandMd": "https://files.catbox.moe/ndtw01.md",
     "designMd": "https://files.catbox.moe/4s7a9i.md",
-    "guidelinesPdf": "https://files.catbox.moe/mveycc.pdf",
-    "deliverablesZip": "https://files.catbox.moe/gmf3f9.zip"
+    "guidelinesPdf": "https://files.catbox.moe/qk6wgm.pdf",
+    "deliverablesZip": "https://files.catbox.moe/qwsp9q.zip"
   },
   "deliverables": [
     {
       "path": "deliverables/brand-guidelines.pdf",
-      "bytes": 79947,
-      "updatedAt": "2026-06-27T06:10:11.000Z",
+      "bytes": 79950,
+      "updatedAt": "2026-06-27T12:30:00.000Z",
       "kind": "brand-guidelines-pdf"
     },
     {
