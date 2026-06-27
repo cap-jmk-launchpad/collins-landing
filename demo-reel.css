@@ -1,0 +1,315 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0a1208;
+  --bg-deep: #050806;
+  --neon: #39ff14;
+  --neon-soft: #b6ff00;
+  --text: #e8f5d6;
+  --text-muted: rgba(210, 243, 128, 0.72);
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --crossfade: 720ms;
+}
+
+html,
+body {
+  margin: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+.reel-root {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 110%, rgba(57, 255, 20, 0.08), transparent 55%),
+    radial-gradient(circle at 18% 12%, rgba(57, 255, 20, 0.06), transparent 42%),
+    linear-gradient(165deg, var(--bg) 0%, var(--bg-deep) 100%);
+}
+
+.reel-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  background: radial-gradient(ellipse 88% 78% at 50% 48%, transparent 52%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.reel-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.reel-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.reel-beat {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--crossfade) var(--ease-in-out),
+    visibility 0s linear var(--crossfade);
+}
+
+.reel-beat.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity var(--crossfade) var(--ease-in-out),
+    visibility 0s linear 0s;
+}
+
+.reel-beat.is-exiting {
+  opacity: 0;
+  visibility: visible;
+  transition: opacity var(--crossfade) var(--ease-in-out);
+}
+
+/* Title cards */
+.reel-title-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 4rem 6rem;
+  text-align: center;
+}
+
+.reel-logo-mark {
+  width: 88px;
+  height: 88px;
+  margin-bottom: 2.5rem;
+  border-radius: 22px;
+  border: 2px solid rgba(57, 255, 20, 0.45);
+  box-shadow:
+    0 0 48px rgba(57, 255, 20, 0.22),
+    inset 0 0 24px rgba(57, 255, 20, 0.08);
+  background: linear-gradient(145deg, rgba(57, 255, 20, 0.12), rgba(15, 26, 10, 0.9));
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--neon);
+  opacity: 0;
+  transform: translateY(18px) scale(0.94);
+}
+
+.reel-beat.is-active .reel-logo-mark {
+  animation: reel-rise 900ms var(--ease-out) 200ms forwards;
+}
+
+.reel-headline {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  color: var(--text);
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.reel-beat.is-active .reel-headline {
+  animation: reel-rise 980ms var(--ease-out) 380ms forwards;
+}
+
+.reel-headline .accent {
+  color: var(--neon);
+  text-shadow: 0 0 32px rgba(57, 255, 20, 0.35);
+}
+
+.reel-subline {
+  margin: 1.75rem 0 0;
+  max-width: 52rem;
+  font-size: 1.625rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.reel-beat.is-active .reel-subline {
+  animation: reel-rise 980ms var(--ease-out) 620ms forwards;
+}
+
+.reel-rule {
+  width: 96px;
+  height: 3px;
+  margin: 2.25rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--neon), transparent);
+  opacity: 0;
+  transform: scaleX(0.4);
+}
+
+.reel-beat.is-active .reel-rule {
+  animation: reel-rule-in 820ms var(--ease-out) 780ms forwards;
+}
+
+/* Method beats */
+.reel-method {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.reel-method-image-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.reel-method-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transform: scale(1.04);
+  filter: brightness(0.92) saturate(1.05);
+}
+
+.reel-beat.is-active .reel-method-image {
+  animation:
+    reel-image-in 880ms var(--ease-out) forwards,
+    reel-ken-burns var(--beat-hold, 5s) var(--ease-in-out) 880ms forwards;
+}
+
+.reel-method-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(5, 8, 6, 0.92) 0%,
+    rgba(5, 8, 6, 0.35) 38%,
+    rgba(5, 8, 6, 0.08) 62%,
+    rgba(5, 8, 6, 0.2) 100%
+  );
+  pointer-events: none;
+}
+
+.reel-method-copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 0 5.5rem 5rem;
+}
+
+.reel-step-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--neon-soft);
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.reel-beat.is-active .reel-step-label {
+  animation: reel-rise 760ms var(--ease-out) 520ms forwards;
+}
+
+.reel-method-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.reel-beat.is-active .reel-method-title {
+  animation: reel-rise 820ms var(--ease-out) 680ms forwards;
+}
+
+.reel-method-caption {
+  margin: 1rem 0 0;
+  max-width: 46rem;
+  font-size: 1.375rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.reel-beat.is-active .reel-method-caption {
+  animation: reel-rise 820ms var(--ease-out) 860ms forwards;
+}
+
+@keyframes reel-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes reel-rule-in {
+  to {
+    opacity: 0.85;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes reel-image-in {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes reel-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07) translate(-1.2%, -0.8%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reel-beat,
+  .reel-logo-mark,
+  .reel-headline,
+  .reel-subline,
+  .reel-rule,
+  .reel-method-image,
+  .reel-step-label,
+  .reel-method-title,
+  .reel-method-caption {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

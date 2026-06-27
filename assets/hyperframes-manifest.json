@@ -1,12 +1,11 @@
 {
-  "version": 2,
-  "engine": "playwright-hyperframes-motion",
-  "recordedAt": "2026-06-27T05:30:32.986Z",
+  "version": 3,
+  "engine": "playwright-brand-reel",
+  "recordedAt": "2026-06-27T05:33:22.381Z",
   "motion": {
-    "holdMs": 4800,
-    "heroHoldMs": 4200,
-    "scrollMs": 2600,
-    "settleMs": 350
+    "reelLoadMs": 500,
+    "reelBufferMs": 600,
+    "heroHoldMs": 4200
   },
   "sourceSegment": "segments/collins-demo-full.webm",
   "heroBeats": [
@@ -61,13 +60,24 @@
   ],
   "beats": [
     {
+      "id": "00",
+      "slug": "intro",
+      "title": "Collins",
+      "caption": "Digital marketing and automation for brands that want clarity",
+      "hash": null,
+      "startSec": 2.04,
+      "durationSec": 4.24,
+      "poster": "hero-method-01-discover.png",
+      "segment": null
+    },
+    {
       "id": "01",
       "slug": "discover",
       "title": "Discover",
       "caption": "Start with a 30-minute strategy call. Tell us where momentum is stuck.",
       "hash": "#top",
-      "startSec": 0.9,
-      "durationSec": 4.81,
+      "startSec": 6.28,
+      "durationSec": 6.11,
       "poster": "hero-method-01-discover.png",
       "segment": null
     },
@@ -77,8 +87,8 @@
       "title": "Map the sprint",
       "caption": "Week one maps SEO, paid, content, and automation to your KPIs.",
       "hash": "#top",
-      "startSec": 5.71,
-      "durationSec": 4.8,
+      "startSec": 12.39,
+      "durationSec": 6.12,
       "poster": "hero-method-02-strategy.png",
       "segment": null
     },
@@ -88,8 +98,8 @@
       "title": "Scope with clarity",
       "caption": "Transparent line items, senior access, and reporting cadence locked in.",
       "hash": "#top",
-      "startSec": 10.51,
-      "durationSec": 4.79,
+      "startSec": 18.51,
+      "durationSec": 6.15,
       "poster": "hero-method-03-scope.png",
       "segment": null
     },
@@ -99,8 +109,8 @@
       "title": "Ship campaigns",
       "caption": "Content, paid media, and nurture launch from one shared playbook.",
       "hash": "#top",
-      "startSec": 15.3,
-      "durationSec": 4.81,
+      "startSec": 24.66,
+      "durationSec": 6.14,
       "poster": "hero-method-04-ship.png",
       "segment": null
     },
@@ -110,8 +120,8 @@
       "title": "Automate and connect",
       "caption": "CRM and workflows wired to the same growth plan.",
       "hash": "#top",
-      "startSec": 20.11,
-      "durationSec": 4.81,
+      "startSec": 30.8,
+      "durationSec": 6.2,
       "poster": "hero-method-05-automate.png",
       "segment": null
     },
@@ -121,78 +131,23 @@
       "title": "Measure and compound",
       "caption": "Revenue tied reporting and quarterly channel tuning.",
       "hash": "#top",
-      "startSec": 24.92,
-      "durationSec": 7.29,
+      "startSec": 37,
+      "durationSec": 6.72,
       "poster": "hero-method-06-measure.png",
       "segment": null
     },
     {
       "id": "07",
-      "slug": "services",
-      "title": "Full-funnel services",
-      "caption": "Strategy, content, paid media, and automation under one senior team",
-      "hash": "#services",
-      "startSec": 32.21,
-      "durationSec": 7.88,
-      "poster": "collins-demo-07-services.png",
-      "segment": null
-    },
-    {
-      "id": "08",
-      "slug": "demo",
-      "title": "How we work",
-      "caption": "A guided walkthrough of our approach, step by step",
-      "hash": "#demo",
-      "startSec": 40.09,
-      "durationSec": 7.9,
-      "poster": "collins-demo-08-demo.png",
-      "segment": null
-    },
-    {
-      "id": "09",
-      "slug": "results",
-      "title": "Client results",
-      "caption": "Outcomes from retainers and campaign partnerships we stand behind",
-      "hash": "#proof",
-      "startSec": 47.99,
-      "durationSec": 7.88,
-      "poster": "collins-demo-09-results.png",
-      "segment": null
-    },
-    {
-      "id": "10",
-      "slug": "faq",
-      "title": "Working together",
-      "caption": "Engagement models, timelines, and what to expect from a Collins partnership",
-      "hash": "#faq",
-      "startSec": 55.87,
-      "durationSec": 7.89,
-      "poster": "collins-demo-10-faq.png",
-      "segment": null
-    },
-    {
-      "id": "11",
-      "slug": "contact",
-      "title": "Book a strategy call",
-      "caption": "Tell us where growth is stuck. We will map the next 90 days with you.",
-      "hash": "#start",
-      "startSec": 63.76,
-      "durationSec": 8.25,
-      "poster": "collins-demo-11-contact.png",
-      "segment": null
-    },
-    {
-      "id": "12",
-      "slug": "endcard",
-      "title": "Collins",
-      "caption": "Unify, automate, amplify. Your growth agency.",
-      "hash": "#top",
-      "startSec": 72.01,
-      "durationSec": 4.59,
-      "poster": "collins-demo-12-endcard.png",
+      "slug": "outro",
+      "title": "Unify. Automate. Amplify.",
+      "caption": "Your growth agency.",
+      "hash": null,
+      "startSec": 43.72,
+      "durationSec": 5.2,
+      "poster": "hero-method-06-measure.png",
       "segment": null
     }
   ],
-  "totalDurationSec": 76.6,
+  "totalDurationSec": 48.92,
   "fullVideo": "collins-agency-demo.mp4"
 }

@@ -14,9 +14,9 @@ Open http://localhost:4173
 
 ## Demo recording (HyperFrames motion)
 
-The landing demo is a **single continuous scroll tour** with HyperFrames-inspired pacing: eased camera moves between sections, hold pauses on each beat, and no hard jump cuts between stitched segments.
+The landing demo is a **brand release reel** (`demo-reel.html`): cinematic crossfades through the six Collins method cards with title cards and Ken Burns motion. Beat-synced captions in `#demo` follow `assets/hyperframes-manifest.json`.
 
-Storyboard anchors live in `scripts/demo-record/storyboard.mjs` (`#top`, `#services`, `#demo`, `#proof`, `#faq`, `#start`).
+Storyboard lives in `scripts/demo-record/storyboard.mjs` (`BRAND_REEL_STORYBOARD`).
 
 ### Regenerate the demo video
 
@@ -35,7 +35,7 @@ npm run demo:build
 Or step by step:
 
 ```bash
-npm run demo:frames   # Playwright capture → assets/segments/collins-demo-full.webm + posters + manifest
+npm run demo:frames   # Playwright brand reel → assets/segments/collins-demo-full.webm + manifest
 npm run demo:stitch   # FFmpeg H.264 → assets/collins-agency-demo.mp4 + deliverables copy
 ```
 
