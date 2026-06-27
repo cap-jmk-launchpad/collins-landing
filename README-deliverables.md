@@ -1,22 +1,38 @@
 # Collins client deliverables
 
-Exported: 2026-06-27T05:06:22.711Z
+Handoff bundle for the Collins digital marketing agency landing page.
+
+**Exported:** 2026-06-27  
+**Commit:** `dcaf753` (refresh before deploy)  
+**Live site:** https://collins.d3bu7.com
+
+## What's included
+
+| File | Description |
+|------|-------------|
+| `deliverables/brand-guidelines.pdf` | Agency brand guidelines (LaTeX/Beamer, neon green, Plus Jakarta Sans + Inter) |
+| `deliverables/brand.md` | Brand identity, voice, messaging for agents |
+| `deliverables/design.md` | Visual system: tokens, typography, components, motion |
+| `deliverables/collins-agency-demo.mp4` | ~55s brand reel with logo intro/outro |
+| `deliverables/collins-logo-neon.svg` | Primary logo (neon green `#39ff14`) |
+| `deliverables/collins-logo-neon-512.png` / `-1024.png` | Logo PNG exports |
+| `deliverables/collins-logo-neon-light.svg` | Light-background variant + PNG exports |
+| `deliverables/manifest.json` | Full inventory with paths, byte sizes, timestamps |
 
 ## Catbox URLs
 
-- **Brand guidelines PDF:** https://files.catbox.moe/o6fu9h.pdf
-- **design.md:** https://files.catbox.moe/2icrxu.md
+- **Full deliverables bundle (zip):** https://files.catbox.moe/2ciwvq.zip
+- **Brand guidelines PDF:** https://files.catbox.moe/mveycc.pdf
+- **design.md:** https://files.catbox.moe/4s7a9i.md
 - **brand.md:** https://files.catbox.moe/ndtw01.md
 
-## Local files
+## Regenerate
 
-- `deliverables/collins-agency-demo.mp4`: brand release reel (~55s, VideoZero-styled staggered neon text, static hero images)
-- `deliverables/collins-brand-guidelines.pdf`
-- `deliverables/design.md`
-- `deliverables/brand.md`
-- `deliverables/collins-logo-neon.svg`: dark-bg mark (`#f5f5f7` + `#39ff14`)
-- `deliverables/collins-logo-neon-light.svg`: light-bg / print mark (`#040806` + `#39ff14`)
-- `deliverables/collins-logo-neon-512.png`, `collins-logo-neon-1024.png`
-- `deliverables/collins-logo-neon-light-512.png`, `collins-logo-neon-light-1024.png`
+```bash
+npm run brand:pdf          # PDF:
+pdf → deliverables/brand-guidelines.pdf
+npm run logo:export        # PNG logo variants
+Copy-Item assets/collins-agency-demo.mp4 deliverables/
+```
 
-Guidelines job: `e026d7c2-811d-41e4-b702-38497d5c8912` (buildGuidelineDocuments)
+Guidelines job: `9675b262-9f85-49b0-bef6-d097e566246a`

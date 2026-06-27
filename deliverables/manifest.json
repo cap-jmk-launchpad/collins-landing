@@ -1,34 +1,147 @@
 {
   "projectId": "ebd31ae8-0025-441d-8eea-7bbda8af377d",
   "flowId": "655676c7-8818-4ef6-9678-c871c9d8afd6",
-  "guidelinesJobId": "e026d7c2-811d-41e4-b702-38497d5c8912",
-  "exportedAt": "2026-06-27T05:06:22.711Z",
-  "guidelinesHtmlSource": "buildGuidelineDocuments",
-  "pdfBytes": 423312,
+  "guidelinesJobId": "9675b262-9f85-49b0-bef6-d097e566246a",
+  "exportedAt": "2026-06-27T08:10:00.000Z",
+  "commitHash": "dcaf753dec79385c304280684c98ded386b1036c",
+  "guidelinesSource": "latex-tectonic",
+  "pdfBytes": 79947,
+  "demoDurationSec": 55.12,
   "local": {
-    "brandPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\brand.md",
-    "designPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\design.md",
-    "htmlPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\brand-guidelines.html",
-    "pdfPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-brand-guidelines.pdf",
-    "pdfAliasPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\brand-guidelines.pdf",
-    "logoNeonSvg": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon.svg",
-    "logoNeonLightSvg": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-light.svg",
-    "logoNeonPng512": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-512.png",
-    "logoNeonPng1024": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-1024.png",
-    "logoNeonLightPng512": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-light-512.png",
-    "logoNeonLightPng1024": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-logo-neon-light-1024.png",
-    "demoVideoPath": "C:\\Users\\Julian\\Documents\\Programming\\collins\\deliverables\\collins-agency-demo.mp4"
-  },
-  "demoVideo": {
-    "path": "deliverables/collins-agency-demo.mp4",
-    "sourcePath": "assets/collins-agency-demo.mp4",
-    "durationSec": 55.44,
-    "bytes": 5866515,
-    "description": "Brand release reel: intro card, six method beats with staggered neon text reveals and crossfades (VideoZero staging/easing). Static hero images — no Ken Burns. Synced captions in #demo player."
+    "brandPath": "deliverables/brand.md",
+    "designPath": "deliverables/design.md",
+    "htmlPath": "deliverables/brand-guidelines.html",
+    "pdfPath": "deliverables/collins-brand-guidelines.pdf",
+    "pdfAliasPath": "deliverables/brand-guidelines.pdf",
+    "demoVideoPath": "deliverables/collins-agency-demo.mp4"
   },
   "catbox": {
     "brandMd": "https://files.catbox.moe/ndtw01.md",
-    "designMd": "https://files.catbox.moe/2icrxu.md",
-    "guidelinesPdf": "https://files.catbox.moe/meja0j.pdf"
-  }
+    "designMd": "https://files.catbox.moe/4s7a9i.md",
+    "guidelinesPdf": "https://files.catbox.moe/mveycc.pdf",
+    "deliverablesZip": "https://files.catbox.moe/2ciwvq.zip"
+  },
+  "deliverables": [
+    {
+      "path": "deliverables/brand-guidelines.pdf",
+      "bytes": 79947,
+      "updatedAt": "2026-06-27T08:10:11.000Z",
+      "kind": "brand-guidelines-pdf"
+    },
+    {
+      "path": "deliverables/collins-brand-guidelines.pdf",
+      "bytes": 79947,
+      "updatedAt": "2026-06-27T08:10:11.000Z",
+      "kind": "brand-guidelines-pdf-alias"
+    },
+    {
+      "path": "deliverables/brand-guidelines.html",
+      "bytes": 35696,
+      "updatedAt": "2026-06-27T07:56:46.000Z",
+      "kind": "brand-guidelines-html"
+    },
+    {
+      "path": "deliverables/brand-guidelines.tex",
+      "bytes": 15578,
+      "updatedAt": "2026-06-27T08:10:11.000Z",
+      "kind": "brand-guidelines-source"
+    },
+    {
+      "path": "deliverables/collins-beamer.sty",
+      "bytes": 5005,
+      "updatedAt": "2026-06-27T07:40:02.000Z",
+      "kind": "brand-guidelines-style"
+    },
+    {
+      "path": "deliverables/brand.md",
+      "bytes": 18408,
+      "updatedAt": "2026-06-27T07:11:55.000Z",
+      "kind": "brand-doc"
+    },
+    {
+      "path": "deliverables/design.md",
+      "bytes": 19425,
+      "updatedAt": "2026-06-27T07:12:28.000Z",
+      "kind": "design-doc"
+    },
+    {
+      "path": "deliverables/collins-agency-demo.mp4",
+      "bytes": 4383045,
+      "updatedAt": "2026-06-27T08:00:54.000Z",
+      "kind": "demo-video",
+      "durationSec": 55.12
+    },
+    {
+      "path": "deliverables/collins-logo-neon.svg",
+      "bytes": 1963,
+      "updatedAt": "2026-06-27T07:08:03.000Z",
+      "kind": "logo-svg"
+    },
+    {
+      "path": "deliverables/collins-logo-neon-light.svg",
+      "bytes": 1963,
+      "updatedAt": "2026-06-27T07:08:08.000Z",
+      "kind": "logo-svg-light"
+    },
+    {
+      "path": "deliverables/collins-logo-neon-512.png",
+      "bytes": 27948,
+      "updatedAt": "2026-06-27T08:10:17.000Z",
+      "kind": "logo-png"
+    },
+    {
+      "path": "deliverables/collins-logo-neon-1024.png",
+      "bytes": 61535,
+      "updatedAt": "2026-06-27T08:10:17.000Z",
+      "kind": "logo-png"
+    },
+    {
+      "path": "deliverables/collins-logo-neon-light-512.png",
+      "bytes": 27711,
+      "updatedAt": "2026-06-27T08:10:17.000Z",
+      "kind": "logo-png-light"
+    },
+    {
+      "path": "deliverables/collins-logo-neon-light-1024.png",
+      "bytes": 60447,
+      "updatedAt": "2026-06-27T08:10:17.000Z",
+      "kind": "logo-png-light"
+    },
+    {
+      "path": "deliverables/fonts/Inter-Regular.ttf",
+      "bytes": 876576,
+      "updatedAt": "2026-06-27T07:40:02.000Z",
+      "kind": "font"
+    },
+    {
+      "path": "deliverables/fonts/Inter-Italic.ttf",
+      "bytes": 906596,
+      "updatedAt": "2026-06-27T07:40:03.000Z",
+      "kind": "font"
+    },
+    {
+      "path": "deliverables/fonts/PlusJakartaSans-Regular.ttf",
+      "bytes": 176288,
+      "updatedAt": "2026-06-27T07:40:03.000Z",
+      "kind": "font"
+    },
+    {
+      "path": "deliverables/fonts/PlusJakartaSans-Italic.ttf",
+      "bytes": 183188,
+      "updatedAt": "2026-06-27T07:40:03.000Z",
+      "kind": "font"
+    },
+    {
+      "path": "deliverables/assets.json",
+      "bytes": 164,
+      "updatedAt": "2026-06-27T08:10:12.000Z",
+      "kind": "manifest-alias"
+    },
+    {
+      "path": "deliverables/manifest.json",
+      "bytes": 3655,
+      "updatedAt": "2026-06-27T08:10:00.000Z",
+      "kind": "manifest"
+    }
+  ]
 }
