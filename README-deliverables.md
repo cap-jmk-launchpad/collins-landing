@@ -4,7 +4,7 @@ Exported: 2026-06-27T05:06:22.711Z
 
 ## Catbox URLs
 
-- **Brand guidelines PDF:** https://files.catbox.moe/w8woxm.pdf
+- **Brand guidelines PDF:** https://files.catbox.moe/o6fu9h.pdf
 - **design.md:** https://files.catbox.moe/2icrxu.md
 - **brand.md:** https://files.catbox.moe/ndtw01.md
 

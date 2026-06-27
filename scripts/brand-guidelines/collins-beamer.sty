@@ -1,0 +1,124 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{collins-beamer}[2026/06/27 Collins neon agency Beamer theme]
+
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{fontspec}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{array}
+
+% Brand palette
+\definecolor{collinsDeep}{HTML}{040806}
+\definecolor{collinsSurface}{HTML}{0a100c}
+\definecolor{collinsMuted}{HTML}{0f1610}
+\definecolor{collinsElevated}{HTML}{141c14}
+\definecolor{collinsText}{HTML}{f0f7eb}
+\definecolor{collinsSecondary}{HTML}{9aab94}
+\definecolor{collinsMutedText}{HTML}{6b7a66}
+\definecolor{collinsGreen}{HTML}{39ff14}
+\definecolor{collinsTeal}{HTML}{00ff88}
+\definecolor{collinsLime}{HTML}{b6ff00}
+\definecolor{collinsOnAccent}{HTML}{040806}
+
+% Typography: Inter + Plus Jakarta Sans with system fallbacks
+\IfFontExistsTF{Inter}{%
+  \setsansfont{Inter}[Scale=0.95]%
+}{%
+  \IfFontExistsTF{Segoe UI}{%
+    \setsansfont{Segoe UI}[Scale=0.95]%
+  }{%
+    \setsansfont{Arial}[Scale=0.95]%
+  }%
+}
+\IfFontExistsTF{Plus Jakarta Sans}{%
+  \newfontfamily\CollinsDisplay{Plus Jakarta Sans}[Scale=0.92]%
+}{%
+  \IfFontExistsTF{Segoe UI}{%
+    \newfontfamily\CollinsDisplay{Segoe UI}[Scale=0.92,FakeBold=2]%
+  }{%
+    \newfontfamily\CollinsDisplay{Arial}[Scale=0.92,FakeBold=2]%
+  }%
+}
+\newcommand{\displayheading}[1]{{\CollinsDisplay\bfseries #1}}
+
+\setbeamercolor{background canvas}{bg=collinsDeep}
+\setbeamercolor{normal text}{fg=collinsText,bg=collinsDeep}
+\setbeamercolor{structure}{fg=collinsGreen}
+\setbeamercolor{frametitle}{fg=collinsText,bg=collinsDeep}
+\setbeamercolor{title}{fg=collinsText}
+\setbeamercolor{subtitle}{fg=collinsSecondary}
+\setbeamercolor{author}{fg=collinsSecondary}
+\setbeamercolor{date}{fg=collinsMutedText}
+\setbeamercolor{section in head/foot}{fg=collinsGreen}
+\setbeamercolor{subsection in head/foot}{fg=collinsSecondary}
+\setbeamercolor{footline}{fg=collinsMutedText}
+\setbeamercolor{block title}{fg=collinsOnAccent,bg=collinsGreen}
+\setbeamercolor{block body}{fg=collinsText,bg=collinsElevated}
+\setbeamercolor{alerted text}{fg=collinsTeal}
+\setbeamercolor{example text}{fg=collinsLime}
+
+\setbeamerfont{title}{series=\bfseries,size=\Large}
+\setbeamerfont{subtitle}{size=\normalsize}
+\setbeamerfont{frametitle}{series=\bfseries,size=\large}
+\setbeamerfont{section in head/foot}{series=\bfseries,size=\scriptsize}
+\setbeamerfont{footline}{size=\scriptsize}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\setbeamertemplate{frametitle}{%
+  \vspace{0.4em}%
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1.2em,rightskip=1.2em]{frametitle}%
+    {\CollinsDisplay\usebeamerfont{frametitle}\insertframetitle}%
+  \end{beamercolorbox}%
+  \vspace{0.15em}%
+  \begin{tikzpicture}%
+    \draw[collinsGreen,line width=0.6pt] (1.2em,0) -- (\paperwidth-1.2em,0);%
+  \end{tikzpicture}%
+}
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.2ex,dp=1.2ex,leftskip=1.2em,rightskip=1.2em]{footline}%
+    {\CollinsDisplay\usebeamerfont{footline}\color{collinsSecondary}\insertshorttitle}%
+    \hfill%
+    {\usebeamerfont{footline}\color{collinsMutedText}\insertframenumber\ /\ \inserttotalframenumber}%
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{headline}{%
+  \ifnum\value{section}>0%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.4ex,dp=1ex,leftskip=1.2em]{section in head/foot}%
+      {\CollinsDisplay\usebeamerfont{section in head/foot}\MakeUppercase{\insertsectionhead}}%
+    \end{beamercolorbox}%
+  \fi%
+}
+
+\setbeamersize{text margin left=1.2em,text margin right=1.2em}
+
+\newcommand{\CollinsEyebrow}[1]{%
+  {\CollinsDisplay\bfseries\scriptsize\color{collinsGreen}\MakeUppercase{#1}}%
+}
+
+\newcommand{\CollinsSubtitle}[1]{%
+  {\color{collinsSecondary}#1}%
+}
+
+\newcommand{\CollinsAccent}[1]{%
+  {\color{collinsGreen}#1}%
+}
+
+\newenvironment{collinsblock}[1]{%
+  \setbeamercolor{block title}{fg=collinsOnAccent,bg=collinsGreen}%
+  \setbeamercolor{block body}{fg=collinsText,bg=collinsElevated}%
+  \begin{block}{#1}%
+}{%
+  \end{block}%
+}
+
+\setbeamertemplate{itemize item}{\color{collinsGreen}\textbullet}
+\setbeamertemplate{itemize subitem}{\color{collinsTeal}\textendash}
+\setbeamertemplate{section in toc}{sections numbered[Roman]}
+\setbeamertemplate{subsection in toc}{subsections numbered[section.number.arabic]}
+
+\endinput

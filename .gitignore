@@ -20,6 +20,15 @@ package-lock.json
 # Build / cache
 dist/
 build/
+scripts/brand-guidelines/bin/
+scripts/brand-guidelines/brand-guidelines.pdf
+scripts/brand-guidelines/*.aux
+scripts/brand-guidelines/*.log
+scripts/brand-guidelines/*.nav
+scripts/brand-guidelines/*.out
+scripts/brand-guidelines/*.snm
+scripts/brand-guidelines/*.toc
+scripts/brand-guidelines/*.vrb
 .next/
 out/
 .cache/

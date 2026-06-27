@@ -6,7 +6,9 @@
     "demo:frames": "node scripts/demo-record/record-hyperframes.mjs",
     "demo:stitch": "node scripts/demo-record/stitch-hyperframes.mjs",
     "demo:build": "npm run demo:frames && npm run demo:stitch",
-    "brand:pdf": "node scripts/generate-brand-guidelines.mjs",
+    "brand:pdf": "node scripts/brand-guidelines/compile-brand-guidelines.mjs",
+    "brand:pdf:latex": "node scripts/brand-guidelines/compile-brand-guidelines.mjs",
+    "brand:pdf:html": "node scripts/generate-brand-guidelines.mjs",
     "logo:export": "node scripts/export-logo-png.mjs"
   },
   "devDependencies": {
