@@ -323,7 +323,13 @@
         index = i;
         if (!useFullVideo || !hasStarted) {
           poster.src = assetPath(beat.poster);
-          poster.alt = beat.title + ": " + beat.caption;
+          poster.alt =
+            "Collins method step " +
+            (i + 1) +
+            " of " +
+            beats.length +
+            ": " +
+            beat.title;
         }
         updateOverlayContent(beat, i);
         updateDots(i);
@@ -747,12 +753,7 @@
   createPlayer({
     videoId: "hero-hyperframe-video",
     posterId: "hero-hyperframe-poster",
-    overlayId: "hero-hyperframe-overlay",
     stepId: "hero-hyperframe-step",
-    titleId: "hero-hyperframe-title",
-    captionId: "hero-hyperframe-caption",
-    prevBtnId: "hero-hf-prev",
-    nextBtnId: "hero-hf-next",
     dotsId: "hero-hyperframe-dots",
     autoplay: !isDemoRecord,
     loop: true,

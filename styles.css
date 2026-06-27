@@ -337,24 +337,22 @@ main {
 .hero-theater .hyperframes-stage {
   cursor: default;
   aspect-ratio: 3 / 2;
+  background: #040806;
 }
 
 .hero-theater .hyperframe-poster {
+  z-index: 1;
   object-fit: cover;
+  object-position: center;
 }
 
-.hero-overlay-ghost {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-  background: none;
-  box-shadow: none;
+.hero-theater .hyperframe-video {
+  z-index: 0;
+}
+
+.hero-theater .hyperframe-overlay,
+.hero-theater .hero-carousel-nav {
+  display: none !important;
 }
 
 .sr-only {
