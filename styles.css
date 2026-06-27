@@ -514,11 +514,11 @@ main {
 }
 
 .hero-theater .hyperframe-overlay {
-  top: 0;
-  bottom: auto;
+  top: auto;
+  bottom: 0.75rem;
   left: 0;
   right: 0;
-  margin: 0.75rem 3.25rem 0;
+  margin: 0 3.25rem;
   padding: 0.625rem 0.875rem;
   border-radius: 12px;
   background: rgba(15, 26, 10, 0.92);
@@ -531,11 +531,11 @@ main {
 }
 
 .hero-theater .hyperframe-overlay.is-exiting {
-  transform: translateY(-10px);
+  transform: translateY(10px);
 }
 
 .hero-theater .hyperframe-overlay.is-entering {
-  transform: translateY(-12px);
+  transform: translateY(12px);
 }
 
 .hero-theater .hyperframe-overlay.is-entering.is-settled {
@@ -1144,7 +1144,8 @@ main {
   }
 
   .hero-theater .hyperframe-overlay {
-    margin: 0.625rem 2.75rem 0 0.625rem;
+    bottom: 0.625rem;
+    margin: 0 2.75rem 0 0.625rem;
     padding: 0.5rem 0.75rem;
   }
 
@@ -1168,7 +1169,8 @@ main {
   }
 
   .hero-theater .hyperframe-overlay {
-    margin: 0.5rem 2.5rem 0 0.5rem;
+    bottom: 0.5rem;
+    margin: 0 2.5rem 0 0.5rem;
     padding: 0.5rem 0.625rem;
     border-radius: 10px;
   }
