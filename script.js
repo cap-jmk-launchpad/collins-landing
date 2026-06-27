@@ -103,16 +103,36 @@
     },
   ];
 
+  function normalizeBeats(rawBeats) {
+    return rawBeats.map(function (beat) {
+      return {
+        title: beat.title,
+        caption: beat.caption,
+        poster: beat.poster.indexOf("assets/") === 0 ? beat.poster : "assets/" + beat.poster,
+        segment: beat.segment
+          ? beat.segment.indexOf("assets/") === 0
+            ? beat.segment
+            : "assets/" + beat.segment
+          : null,
+        durationSec: beat.durationSec || 6,
+      };
+    });
+  }
+
   function createPlayer(options) {
     var video = document.getElementById(options.videoId);
     var poster = document.getElementById(options.posterId);
-    var stepEl = document.getElementById(options.stepId);
-    var titleEl = document.getElementById(options.titleId);
-    var captionEl = document.getElementById(options.captionId);
+    var overlayEl = options.overlayId ? document.getElementById(options.overlayId) : null;
+    var stepEl = options.stepId ? document.getElementById(options.stepId) : null;
+    var titleEl = options.titleId ? document.getElementById(options.titleId) : null;
+    var captionEl = options.captionId ? document.getElementById(options.captionId) : null;
     var playBtn = options.playBtnId ? document.getElementById(options.playBtnId) : null;
     var prevBtn = options.prevBtnId ? document.getElementById(options.prevBtnId) : null;
     var nextBtn = options.nextBtnId ? document.getElementById(options.nextBtnId) : null;
     var dotsEl = options.dotsId ? document.getElementById(options.dotsId) : null;
+    var autoplay = !!options.autoplay;
+    var loop = !!options.loop;
+    var posterOnly = !!options.posterOnly;
 
     if (!video || !poster) return null;
 
@@ -120,41 +140,60 @@
     var index = 0;
     var playing = false;
     var timer = null;
+    var carouselTimer = null;
+    var transitionMs = prefersReduced ? 0 : 280;
 
-    function assetPath(base, file) {
-      return file.indexOf("assets/") === 0 ? file : base + file;
+    function assetPath(file) {
+      return file.indexOf("assets/") === 0 ? file : "assets/" + file.replace(/^assets\//, "");
     }
 
-    function showBeat(i) {
+    function updateDots(i) {
+      if (!dotsEl) return;
+      dotsEl.querySelectorAll(".hyperframe-dot").forEach(function (dot, dotIndex) {
+        dot.classList.toggle("is-active", dotIndex === i);
+        dot.setAttribute("aria-selected", dotIndex === i ? "true" : "false");
+      });
+    }
+
+    function updateOverlay(beat, i) {
+      if (stepEl) stepEl.textContent = "Step " + (i + 1) + " of " + beats.length;
+      if (titleEl) titleEl.textContent = beat.title;
+      if (captionEl) captionEl.textContent = beat.caption;
+    }
+
+    function showBeat(i, animate) {
       var beat = beats[i];
       if (!beat) return;
       index = i;
 
-      var posterSrc = assetPath("assets/", beat.poster.replace(/^assets\//, ""));
-      poster.src = posterSrc;
-      poster.classList.add("is-visible");
-      video.classList.remove("is-visible");
+      function applyBeat() {
+        poster.src = assetPath(beat.poster);
+        poster.alt = beat.title + " — " + beat.caption;
+        poster.classList.add("is-visible");
+        video.classList.remove("is-visible");
+        updateOverlay(beat, i);
+        updateDots(i);
+        if (overlayEl) overlayEl.classList.remove("is-changing");
+        poster.classList.remove("is-fading");
+      }
 
-      if (stepEl) stepEl.textContent = "Step " + (i + 1) + " of " + beats.length;
-      if (titleEl) titleEl.textContent = beat.title;
-      if (captionEl) captionEl.textContent = beat.caption;
-
-      if (dotsEl) {
-        dotsEl.querySelectorAll(".hyperframe-dot").forEach(function (dot, dotIndex) {
-          dot.classList.toggle("is-active", dotIndex === i);
-          dot.setAttribute("aria-selected", dotIndex === i ? "true" : "false");
-        });
+      if (animate && transitionMs > 0) {
+        if (overlayEl) overlayEl.classList.add("is-changing");
+        poster.classList.add("is-fading");
+        setTimeout(applyBeat, transitionMs);
+      } else {
+        applyBeat();
       }
     }
 
     function playSegment() {
       var beat = beats[index];
-      if (!beat || !beat.segment) {
+      if (posterOnly || !beat || !beat.segment) {
         scheduleNext(beat ? beat.durationSec * 1000 : 4000);
         return;
       }
 
-      var src = assetPath("assets/", beat.segment.replace(/^assets\//, ""));
+      var src = assetPath(beat.segment);
       video.src = src;
       video.currentTime = 0;
       video.classList.add("is-visible");
@@ -177,13 +216,41 @@
       clearTimeout(timer);
       if (!playing) return;
       timer = setTimeout(function () {
-        if (index + 1 >= beats.length) {
-          stop();
+        var nextIndex = index + 1;
+        if (nextIndex >= beats.length) {
+          if (loop) {
+            showBeat(0, true);
+            playSegment();
+          } else {
+            stop();
+          }
           return;
         }
-        showBeat(index + 1);
+        showBeat(nextIndex, true);
         playSegment();
       }, delay);
+    }
+
+    function startCarousel() {
+      stopCarousel();
+      if (!autoplay || beats.length < 2) return;
+
+      function tick() {
+        var beat = beats[index];
+        var delay = (beat ? beat.durationSec : 5) * 1000;
+        carouselTimer = setTimeout(function () {
+          var nextIndex = index + 1 >= beats.length ? 0 : index + 1;
+          showBeat(nextIndex, !prefersReduced);
+          tick();
+        }, delay);
+      }
+
+      tick();
+    }
+
+    function stopCarousel() {
+      clearTimeout(carouselTimer);
+      carouselTimer = null;
     }
 
     function play() {
@@ -192,13 +259,19 @@
         playBtn.textContent = "Pause demo";
         playBtn.setAttribute("aria-pressed", "true");
       }
-      playSegment();
+      if (posterOnly) {
+        stopCarousel();
+        startCarousel();
+      } else {
+        playSegment();
+      }
     }
 
     function stop() {
       playing = false;
       clearTimeout(timer);
       video.pause();
+      stopCarousel();
       if (playBtn) {
         playBtn.textContent = "Play demo";
         playBtn.setAttribute("aria-pressed", "false");
@@ -210,61 +283,76 @@
       else play();
     }
 
-    function prev() {
-      stop();
-      showBeat(Math.max(0, index - 1));
+    function goPrev() {
+      var nextIndex = index - 1 < 0 ? (loop ? beats.length - 1 : 0) : index - 1;
+      showBeat(nextIndex, !prefersReduced);
+      if (playing && posterOnly) {
+        stopCarousel();
+        startCarousel();
+      }
     }
 
-    function next() {
-      stop();
-      showBeat(Math.min(beats.length - 1, index + 1));
+    function goNext() {
+      var nextIndex = index + 1 >= beats.length ? (loop ? 0 : beats.length - 1) : index + 1;
+      showBeat(nextIndex, !prefersReduced);
+      if (playing && posterOnly) {
+        stopCarousel();
+        startCarousel();
+      }
     }
 
     if (playBtn) playBtn.addEventListener("click", togglePlay);
-    if (prevBtn) prevBtn.addEventListener("click", prev);
-    if (nextBtn) nextBtn.addEventListener("click", next);
+    if (prevBtn) prevBtn.addEventListener("click", goPrev);
+    if (nextBtn) nextBtn.addEventListener("click", goNext);
+
+    if (dotsEl) {
+      dotsEl.addEventListener("click", function (event) {
+        var dot = event.target.closest(".hyperframe-dot");
+        if (!dot) return;
+        var dotIndex = parseInt(dot.getAttribute("data-index"), 10);
+        if (Number.isNaN(dotIndex)) return;
+        showBeat(dotIndex, !prefersReduced);
+        if (playing && posterOnly) {
+          stopCarousel();
+          startCarousel();
+        }
+      });
+    }
+
+    function buildDots() {
+      if (!dotsEl) return;
+      dotsEl.innerHTML = "";
+      beats.forEach(function (_beat, dotIndex) {
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "hyperframe-dot" + (dotIndex === 0 ? " is-active" : "");
+        dot.setAttribute("role", "tab");
+        dot.setAttribute("data-index", String(dotIndex));
+        dot.setAttribute("aria-label", "Step " + (dotIndex + 1));
+        dotsEl.appendChild(dot);
+      });
+    }
+
+    function initBeats(rawBeats) {
+      beats = normalizeBeats(rawBeats);
+      buildDots();
+      showBeat(0, false);
+      if (autoplay) {
+        playing = true;
+        startCarousel();
+      }
+    }
 
     fetch("assets/hyperframes-manifest.json")
       .then(function (res) {
         return res.ok ? res.json() : null;
       })
       .then(function (manifest) {
-        beats = manifest && manifest.beats && manifest.beats.length ? manifest.beats : FALLBACK_BEATS;
-        beats = beats.map(function (beat) {
-          return {
-            title: beat.title,
-            caption: beat.caption,
-            poster: beat.poster.indexOf("assets/") === 0 ? beat.poster : "assets/" + beat.poster,
-            segment: beat.segment
-              ? beat.segment.indexOf("assets/") === 0
-                ? beat.segment
-                : "assets/" + beat.segment
-              : null,
-            durationSec: beat.durationSec || 6,
-          };
-        });
-
-        if (dotsEl) {
-          dotsEl.innerHTML = "";
-          beats.forEach(function (_beat, dotIndex) {
-            var dot = document.createElement("button");
-            dot.type = "button";
-            dot.className = "hyperframe-dot" + (dotIndex === 0 ? " is-active" : "");
-            dot.setAttribute("role", "tab");
-            dot.setAttribute("aria-label", "Frame " + (dotIndex + 1));
-            dot.addEventListener("click", function () {
-              stop();
-              showBeat(dotIndex);
-            });
-            dotsEl.appendChild(dot);
-          });
-        }
-
-        showBeat(0);
+        var raw = manifest && manifest.beats && manifest.beats.length ? manifest.beats : FALLBACK_BEATS;
+        initBeats(raw);
       })
       .catch(function () {
-        beats = FALLBACK_BEATS;
-        showBeat(0);
+        initBeats(FALLBACK_BEATS);
       });
 
     return { showBeat: showBeat, play: play, stop: stop };
@@ -285,8 +373,15 @@
   createPlayer({
     videoId: "hero-hyperframe-video",
     posterId: "hero-hyperframe-poster",
-    stepId: null,
-    titleId: null,
-    captionId: null,
+    overlayId: "hero-hyperframe-overlay",
+    stepId: "hero-hyperframe-step",
+    titleId: "hero-hyperframe-title",
+    captionId: "hero-hyperframe-caption",
+    prevBtnId: "hero-hf-prev",
+    nextBtnId: "hero-hf-next",
+    dotsId: "hero-hyperframe-dots",
+    autoplay: true,
+    loop: true,
+    posterOnly: true,
   });
 })();
