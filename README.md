@@ -19,9 +19,16 @@ Storyboard-driven walkthrough (see `scripts/demo-record/storyboard.mjs`):
 ```bash
 npm run serve          # terminal 1
 npm run demo:frames    # terminal 2 — records posters + webm segments
+npm run demo:stitch    # concat segments → assets/collins-agency-demo.mp4
 ```
 
-Outputs land in `assets/hyperframes-manifest.json`, `assets/collins-demo-*.png`, and `assets/segments/*.webm`.
+Or in one shot after the site is being served:
+
+```bash
+npm run demo:build
+```
+
+Outputs land in `assets/hyperframes-manifest.json`, `assets/collins-demo-*.png`, `assets/segments/*.webm`, and the stitched **`assets/collins-agency-demo.mp4`** used by the demo player.
 
 ## Structure
 
@@ -32,5 +39,18 @@ Outputs land in `assets/hyperframes-manifest.json`, `assets/collins-demo-*.png`,
 | `script.js` | Scroll reveals, demo playback |
 | `assets/logo.svg` | Vectorized Collins mark |
 | `assets/hyperframes-manifest.json` | Demo beat manifest |
+| `assets/collins-agency-demo.mp4` | Stitched full demo video |
+| `deliverables/brand-guidelines.pdf` | Shareable brand guidelines (HTML source in same folder) |
+| `docs/brand.md` / `design.md` | Brand narrative and design tokens |
+
+## Brand guidelines PDF
+
+Regenerate the shareable PDF from the HTML template:
+
+```bash
+npm run brand:pdf
+```
+
+Outputs `deliverables/brand-guidelines.pdf` and a copy at `brand-guidelines.pdf`.
 
 Project ID: `ebd31ae8-0025-441d-8eea-7bbda8af377d` (Majico / Collins)

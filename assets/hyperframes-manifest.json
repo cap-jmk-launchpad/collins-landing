@@ -65,5 +65,7 @@
       "poster": "collins-demo-07-endcard.png",
       "segment": "segments/collins-demo-07-endcard.webm"
     }
-  ]
+  ],
+  "fullVideo": "collins-agency-demo.mp4",
+  "totalDurationSec": 42
 }
