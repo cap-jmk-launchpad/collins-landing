@@ -1,7 +1,7 @@
 {
   "version": 3,
   "engine": "playwright-brand-reel",
-  "recordedAt": "2026-06-27T05:56:20.902Z",
+  "recordedAt": "2026-06-27T05:57:28.061Z",
   "motion": {
     "reelLoadMs": 500,
     "reelBufferMs": 600,
@@ -67,7 +67,7 @@
       "title": "Collins",
       "caption": "Digital marketing and automation for brands that want clarity",
       "hash": null,
-      "startSec": 1.35,
+      "startSec": 1.3,
       "durationSec": 5.05,
       "poster": "hero-method-01-discover.png",
       "segment": null
@@ -78,8 +78,8 @@
       "title": "Discover",
       "caption": "Start with a 30-minute strategy call. Tell us where momentum is stuck.",
       "hash": null,
-      "startSec": 6.4,
-      "durationSec": 7.16,
+      "startSec": 6.35,
+      "durationSec": 7.06,
       "poster": "hero-method-01-discover.png",
       "segment": null
     },
@@ -89,8 +89,8 @@
       "title": "Map the sprint",
       "caption": "Week one maps SEO, paid, content, and automation to your KPIs.",
       "hash": null,
-      "startSec": 13.56,
-      "durationSec": 7.15,
+      "startSec": 13.41,
+      "durationSec": 7.07,
       "poster": "hero-method-02-strategy.png",
       "segment": null
     },
@@ -100,8 +100,8 @@
       "title": "Scope with clarity",
       "caption": "Transparent line items, senior access, and reporting cadence locked in.",
       "hash": null,
-      "startSec": 20.71,
-      "durationSec": 7.13,
+      "startSec": 20.48,
+      "durationSec": 7.01,
       "poster": "hero-method-03-scope.png",
       "segment": null
     },
@@ -111,8 +111,8 @@
       "title": "Ship campaigns",
       "caption": "Content, paid media, and nurture launch from one shared playbook.",
       "hash": null,
-      "startSec": 27.84,
-      "durationSec": 6.99,
+      "startSec": 27.49,
+      "durationSec": 7.1,
       "poster": "hero-method-04-ship.png",
       "segment": null
     },
@@ -122,8 +122,8 @@
       "title": "Automate and connect",
       "caption": "CRM and workflows wired to the same growth plan.",
       "hash": null,
-      "startSec": 34.83,
-      "durationSec": 7.02,
+      "startSec": 34.59,
+      "durationSec": 7.03,
       "poster": "hero-method-05-automate.png",
       "segment": null
     },
@@ -133,8 +133,8 @@
       "title": "Measure and compound",
       "caption": "Revenue tied reporting and quarterly channel tuning.",
       "hash": null,
-      "startSec": 41.85,
-      "durationSec": 7.6,
+      "startSec": 41.62,
+      "durationSec": 7.69,
       "poster": "hero-method-06-measure.png",
       "segment": null
     },
@@ -144,12 +144,12 @@
       "title": "Unify. Automate. Amplify.",
       "caption": "Your growth agency.",
       "hash": null,
-      "startSec": 49.45,
-      "durationSec": 5.75,
+      "startSec": 49.31,
+      "durationSec": 6.41,
       "poster": "hero-method-06-measure.png",
       "segment": null
     }
   ],
-  "totalDurationSec": 55.2,
+  "totalDurationSec": 55.72,
   "fullVideo": "collins-agency-demo.mp4"
 }
