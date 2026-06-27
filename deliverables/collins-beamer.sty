@@ -21,25 +21,50 @@
 \definecolor{collinsLime}{HTML}{b6ff00}
 \definecolor{collinsOnAccent}{HTML}{040806}
 
-% Typography: Inter + Plus Jakarta Sans with system fallbacks
-\IfFontExistsTF{Inter}{%
-  \setsansfont{Inter}[Scale=0.95]%
-}{%
-  \IfFontExistsTF{Segoe UI}{%
-    \setsansfont{Segoe UI}[Scale=0.95]%
+% Typography: bundled Inter + Plus Jakarta Sans (see fonts/), then system fallbacks
+\newcommand{\CollinsFontDir}{fonts/}
+\newcommand{\CollinsLoadBundledFonts}{%
+  \IfFileExists{\CollinsFontDir Inter-Regular.ttf}{%
+    \setsansfont{Inter}[
+      Path=\CollinsFontDir,
+      Extension=.ttf,
+      UprightFont=*-Regular,
+      ItalicFont=*-Italic,
+      BoldFont=*-Regular,
+      BoldItalicFont=*-Italic,
+      Scale=0.95,
+    ]%
+    \newfontfamily\CollinsDisplay{PlusJakartaSans}[
+      Path=\CollinsFontDir,
+      Extension=.ttf,
+      UprightFont=*-Regular,
+      ItalicFont=*-Italic,
+      BoldFont=*-Regular,
+      BoldItalicFont=*-Italic,
+      Scale=0.92,
+    ]%
   }{%
-    \setsansfont{Arial}[Scale=0.95]%
+    \IfFontExistsTF{Inter}{%
+      \setsansfont{Inter}[Scale=0.95]%
+    }{%
+      \IfFontExistsTF{Segoe UI}{%
+        \setsansfont{Segoe UI}[Scale=0.95]%
+      }{%
+        \setsansfont{Arial}[Scale=0.95]%
+      }%
+    }%
+    \IfFontExistsTF{Plus Jakarta Sans}{%
+      \newfontfamily\CollinsDisplay{Plus Jakarta Sans}[Scale=0.92]%
+    }{%
+      \IfFontExistsTF{Segoe UI}{%
+        \newfontfamily\CollinsDisplay{Segoe UI}[Scale=0.92,FakeBold=2]%
+      }{%
+        \newfontfamily\CollinsDisplay{Arial}[Scale=0.92,FakeBold=2]%
+      }%
+    }%
   }%
 }
-\IfFontExistsTF{Plus Jakarta Sans}{%
-  \newfontfamily\CollinsDisplay{Plus Jakarta Sans}[Scale=0.92]%
-}{%
-  \IfFontExistsTF{Segoe UI}{%
-    \newfontfamily\CollinsDisplay{Segoe UI}[Scale=0.92,FakeBold=2]%
-  }{%
-    \newfontfamily\CollinsDisplay{Arial}[Scale=0.92,FakeBold=2]%
-  }%
-}
+\CollinsLoadBundledFonts
 \newcommand{\displayheading}[1]{{\CollinsDisplay\bfseries #1}}
 
 \setbeamercolor{background canvas}{bg=collinsDeep}

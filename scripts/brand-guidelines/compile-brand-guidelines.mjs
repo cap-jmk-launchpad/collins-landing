@@ -1,4 +1,4 @@
-import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
@@ -155,6 +155,9 @@ function syncManifestUrls(catboxUrl) {
 
 mkdirSync(path.dirname(pdfDeliverables), { recursive: true });
 
+console.log("Ensuring bundled brand fonts...");
+await import("./ensure-fonts.mjs");
+
 const built = compilePdf();
 if (!existsSync(built)) {
   throw new Error(`Expected PDF at ${built} but file was not created.`);
@@ -169,6 +172,9 @@ const texSource = readFileSync(path.join(texDir, texFile), "utf8").replace(
 );
 writeFileSync(path.join(root, "deliverables", texFile), texSource, "utf8");
 copyFileSync(path.join(texDir, "collins-beamer.sty"), path.join(root, "deliverables", "collins-beamer.sty"));
+const deliverablesFonts = path.join(root, "deliverables", "fonts");
+mkdirSync(deliverablesFonts, { recursive: true });
+cpSync(path.join(texDir, "fonts"), deliverablesFonts, { recursive: true });
 console.log(`Wrote ${pdfDeliverables}`);
 console.log(`Wrote ${pdfRoot}`);
 
