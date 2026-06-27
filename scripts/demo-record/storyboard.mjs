@@ -22,7 +22,7 @@ export const COLLINS_STORYBOARD = [
     slug: "demo",
     hash: "#demo",
     title: "How we work",
-    caption: "A guided walkthrough of our approach — captured as hyperframes",
+    caption: "A guided walkthrough of our approach — step by step",
     durationSec: 6,
   },
   {

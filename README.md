@@ -1,6 +1,6 @@
 ﻿# Collins landing page
 
-Marketing agency landing page mock for **Collins** — neon green dark theme, hyperframes demo, vector logo.
+Marketing agency landing page mock for **Collins** — neon green dark theme, interactive demo, vector logo.
 
 **Live repo:** [cap-jmk-launchpad/collins-landing](https://github.com/cap-jmk-launchpad/collins-landing)
 
@@ -12,7 +12,7 @@ npm run serve
 
 Open http://localhost:4173
 
-## Hyperframes demo
+## Demo recording
 
 Storyboard-driven walkthrough (see `scripts/demo-record/storyboard.mjs`):
 
@@ -27,9 +27,9 @@ Outputs land in `assets/hyperframes-manifest.json`, `assets/collins-demo-*.png`,
 
 | Path | Purpose |
 |------|---------|
-| `index.html` | Agency landing page + hyperframes player |
+| `index.html` | Agency landing page + demo player |
 | `styles.css` | Neon green design tokens |
-| `script.js` | Scroll reveals, hyperframes playback |
+| `script.js` | Scroll reveals, demo playback |
 | `assets/logo.svg` | Vectorized Collins mark |
 | `assets/hyperframes-manifest.json` | Demo beat manifest |
 
