@@ -1,29 +1,38 @@
 <!doctype html>
-<html lang="en" data-layout="doc" data-color-mode="light">
+<html lang="en" data-layout="doc" data-color-mode="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Collins Brand Guidelines</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" />
   <style>
 :root {
-  --paper: #ffffff;
-  --linen: #f4f4f5;
-  --ink: #0a0a0a;
-  --graphite: #52525b;
-  --accent: #485668;
-  --accent-on: #fafafa;
-  --line: #e4e4e7;
+  --bg-deep: #040806;
+  --bg-surface: #0a100c;
+  --bg-muted: #0f1610;
+  --bg-elevated: #141c14;
+  --text-primary: #f0f7eb;
+  --text-secondary: #9aab94;
+  --text-muted: #6b7a66;
+  --neon-green: #39ff14;
+  --neon-teal: #00ff88;
+  --neon-lime: #b6ff00;
+  --accent-on: #040806;
+  --border: rgba(57, 255, 20, 0.12);
+  --border-strong: rgba(57, 255, 20, 0.32);
+  --glow-green: 0 0 40px rgba(57, 255, 20, 0.22);
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
 }
 * { box-sizing: border-box; }
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
-  line-height: 1.45;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.5;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
@@ -34,8 +43,8 @@ body {
   container-type: inline-size;
 }
 .page {
-  border: 1px solid var(--line);
-  background: var(--paper);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
   min-height: 760px;
   margin: 0 0 18px;
   padding: 38px;
@@ -44,166 +53,178 @@ body {
   gap: 20px;
   page-break-inside: avoid;
 }
-.page > div {
-  min-width: 0;
-  container-type: inline-size;
-}
+.page > div { min-width: 0; container-type: inline-size; }
 .rail {
-  border-right: 1px solid var(--line);
+  border-right: 1px solid var(--border);
   padding-right: 18px;
   min-width: 0;
   overflow-wrap: break-word;
-}
-.rail-file {
-  margin-top: 10px;
 }
 .rail-meta {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
   gap: 22px;
-  min-width: 0;
-}
-.rail-meta__block {
-  min-width: 0;
 }
 .rail-meta__label {
   margin: 0;
-  letter-spacing: 0.02em;
-  text-transform: none;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 .rail-meta__value {
-  margin: 14px 0 0;
-  overflow-wrap: break-word; word-wrap: break-word; word-break: normal;
+  margin: 10px 0 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.2;
 }
 .num {
   margin: 0;
-  font-family: "Plus Jakarta Sans", "Iowan Old Style", "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 58px;
   line-height: 1;
   letter-spacing: -0.02em;
+  color: var(--neon-green);
 }
 .tiny {
   margin: 0;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--graphite);
+  color: var(--text-muted);
 }
 .tiny.dot::before {
   content: "•";
-  color: var(--accent);
+  color: var(--neon-green);
   margin-right: 8px;
   font-size: 16px;
   vertical-align: middle;
 }
 .display {
   margin: 10px 0 0;
-  font-family: "Plus Jakarta Sans", "Iowan Old Style", "Times New Roman", serif;
-  font-size: clamp(28px, 8cqi, 92px);
+  font-family: var(--font-display);
+  font-size: clamp(28px, 8cqi, 72px);
   line-height: 1.06;
-  letter-spacing: -0.02em;
-  overflow-wrap: break-word; word-wrap: break-word; word-break: normal;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  overflow-wrap: break-word;
 }
 .display-accent {
   margin: 0.45em 0 0;
-  font-family: "Plus Jakarta Sans", "Iowan Old Style", "Times New Roman", serif;
-  font-size: clamp(22px, 6.2cqi, 56px);
-  line-height: 1.12;
-  letter-spacing: -0.015em;
-  overflow-wrap: break-word; word-wrap: break-word; word-break: normal;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 5cqi, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 600;
 }
-.display-accent em,
-.display em { color: var(--accent); font-style: italic; font-weight: 500; }
+.gradient-text {
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-teal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 .lede {
   margin: 14px 0 0;
-  font-family: "Plus Jakarta Sans", "Iowan Old Style", "Times New Roman", serif;
-  font-size: 34px;
-  line-height: 1.12;
-  overflow-wrap: break-word; word-wrap: break-word; word-break: normal;
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 600;
 }
 .sublede {
-  margin: 16px 0 0;
-  font-size: 22px;
-  line-height: 1.35;
-  color: var(--graphite);
+  margin: 14px 0 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--text-secondary);
   max-width: 68ch;
-  overflow-wrap: break-word; word-wrap: break-word; word-break: normal;
 }
 .grid { display: grid; gap: 12px; }
 .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .panel {
-  border: 1px solid var(--line);
-  background: color-mix(in srgb, var(--paper) 88%, var(--linen) 12%);
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
   padding: 14px;
-  min-height: 120px;
+  min-height: 100px;
 }
 .panel h4 {
   margin: 0 0 8px;
   font-size: 11px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--graphite);
+  color: var(--neon-green);
   font-weight: 600;
+  font-family: var(--font-display);
 }
-.panel p { margin: 0; font-size: 16px; overflow-wrap: break-word; word-wrap: break-word; word-break: normal; }
+.panel p { margin: 0; font-size: 15px; overflow-wrap: break-word; }
 .panel ul { margin: 0; padding-left: 18px; }
-.panel li { margin: 6px 0; font-size: 15px; }
+.panel li { margin: 6px 0; font-size: 14px; color: var(--text-secondary); }
 .tone-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .tone-chip {
-  border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
-  background: color-mix(in srgb, var(--accent) 11%, var(--paper));
+  border: 1px solid var(--border-strong);
+  background: rgba(57, 255, 20, 0.08);
   padding: 5px 10px;
   border-radius: 999px;
   font-size: 12px;
-  color: var(--ink);
+  color: var(--text-primary);
 }
-.competitor-dimensions-grid .competitor-dimension { grid-column: 1 / -1; }
-.competitor-dimension table.competitor-matrix { margin-top: 12px; }
-.competitor-dimension table.competitor-matrix td { font-size: 13px; }
 table { width: 100%; border-collapse: collapse; }
 th, td {
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   text-align: left;
   vertical-align: top;
   padding: 8px;
-  font-size: 14px;
+  font-size: 13px;
 }
 th {
   font-size: 10px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--graphite);
+  color: var(--text-muted);
   font-weight: 600;
+  font-family: var(--font-display);
 }
 .swatch {
   display: inline-block;
   width: 1.1rem;
   height: 0.9rem;
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-strong);
   border-radius: 2px;
   margin-right: 0.35rem;
   vertical-align: text-bottom;
 }
-.logo { display: block; max-width: 190px; max-height: 110px; margin-top: 8px; }
+.logo-wrap {
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo { display: block; max-width: 140px; max-height: 140px; filter: drop-shadow(0 0 12px rgba(57, 255, 20, 0.35)); }
 .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
 .btn {
-  border: 1px solid var(--line);
-  padding: 10px 13px;
-  font-size: 17px;
-  font-family: "Plus Jakarta Sans", "Iowan Old Style", "Times New Roman", serif;
-  background: var(--paper);
-  color: var(--ink);
+  border: 1px solid var(--border-strong);
+  padding: 10px 16px;
+  font-size: 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-primary);
 }
-.btn.primary { background: var(--ink); color: var(--paper); }
-.btn.accent {
-  background: var(--accent);
-  border-color: var(--accent);
+.btn.primary {
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-teal));
+  border-color: transparent;
   color: var(--accent-on);
+  box-shadow: var(--glow-green);
+}
+.btn.ghost {
+  background: transparent;
+  border-color: var(--border-strong);
 }
 .foot {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
   margin-top: 14px;
   padding-top: 14px;
   display: flex;
@@ -213,123 +234,87 @@ th {
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--graphite);
+  color: var(--text-muted);
 }
-.muted { color: var(--graphite); }
-code { background: rgba(0, 0, 0, 0.06); padding: 0.1rem 0.25rem; border-radius: 3px; }
+.muted { color: var(--text-secondary); }
+code {
+  background: rgba(57, 255, 20, 0.08);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  font-size: 12px;
+  color: var(--neon-teal);
+}
+.do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.do-dont .panel.do { border-color: rgba(57, 255, 20, 0.35); }
+.do-dont .panel.dont { border-color: rgba(255, 80, 80, 0.25); }
 @media (max-width: 980px) {
   .page { grid-template-columns: 1fr; min-height: auto; }
-  .rail { border-right: 0; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .rail { border-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .grid-2, .grid-3, .do-dont { grid-template-columns: 1fr; }
 }
-
-
-/* majico-pdf-export-print */
 @media print {
   @page { size: A4; margin: 10mm; }
-  html, body {
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    overflow: hidden !important;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  html::-webkit-scrollbar,
-  body::-webkit-scrollbar,
-  .book::-webkit-scrollbar,
-  .page::-webkit-scrollbar,
-  .page > div::-webkit-scrollbar,
-  .rail::-webkit-scrollbar {
-    display: none;
-    width: 0;
-    height: 0;
-  }
-  .book {
-    width: 100%;
-    padding: 0;
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    overflow: hidden !important;
-    display: block;
-    scroll-snap-type: none;
-  }
+  html, body { height: auto !important; overflow: hidden !important; }
+  .book { width: 100%; padding: 0; }
   .page {
     margin-bottom: 8mm;
-    overflow: visible !important;
-    min-height: 0 !important;
-    height: auto !important;
-    max-height: none !important;
-    flex: none;
-    width: 100%;
-    box-shadow: none;
-    scroll-snap-align: none;
     page-break-inside: avoid;
     page-break-after: always;
   }
-  .page:last-child {
-    page-break-after: auto;
-  }
-  .page > div {
-    overflow: visible !important;
-    max-height: none !important;
-  }
-  html[data-canvas-embed="1"] body,
-  html[data-canvas-embed="1"] .book,
-  html[data-canvas-embed="1"] .page,
-  html[data-canvas-embed="1"] .page > div,
-  html[data-canvas-embed="1"] .rail {
-    overflow: visible !important;
-    min-height: 0 !important;
-    height: auto !important;
-    max-height: none !important;
-  }
+  .page:last-child { page-break-after: auto; }
   a { color: inherit; text-decoration: none; }
 }
   </style>
 </head>
 <body>
   <main class="book">
+
     <section class="page">
       <aside class="rail">
-        <p class="tiny dot">Brand & Design System</p>
-        <p class="tiny rail-file">File: Collins/brand.v1</p>
+        <p class="tiny dot">Brand Guidelines</p>
+        <p class="tiny" style="margin-top:10px;">Collins Agency</p>
         <div class="rail-meta">
-          <div class="rail-meta__block">
-            <p class="tiny rail-meta__label">For</p>
-            <p class="lede rail-meta__value">SaaS founders</p>
+          <div>
+            <p class="tiny rail-meta__label">Category</p>
+            <p class="rail-meta__value">Digital marketing agency</p>
           </div>
-          <div class="rail-meta__block">
-            <p class="tiny rail-meta__label">Promise</p>
-            <p class="lede rail-meta__value">Studio polish, solo speed</p>
+          <div>
+            <p class="tiny rail-meta__label">Archetype</p>
+            <p class="rail-meta__value">Sage 85% / Creator 15%</p>
           </div>
         </div>
       </aside>
       <div>
-        <h1 class="display">Collins brand toolkit</h1>
-        <p class="display-accent"><em>Collins brand toolkit</em></p>
-        <p class="sublede">Private agent workflows for Collins.</p>
+        <h1 class="display">Collins</h1>
+        <p class="display-accent"><span class="gradient-text">Growth strategy with neon clarity</span></p>
+        <p class="sublede">Boost your digital marketing and automation for faster business growth.</p>
         <div class="grid grid-2" style="margin-top:16px;">
-          <article class="panel" data-majico-section="brand_story">
-            <h4>Brand story</h4>
-            <p>We help digital marketers and small business owners streamline online operations and boost growth. Collins delivers digital marketing and automation for faster business growth. Edit this to reflect your brand story.</p>
+          <article class="panel">
+            <h4>Who we are</h4>
+            <p>Collins is a senior-led digital marketing agency for growth brands. We unify SEO, content, paid media, and automation under one accountable team.</p>
           </article>
-          <article class="panel" data-majico-section="competitive_positioning">
+          <article class="panel">
             <h4>Positioning</h4>
-            <p>HubSpot and Salesforce dominate the market by offering comprehensive all-in-one platforms that integrate CRM with marketing automation for large organizations and enterprise teams who require extensive customization but often struggle with opaque pricing models and slow support response times. Semrush similarly positions itself as a powerful toolkit primarily for SEO specialists, yet its focus remains heavily weighted on search visibility rather than deep behavioral tracking or seamless ad campaign integration. These legacy giants frequently burden digital marketers with hidden costs that erode profit margins while forcing small business owners to navigate complex interfaces without dedicated technical support teams.
-
-In contrast, Collins is designed specifically for the agile needs of digital marketers and growing brands that require rapid deployment alongside transparent vendor profiles. While competitors force users to build custom workflows or pay exorbitant fees for features they do not utilize, we provide seamless connections between SEO content strategies and paid advertising campaigns within a single unified system. Our platform eliminates the repetitive tasks associated with manual spreadsheet management by automating lead nurturing through segmented behavioral tracking, allowing growth teams to focus entirely on creativity rather than infrastructure maintenance.
-
-Collins delivers data-driven insights that empower small business owners to replace fragmented tools with an automated ecosystem built for speed and clarity. Unlike solutions that lag in support quality or charge premiums for basic connectivity, we offer a streamlined environment where social media management flows naturally into CRM integration without the bloat found in established players like Mailchimp or HubSpot. This approach ensures that every dollar spent on marketing technology directly contributes to conversion rate optimization rather than funding unnecessary legacy features or slow customer service queues.
-
-Our clear positioning stands as the agile, transparent alternative for modern growth teams who refuse to compromise between operational speed and financial predictability. While competitors target either massive enterprises with complex needs or niche SEO users with limited scope, Collins serves the vital middle ground of digital marketers seeking an all-in-one solution that merges automation, analytics, and creativity into a cohesive whole. We are not just another software provider; we are the catalyst that transforms scattered online operations into a streamlined engine for sustainable business growth without the hidden costs or support failures common in the industry today.</p>
+            <p>Studio polish, solo speed. For brands that outgrew freelancers but refuse enterprise bloat. Transparent retainers. Senior strategists on every call.</p>
+          </article>
+          <article class="panel">
+            <h4>Audience</h4>
+            <p>Founders and marketing leads at B2B and DTC growth brands ($1M to $50M revenue). Teams ready to unify paid and content programs.</p>
+          </article>
+          <article class="panel">
+            <h4>Core values</h4>
+            <ul>
+              <li>Clarity in scopes and reporting</li>
+              <li>Accountability across the full funnel</li>
+              <li>Senior craft on every engagement</li>
+              <li>Speed: sprints start in weeks</li>
+              <li>Partnership, not replacement</li>
+            </ul>
           </article>
         </div>
         <div class="foot">
-          <span class="tiny dot">Archetypes</span>
-          <span>Sage 85% / Creator 15%</span>
-          
+          <span class="tiny dot">Updated</span>
+          <span>June 2026</span>
         </div>
       </div>
     </section>
@@ -337,78 +322,113 @@ Our clear positioning stands as the agile, transparent alternative for modern gr
     <section class="page">
       <aside class="rail">
         <p class="num">01</p>
-        <p class="tiny">Workflow fit</p>
-        <p class="lede">Story, competitors, and copy in one flow.</p>
-        <p class="sublede">A compact playbook that turns strategy, color, type, and logo decisions into production defaults.</p>
+        <p class="tiny">Voice &amp; tone</p>
+        <p class="lede">Direct. Operator-led. Evidence-based.</p>
+        <p class="sublede">Speak like practitioners, not pitch decks. Respect the reader's time.</p>
       </aside>
       <div class="grid grid-2">
-        <article class="panel" data-majico-section="positioning_against_similar_names">
-          <h4>Positioning against similar names</h4>
-          <p>No company in your niche was found using the same or a very similar name. Any same-name results from search operate in other categories. The search results indicate that the primary &#39;Collins&#39; entity is an industrial supplier of windscreen and netting products rather than a software platform for CRM or social media management. Since no direct competitors share this specific technological niche under the same name, you can proceed with confidence regarding immediate naming conflicts in your target market. To further avoid confusion with unrelated historical brands like Collins Dictionary, explicitly state &#39;Collins SaaS&#39; or include industry descriptors such as &#39;CRM Solutions&#39; alongside the brand name. Suggested alternative names (validated by web search as relatively free): ClearPathCRM, TrueNorthDigital, DirectEdge.</p>
+        <article class="panel">
+          <h4>Voice attributes</h4>
+          <div class="tone-list">
+            <span class="tone-chip">Direct</span>
+            <span class="tone-chip">Operator-led</span>
+            <span class="tone-chip">Evidence-based</span>
+            <span class="tone-chip">Warm but efficient</span>
+            <span class="tone-chip">Anti-bloat</span>
+          </div>
         </article>
         <article class="panel">
-          <h4>Copy guardrail</h4>
-          <p>Boost your digital marketing and automation for faster business growth.</p>
+          <h4>Messaging anchors</h4>
+          <ul>
+            <li>Hero: Growth strategy with neon clarity</li>
+            <li>Support: Senior-led full-funnel agency</li>
+            <li>Endcard: Unify · Automate · Amplify</li>
+          </ul>
         </article>
-        <div class="grid grid-3" style="grid-column:1 / -1;">
-          <article class="panel">
-          <h4>HubSpot</h4>
-          
-          <p>HubSpot provides integrated software platforms for marketing sales customer service and CRM to help digital marketers and small business owners streamline operations. Their solution combines tools for email social media SEO analytics and automation within a unified system designed to accelerate growth.</p>
-        </article><article class="panel">
-          <h4>Salesforce</h4>
-          
-          <p>Salesforce provides comprehensive solutions like CRM and marketing automation to help digital marketers and small business owners streamline their operations for faster growth. The company integrates AI tools, SEO analytics, and content management systems to support inbound strategies while connecting various platforms such as SAP and social media channels.</p>
-        </article><article class="panel">
-          <h4>Semrush</h4>
-          
-          <p>Semrush provides a market-leading toolkit that helps businesses improve online visibility and conduct competitive research for digital marketers seeking to grow their brands across search engines, social media, and email campaigns. The platform streamlines operations by integrating analytics, content marketing tools, and advertising features into one unified system designed specifically for small business owners looking to boost growth.</p>
-        </article><article class="panel">
-          <h4>Mailchimp</h4>
-          
-          <p>Mailchimp empowers digital marketers and small business owners to accelerate growth through email automation, SEO content creation, lead generation tools, and comprehensive analytics over its 24-year history. The platform enables these users to streamline online operations by leveraging behavioral triggers such as purchase history for campaigns that drive high returns on investment.</p>
+        <article class="panel">
+          <h4>Use these words</h4>
+          <p class="muted">strategy call, retainer, sprint, full-funnel, senior-led, transparent scope, pipeline, CAC, conversion, nurture, playbook, ship, clarity, accountable</p>
         </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="page">
-      <aside class="rail">
-        <p class="num">01b</p>
-        <p class="tiny">Competitor matrices</p>
-        <p class="lede">GTM, branding, design, development.</p>
-        <p class="sublede">Top competitors and comparison matrices per workflow dimension.</p>
-      </aside>
-      <div class="grid grid-2 competitor-dimensions-grid">
-        <article class="panel"><h4>Competitor matrices</h4><p>Run niche research to generate GTM, branding, design, and development competitor matrices.</p></article>
+        <article class="panel">
+          <h4>Avoid these words</h4>
+          <p class="muted">platform, free trial, sign up, dashboard login, enterprise-grade, synergy, revolutionary, cutting-edge orchestration, ecosystem</p>
+        </article>
+        <article class="panel" style="grid-column:1 / -1;">
+          <h4>Copy examples</h4>
+          <table>
+            <thead><tr><th>Don't</th><th>Do</th></tr></thead>
+            <tbody>
+              <tr><td>Start your free trial and explore our platform.</td><td>Book a 30-minute strategy call. We will map your next 90 days.</td></tr>
+              <tr><td>Leverage our holistic marketing ecosystem.</td><td>One team owns SEO, paid media, and automation with revenue reporting.</td></tr>
+              <tr><td>Contact sales for pricing.</td><td>Retainers and project scopes are quoted upfront with line-item clarity.</td></tr>
+            </tbody>
+          </table>
+        </article>
       </div>
     </section>
 
     <section class="page">
       <aside class="rail">
         <p class="num">02</p>
-        <p class="tiny">Color scheme</p>
-        <p class="lede">Token-first palette for product and marketing.</p>
-        <p class="sublede">One accent hierarchy, neutral structure, consistent contrast.</p>
+        <p class="tiny">Color system</p>
+        <p class="lede">Neon green on dark surfaces.</p>
+        <p class="sublede">Dark-first agency palette. Accent discipline. No legacy blue or slate.</p>
       </aside>
       <div class="grid grid-2">
         <article class="panel">
-          <h4>Light theme tokens</h4>
+          <h4>Surfaces</h4>
           <table>
-            <thead><tr><th>Token</th><th>Hex</th><th>Use</th></tr></thead>
-            <tbody><tr><td><code>--bg</code></td><td><span class="swatch" style="background:#ffffff" aria-hidden="true"></span>#ffffff</td><td>Background or copy system role.</td></tr><tr><td><code>--bg-muted</code></td><td><span class="swatch" style="background:#f4f4f5" aria-hidden="true"></span>#f4f4f5</td><td>Background or copy system role.</td></tr><tr><td><code>--text</code></td><td><span class="swatch" style="background:#0a0a0a" aria-hidden="true"></span>#0a0a0a</td><td>Background or copy system role.</td></tr><tr><td><code>--text-muted</code></td><td><span class="swatch" style="background:#52525b" aria-hidden="true"></span>#52525b</td><td>Background or copy system role.</td></tr><tr><td><code>--accent</code></td><td><span class="swatch" style="background:#485668" aria-hidden="true"></span>#485668</td><td>Primary interaction and highlights.</td></tr><tr><td><code>--accent-on</code></td><td><span class="swatch" style="background:#fafafa" aria-hidden="true"></span>#fafafa</td><td>Text/icon color used on accent surfaces.</td></tr><tr><td><code>--accent-muted</code></td><td><span class="swatch" style="background:#6a727d" aria-hidden="true"></span>#6a727d</td><td>Background or copy system role.</td></tr><tr><td><code>--border</code></td><td><span class="swatch" style="background:#e4e4e7" aria-hidden="true"></span>#e4e4e7</td><td>Subtle structure and separation.</td></tr></tbody>
+            <thead><tr><th>Token</th><th>Hex</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><code>--bg-deep</code></td><td><span class="swatch" style="background:#040806"></span>#040806</td><td>Page canvas</td></tr>
+              <tr><td><code>--bg-surface</code></td><td><span class="swatch" style="background:#0a100c"></span>#0a100c</td><td>Header, panels</td></tr>
+              <tr><td><code>--bg-muted</code></td><td><span class="swatch" style="background:#0f1610"></span>#0f1610</td><td>Section bands</td></tr>
+              <tr><td><code>--bg-elevated</code></td><td><span class="swatch" style="background:#141c14"></span>#141c14</td><td>Cards, testimonials</td></tr>
+            </tbody>
           </table>
         </article>
         <article class="panel">
-          <h4>Dark theme tokens</h4>
+          <h4>Text</h4>
           <table>
-            <thead><tr><th>Token</th><th>Hex</th><th>Use</th></tr></thead>
-            <tbody><tr><td><code>--bg</code></td><td><span class="swatch" style="background:#0a0a0a" aria-hidden="true"></span>#0a0a0a</td><td>Background or copy system role.</td></tr><tr><td><code>--bg-muted</code></td><td><span class="swatch" style="background:#18181b" aria-hidden="true"></span>#18181b</td><td>Background or copy system role.</td></tr><tr><td><code>--text</code></td><td><span class="swatch" style="background:#fafafa" aria-hidden="true"></span>#fafafa</td><td>Background or copy system role.</td></tr><tr><td><code>--text-muted</code></td><td><span class="swatch" style="background:#a1a1aa" aria-hidden="true"></span>#a1a1aa</td><td>Background or copy system role.</td></tr><tr><td><code>--accent</code></td><td><span class="swatch" style="background:#485668" aria-hidden="true"></span>#485668</td><td>Primary interaction and highlights.</td></tr><tr><td><code>--accent-on</code></td><td><span class="swatch" style="background:#fafafa" aria-hidden="true"></span>#fafafa</td><td>Text/icon color used on accent surfaces.</td></tr><tr><td><code>--accent-muted</code></td><td><span class="swatch" style="background:#6a727d" aria-hidden="true"></span>#6a727d</td><td>Background or copy system role.</td></tr><tr><td><code>--border</code></td><td><span class="swatch" style="background:#27272a" aria-hidden="true"></span>#27272a</td><td>Subtle structure and separation.</td></tr></tbody>
+            <thead><tr><th>Token</th><th>Hex</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><code>--text-primary</code></td><td><span class="swatch" style="background:#f0f7eb"></span>#f0f7eb</td><td>Headlines, body</td></tr>
+              <tr><td><code>--text-secondary</code></td><td><span class="swatch" style="background:#9aab94"></span>#9aab94</td><td>Nav, labels</td></tr>
+              <tr><td><code>--text-muted</code></td><td><span class="swatch" style="background:#6b7a66"></span>#6b7a66</td><td>Footer, metadata</td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="panel">
+          <h4>Neon accents</h4>
+          <table>
+            <thead><tr><th>Token</th><th>Hex</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><code>--neon-green</code></td><td><span class="swatch" style="background:#39ff14"></span>#39ff14</td><td>Primary CTA, eyebrows</td></tr>
+              <tr><td><code>--neon-teal</code></td><td><span class="swatch" style="background:#00ff88"></span>#00ff88</td><td>Gradient partner</td></tr>
+              <tr><td><code>--neon-lime</code></td><td><span class="swatch" style="background:#b6ff00"></span>#b6ff00</td><td>Feature highlights</td></tr>
+              <tr><td><code>--accent-on</code></td><td><span class="swatch" style="background:#040806"></span>#040806</td><td>Text on neon buttons</td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="panel">
+          <h4>Borders &amp; glow</h4>
+          <table>
+            <thead><tr><th>Token</th><th>Value</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><code>--border</code></td><td>rgba(57,255,20,0.12)</td><td>Card strokes, dividers</td></tr>
+              <tr><td><code>--border-strong</code></td><td>rgba(57,255,20,0.32)</td><td>Ghost buttons, focus</td></tr>
+              <tr><td><code>--glow-green</code></td><td>0 0 40px rgba(57,255,20,0.22)</td><td>Primary button glow</td></tr>
+            </tbody>
           </table>
         </article>
         <article class="panel" style="grid-column:1 / -1;">
           <h4>Color rules</h4>
-          <p>Primary action uses <code>--accent</code> + <code>--accent-on</code>. Secondary action uses accent stroke/text with muted hover. Keep links and key highlights in one accent cluster.</p>
+          <ul>
+            <li>Primary action: green to teal gradient fill with dark text and green glow.</li>
+            <li>Secondary action: ghost pill with strong green border.</li>
+            <li>Neon accents on CTAs, eyebrows, and gradient text only. Never on body paragraphs.</li>
+            <li>Do not use legacy colors <code>#0060b9</code> or <code>#485668</code> on marketing surfaces.</li>
+          </ul>
         </article>
       </div>
     </section>
@@ -416,25 +436,54 @@ Our clear positioning stands as the agile, transparent alternative for modern gr
     <section class="page">
       <aside class="rail">
         <p class="num">03</p>
-        <p class="tiny">Typography + logo</p>
-        <p class="lede">Type system and mark behavior.</p>
-        <p class="sublede">Headings carry signal, body carries clarity, logo carries recognition.</p>
+        <p class="tiny">Typography &amp; logo</p>
+        <p class="lede">Plus Jakarta Sans + Inter.</p>
+        <p class="sublede">Display carries hierarchy. Body carries clarity. Logo carries recognition.</p>
       </aside>
       <div class="grid grid-2">
         <article class="panel">
           <h4>Typography</h4>
           <table>
-            <thead><tr><th>Role</th><th>Font</th><th>Rule</th></tr></thead>
+            <thead><tr><th>Role</th><th>Font</th><th>Use</th></tr></thead>
             <tbody>
-              <tr><td>Headings</td><td>Plus Jakarta Sans</td><td>Use for H1-H3 and key labels.</td></tr>
-              <tr><td>Body</td><td>Inter</td><td>Use for paragraphs and support copy.</td></tr>
-              <tr><td>Spec/coding</td><td>Consolas / monospace</td><td>Use for token names and snippets.</td></tr>
+              <tr><td>Display / headings</td><td>Plus Jakarta Sans</td><td>H1 to H3, buttons, stats, eyebrows</td></tr>
+              <tr><td>Body / UI</td><td>Inter</td><td>Lede, FAQ, footer, captions</td></tr>
+              <tr><td>Spec / code</td><td>Monospace</td><td>Token names, file paths</td></tr>
             </tbody>
           </table>
         </article>
         <article class="panel">
+          <h4>Type scale</h4>
+          <ul>
+            <li>Eyebrow: 13px, uppercase, green, wide tracking</li>
+            <li>H1 hero: clamp 2.5 to 4.25rem, extrabold</li>
+            <li>H2 section: clamp 1.75 to 2.5rem, bold</li>
+            <li>Body: 1rem, line-height 1.6</li>
+            <li>Tight tracking on display. Regular on body.</li>
+          </ul>
+        </article>
+        <article class="panel" style="grid-column:1 / -1;">
           <h4>Logo</h4>
-          <img class="logo" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDggNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTggOCBMOCA0MCBMMjQgMzYgTDI0IDEyIFogTTI0IDEyIEwyNCAzNiBMNDAgNDAgTDQwIDggWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==" alt="Collins logo" /><p class="muted" style="margin-top:8px;">Preserve mark geometry, spacing, and monochrome fallback.</p>
+          <div class="logo-wrap">
+            <img class="logo" src="collins-logo-neon.svg" alt="Collins logo" />
+          </div>
+          <p class="muted" style="margin-top:12px;">Use the neon mark on dark backgrounds. Preserve SVG glow. Minimum clear space: half the mark height. Do not stretch, recolor outside tokens, or place on busy photography without a scrim.</p>
+        </article>
+        <article class="panel">
+          <h4>Logo do</h4>
+          <ul>
+            <li>Lockup with wordmark "Collins" on dark surfaces</li>
+            <li>Keep neon drop-shadow treatment</li>
+            <li>Respect clear space around the mark</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <h4>Logo don't</h4>
+          <ul>
+            <li>No stretch, skew, or rotation</li>
+            <li>No color substitutions outside token system</li>
+            <li>No flattening onto low-contrast imagery</li>
+          </ul>
         </article>
       </div>
     </section>
@@ -442,69 +491,99 @@ Our clear positioning stands as the agile, transparent alternative for modern gr
     <section class="page">
       <aside class="rail">
         <p class="num">04</p>
-        <p class="tiny">Copy system</p>
-        <p class="lede">Voice, CTA, and implementation copy.</p>
-        <p class="sublede">Warm, specific, founder-direct. No fluff.</p>
+        <p class="tiny">Services &amp; CTAs</p>
+        <p class="lede">Six services. Three CTAs.</p>
+        <p class="sublede">Agency conversion labels. No product signup language.</p>
       </aside>
       <div class="grid grid-2">
         <article class="panel">
-          <h4>Voice stack</h4>
-          <p>professional, trustworthy.</p>
-          <div class="tone-list"><span class="tone-chip">professional</span><span class="tone-chip">trustworthy</span></div>
+          <h4>Services</h4>
+          <ol>
+            <li>Growth strategy</li>
+            <li>SEO &amp; content</li>
+            <li>Paid media</li>
+            <li>Automation &amp; CRM</li>
+            <li>Analytics &amp; CRO</li>
+            <li>Retainer partnerships</li>
+          </ol>
         </article>
         <article class="panel">
-          <h4>CTA direction</h4>
+          <h4>Client journey</h4>
+          <ol>
+            <li>Discovery call (30 min)</li>
+            <li>Strategy sprint (week one)</li>
+            <li>Retainer or project scope</li>
+            <li>Ship and report</li>
+            <li>Compound quarterly</li>
+          </ol>
+        </article>
+        <article class="panel" style="grid-column:1 / -1;">
+          <h4>CTA hierarchy</h4>
+          <table>
+            <thead><tr><th>Priority</th><th>Label</th><th>Use</th></tr></thead>
+            <tbody>
+              <tr><td>Primary</td><td>Book a strategy call</td><td>Header, hero, final CTA</td></tr>
+              <tr><td>Secondary</td><td>Watch the demo</td><td>Hero ghost, demo section</td></tr>
+              <tr><td>Tertiary</td><td>Email the team</td><td>Final CTA alternate</td></tr>
+            </tbody>
+          </table>
           <div class="btn-row">
-            <button class="btn primary" type="button">Get my brand kit →</button>
-            <button class="btn accent" type="button">Start this plan</button>
-            <button class="btn" type="button">See examples</button>
+            <button class="btn primary" type="button">Book a strategy call</button>
+            <button class="btn ghost" type="button">Watch the demo</button>
+            <button class="btn ghost" type="button">Email the team</button>
           </div>
         </article>
         <article class="panel" style="grid-column:1 / -1;">
-          <h4>Copy samples</h4>
-          <p><strong>Headline:</strong> Collins brand toolkit</p>
-          <p style="margin-top:8px;"><strong>Accent line:</strong> Collins brand toolkit</p>
-          <p style="margin-top:8px;"><strong>Support:</strong> Private agent workflows for Collins.</p>
-          <p style="margin-top:8px;"><strong>Narrative:</strong> A compact playbook that turns strategy, color, type, and logo decisions into production defaults.</p>
-          <p style="margin-top:8px;"><strong>Positioning line:</strong> Boost your digital marketing and automation for faster business growth.</p>
+          <h4>Never use</h4>
+          <p class="muted">Start free trial. Sign up. Get started free. Create account. Contact sales. Platform login.</p>
         </article>
-        
-      </div>
-      <div class="foot">
-        <span class="tiny dot">Collins</span>
-        <span class="tiny">Type: Plus Jakarta Sans / Inter</span>
       </div>
     </section>
+
     <section class="page">
       <aside class="rail">
         <p class="num">05</p>
-        <p class="tiny">Logo system</p>
-        <p class="lede">One mark, clear rules.</p>
-        <p class="sublede">Consistency builds trust faster than novelty tweaks.</p>
+        <p class="tiny">Motion</p>
+        <p class="lede">Restrained neon motion.</p>
+        <p class="sublede">Motion confirms intent. It never competes with copy or CTAs.</p>
       </aside>
       <div class="grid grid-2">
         <article class="panel">
-          <h4>Primary usage</h4>
+          <h4>Principles</h4>
           <ul>
-            <li>Use the core wordmark for default brand surfaces.</li>
-            <li>Use monochrome mark on dense or low-contrast backgrounds.</li>
-            <li>Reserve accent treatments for emphasis moments only.</li>
+            <li>Glow pulses and crossfades reinforce the palette.</li>
+            <li>No infinite pulse on primary buttons.</li>
+            <li>Beat-synced hyperframe storytelling on demo stage.</li>
+            <li>Scroll reveals and stat count-up on load.</li>
           </ul>
         </article>
         <article class="panel">
-          <h4>Clear space + scale</h4>
+          <h4>Timing tokens</h4>
+          <table>
+            <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+            <tbody>
+              <tr><td><code>--duration-fast</code></td><td>200ms</td><td>Nav hover, FAQ</td></tr>
+              <tr><td><code>--duration-beat</code></td><td>420ms</td><td>Hyperframe crossfade</td></tr>
+              <tr><td><code>--duration-slow</code></td><td>520ms</td><td>Stage glow transition</td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="panel">
+          <h4>Animated elements</h4>
           <ul>
-            <li>Keep clear space equal to cap-height of the mark.</li>
-            <li>Wordmark minimum: 64px digital, 14mm print.</li>
-            <li>Sigil minimum: 24px digital, 6mm print.</li>
+            <li>Demo stage: inset neon ring pulse while playing</li>
+            <li>Carousel dots: glow pulse on active dot only</li>
+            <li>Subtitle overlays: stagger fade on beat change</li>
+            <li>Buttons: hover lift and glow only</li>
           </ul>
         </article>
-        <article class="panel" style="grid-column:1 / -1;">
-          <h4>Misuse to avoid</h4>
+        <article class="panel">
+          <h4>Reduced motion</h4>
           <ul>
-            <li>No stretch, skew, rotation, or drop shadows.</li>
-            <li>No color substitutions outside approved token system.</li>
-            <li>No decorative gradients or effects on core logo.</li>
+            <li>Honor <code>prefers-reduced-motion: reduce</code></li>
+            <li>Instant beat swaps, no crossfade</li>
+            <li>Reveals show immediately</li>
+            <li>Stat numbers display final values at once</li>
           </ul>
         </article>
       </div>
@@ -513,187 +592,59 @@ Our clear positioning stands as the agile, transparent alternative for modern gr
     <section class="page">
       <aside class="rail">
         <p class="num">06</p>
-        <p class="tiny">Component patterns</p>
-        <p class="lede">Reusable UI blocks.</p>
-        <p class="sublede">Build interfaces from token-bound components, not ad-hoc styles.</p>
+        <p class="tiny">Do's &amp; don'ts</p>
+        <p class="lede">Agency brand guardrails.</p>
+        <p class="sublede">Copy, visual, and handoff rules for every surface.</p>
       </aside>
-      <div class="grid grid-3">
-        <article class="panel">
-          <h4>Buttons</h4>
-          <p>Primary = accent fill. Secondary = accent stroke. Keep one dominant CTA per cluster.</p>
-        </article>
-        <article class="panel">
-          <h4>Inputs</h4>
-          <p>Use neutral surfaces and clear border states. Focus uses accent edge, never heavy glow.</p>
-        </article>
-        <article class="panel">
-          <h4>Cards + nav</h4>
-          <p>Card surfaces use muted background. Active nav state uses accent text and subtle tint.</p>
-        </article>
-        <article class="panel" style="grid-column:1 / -1;">
-          <h4>System rule</h4>
-          <p>If a new component needs extra colors or spacing rules, update tokens first, then component styles.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="page">
-      <aside class="rail">
-        <p class="num">07</p>
-        <p class="tiny">Layout templates</p>
-        <p class="lede">Page structures by intent.</p>
-        <p class="sublede">Choose a layout based on decision goal, not visual preference.</p>
-      </aside>
-      <div class="grid grid-2">
-        <article class="panel">
-          <h4>Landing page</h4>
-          <p>Hero + proof + CTA rail. Lead with one concrete promise and one measurable proof point.</p>
-        </article>
-        <article class="panel">
-          <h4>App dashboard</h4>
-          <p>Summary stats, action queue, confidence cues. Prioritize decision speed over visual density.</p>
-        </article>
-        <article class="panel">
-          <h4>Pricing</h4>
-          <p>Tier cards + comparison matrix + focused CTA. Most-popular treatment uses accent, not extra colors.</p>
-        </article>
-        <article class="panel">
-          <h4>Docs / guidelines</h4>
-          <p>Narrative left, implementation right. Keep token references near examples for zero-guess handoff.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="page">
-      <aside class="rail">
-        <p class="num">08</p>
-        <p class="tiny">Voice do / don't</p>
-        <p class="lede">Say it like an operator.</p>
-        <p class="sublede">Copy should help founders decide, not impress a committee.</p>
-      </aside>
-      <div class="grid grid-2">
-        <article class="panel">
-          <h4>Do</h4>
+      <div class="do-dont">
+        <article class="panel do">
+          <h4>Copy: do</h4>
           <ul>
-            <li>Lead with one concrete claim and one proof point.</li>
-            <li>"Ship a clean brand system in one focused session."</li>
-            <li>"Use one claim, one proof, one action."</li>
+            <li>Lead with one claim and one proof point per section</li>
+            <li>Use "Book a strategy call" as primary CTA</li>
+            <li>Name the six canonical services exactly</li>
+            <li>Quote transparent pricing philosophy</li>
+            <li>Attribute testimonials to role and company</li>
           </ul>
         </article>
-        <article class="panel">
-          <h4>Don't</h4>
+        <article class="panel dont">
+          <h4>Copy: don't</h4>
           <ul>
-            <li>Avoid abstract claims without operational proof.</li>
-            <li>"Leverage cutting-edge orchestration."</li>
-            <li>"Stack abstract claims with no operational proof."</li>
+            <li>No product signup language</li>
+            <li>No abstract superlatives without evidence</li>
+            <li>No invented software features</li>
+            <li>No opaque "contact sales" pricing</li>
+            <li>No anonymous testimonial filler</li>
+          </ul>
+        </article>
+        <article class="panel do">
+          <h4>Visual: do</h4>
+          <ul>
+            <li>Apply neon accent tokens for CTAs and eyebrows</li>
+            <li>Use Plus Jakarta Sans + Inter only</li>
+            <li>Keep dark backgrounds and green borders</li>
+            <li>Preserve logo clear space and SVG glow</li>
+            <li>Respect reduced-motion preferences</li>
+          </ul>
+        </article>
+        <article class="panel dont">
+          <h4>Visual: don't</h4>
+          <ul>
+            <li>No legacy blue or slate palette</li>
+            <li>No light-mode white SaaS layouts</li>
+            <li>No decorative serif or display fonts</li>
+            <li>No neon on body paragraphs or full-width bands</li>
+            <li>No hardcoded hex outside token system</li>
           </ul>
         </article>
       </div>
-    </section>
-
-    <section class="page">
-      <aside class="rail">
-        <p class="num">09</p>
-        <p class="tiny">Competitive differentiation</p>
-        <p class="lede">Where this brand wins.</p>
-        <p class="sublede">Clear wedge beats broad category language.</p>
-      </aside>
-      <div class="grid grid-2">
-        <article class="panel">
-          <h4>Category default</h4>
-          <p>Generic AI-finance and design language creates sameness and weak recall.</p>
-        </article>
-        <article class="panel">
-          <h4>Your wedge</h4>
-          <p>Boost your digital marketing and automation for faster business growth.</p>
-        </article>
-        <article class="panel" style="grid-column:1 / -1;">
-          <h4>Proof angle</h4>
-          <p>Anchor messaging in speed-to-decision and implementation clarity, not feature breadth.</p>
-        </article>
+      <div class="foot">
+        <span class="tiny dot">Collins</span>
+        <span>Unify · Automate · Amplify</span>
+        <span class="tiny">Plus Jakarta Sans / Inter</span>
       </div>
     </section>
 
-    <section class="page">
-      <aside class="rail">
-        <p class="num">10</p>
-        <p class="tiny">Accessibility</p>
-        <p class="lede">Readable by default.</p>
-        <p class="sublede">Accessibility is a baseline requirement, not a polish task.</p>
-      </aside>
-      <div class="grid grid-2">
-        <article class="panel">
-          <h4>Contrast checks</h4>
-          <ul>
-            <li>Body text minimum AA on all surfaces.</li>
-            <li>Accent text only on validated accent backgrounds.</li>
-            <li>Muted text for support copy, never primary claims.</li>
-          </ul>
-        </article>
-        <article class="panel">
-          <h4>Interaction checks</h4>
-          <ul>
-            <li>Visible focus state on all interactive elements.</li>
-            <li>Keyboard-accessible controls and navigation.</li>
-            <li>Touch targets remain usable on mobile sizes.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="page">
-      <aside class="rail">
-        <p class="num">11</p>
-        <p class="tiny">Motion</p>
-        <p class="lede">Microinteraction rules.</p>
-        <p class="sublede">Motion should confirm intent, not distract from content.</p>
-      </aside>
-      <div class="grid grid-2">
-        <article class="panel">
-          <h4>Timing</h4>
-          <p>120-220ms for hover/focus transitions. Keep entry animations restrained and purposeful.</p>
-        </article>
-        <article class="panel">
-          <h4>Reduced motion</h4>
-          <p>Respect user preferences. Replace non-essential animation with instant state changes.</p>
-        </article>
-        <article class="panel" style="grid-column:1 / -1;">
-          <h4>Easing</h4>
-          <p>Use smooth deceleration for UI feedback. Avoid elastic or playful curves in core product flows.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="page">
-      <aside class="rail">
-        <p class="num">12</p>
-        <p class="tiny">Implementation handoff</p>
-        <p class="lede">Ship checklist.</p>
-        <p class="sublede">Map decisions into code without reinterpreting the system.</p>
-      </aside>
-      <div class="grid grid-2">
-        <article class="panel">
-          <h4>Token mapping</h4>
-          <ul>
-            <li>Map brand tokens to app CSS variables directly.</li>
-            <li>Do not rename core roles unless system-wide migration is intentional.</li>
-            <li>Keep light and dark themes structurally parallel.</li>
-          </ul>
-        </article>
-        <article class="panel">
-          <h4>QA checklist</h4>
-          <ul>
-            <li>Color contrast pass complete.</li>
-            <li>Typography roles consistent across surfaces.</li>
-            <li>Primary CTA hierarchy visually stable.</li>
-          </ul>
-        </article>
-        <article class="panel" style="grid-column:1 / -1;">
-          <h4>Final pass</h4>
-          <p>If any element feels "off-brand", resolve via tokens or copy system rules first before custom one-off styling.</p>
-        </article>
-      </div>
-    </section>
   </main>
 </body>
 </html>
